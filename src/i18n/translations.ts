@@ -768,7 +768,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'pelmeni-homemade': {
     ru: {
       name: 'Пельмени домашние',
-      unit: 'за 1 кг (от 75 ₪)',
+      unit: 'за 1 кг',
       weight: '1000 г (~75-80 шт)',
       badge: 'Сытный обед 🥟',
       shortDescription: 'Сочнейший фарш, тонкое эластичное тесто, ароматный бульончик внутри каждого пельмешка.',
@@ -782,7 +782,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Homemade Pelmeni Dumplings',
-      unit: 'per 1 kg (from 75 ₪)',
+      unit: 'per 1 kg',
       weight: '1000g (~75-80 pcs)',
       badge: 'Hearty Dish 🥟',
       shortDescription: 'Juicy premium meat filling, silky thin dough, aromatic broth sealed in every bite.',
@@ -796,7 +796,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'פלמני ביתי',
-      unit: 'ל-1 ק״ג (החל מ-75 ₪)',
+      unit: 'ל-1 ק״ג',
       weight: '1,000 גרם (כ-75-80 יח׳)',
       badge: 'מנה משביעה 🥟',
       shortDescription: 'בשר מובחר עסיסי, בצק משי דקיק ומרק עשיר שנשמר בתוך כל כיסון.',
@@ -1047,8 +1047,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'golubtsy-homemade': {
     ru: {
       name: 'Голубцы домашние',
-      unit: 'за 6 шт (~800 г)',
-      weight: '~800 г с ароматной подливой',
+      unit: 'за 1 кг',
+      weight: '1 кг с ароматной подливой',
       badge: 'Сытный обед 🍲',
       shortDescription: 'В капустных и виноградных листьях, томлёные в томатном соусе.',
       fullDescription: 'Настоящие домашние голубцы в капустных и виноградных листьях с сочным фаршем и рисом, томлёные в нежном томатном соусе.',
@@ -1062,8 +1062,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Homemade Stuffed Leaves (Golubtsy & Dolma)',
-      unit: 'per 6 pcs (~800g)',
-      weight: '~800g with sauce',
+      unit: 'per 1 kg',
+      weight: '1 kg with sauce',
       badge: 'Hearty Lunch 🍲',
       shortDescription: 'In cabbage and grape leaves, simmered in rich tomato sauce.',
       fullDescription: 'Homestyle stuffed cabbage and tender grape leaves with seasoned minced meat and rice, simmered in flavorful tomato sauce.',
@@ -1077,8 +1077,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'גולובצי ועלי גפן ביתיים',
-      unit: 'ל-6 יח׳ (כ-800 גרם)',
-      weight: 'כ-800 גרם עם רוטב עשיר',
+      unit: 'ל-1 ק״ג',
+      weight: '1 ק״ג עם רוטב עשיר',
       badge: 'ארוחה משביעה 🍲',
       shortDescription: 'בעלי כרוב ועלי גפן, מבושלים ברוטב עגבניות עשיר.',
       fullDescription: 'ממולאים ביתיים מסורתיים בעלי כרוב ועלי גפן עם מילוי בשר עסיסי ואורז, מבושלים ברוטב עגבניות עשיר.',
