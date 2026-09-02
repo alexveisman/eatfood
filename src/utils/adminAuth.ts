@@ -66,10 +66,19 @@ export async function setAdminPin(newPin: string): Promise<void> {
   }
 }
 
-export async function verifyAdminPin(enteredPin: string): Promise<boolean> {
+/**
+ * Проверяет PIN и, если он верен, открывает сессию панели.
+ *
+ * `skipCheck` используется после успешного входа по почте и паролю: владелец уже
+ * подтвердил личность способом надёжнее PIN-кода, и спрашивать его незачем.
+ */
+export async function verifyAdminPin(
+  enteredPin: string,
+  options: { skipCheck?: boolean } = {}
+): Promise<boolean> {
   const storedHash = readStoredHash();
   const expectedHash = storedHash ?? (await hashPin(DEFAULT_PIN));
-  const isValid = (await hashPin(enteredPin)) === expectedHash;
+  const isValid = options.skipCheck === true || (await hashPin(enteredPin)) === expectedHash;
 
   if (isValid) {
     try {

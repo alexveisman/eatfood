@@ -8,7 +8,7 @@
  *   <имя>-800.webp   — карточки на планшетах / retina-миниатюры
  *   <имя>-1200.webp  — полноэкранный просмотр
  *   <имя>-800.jpg    — запасной вариант для браузеров без WebP
- *   <имя>-blur.txt   — крошечный base64-плейсхолдер (LQIP), встроен в JS
+ * Плюс крошечный размытый плейсхолдер, встроенный прямо в manifest.ts.
  *
  * Запуск:  npm run images
  *
@@ -162,9 +162,11 @@ function renderManifest(entries) {
 }
 
 async function main() {
+  // Обычное состояние проекта: встроенных фотографий нет, все снимки владелец
+  // загружает через панель. Отсутствие папки с исходниками — не ошибка сборки.
   if (!existsSync(SOURCE_DIR)) {
-    console.error(`Не найдена папка с исходниками: ${SOURCE_DIR}`);
-    process.exit(1);
+    console.log('Встроенных фотографий нет — шаг обработки изображений пропущен.');
+    return;
   }
   await mkdir(OUT_DIR, { recursive: true });
 
@@ -173,7 +175,7 @@ async function main() {
     .sort();
 
   if (files.length === 0) {
-    console.warn('В src/assets/images/source нет изображений — пропускаем.');
+    console.log('В src/assets/images/source нет изображений — шаг пропущен.');
     return;
   }
 

@@ -85,18 +85,18 @@ export const SettingsTab: React.FC<SettingsTabProps> = ({ onResetCatalog, isSavi
       </form>
 
       <section className="p-4 rounded-2xl bg-stone-100 border border-stone-200 space-y-2">
-        <h3 className="text-sm font-black text-stone-900">Насколько это защищено</h3>
+        <h3 className="text-sm font-black text-stone-900">Два разных входа — зачем</h3>
         <ul className="text-xs text-stone-600 leading-relaxed space-y-1.5 list-disc pl-4">
           <li>
-            PIN хранится в этом браузере и закрывает только вход в панель. Он не мешает
-            отправить запрос в базу в обход сайта.
+            <strong>Почта и пароль</strong> — настоящий вход. Только он даёт право менять меню
+            для всех посетителей: база проверяет именно его. Учётная запись заводится один раз
+            в Firebase, шаги описаны в <code>docs/НАСТРОЙКА.md</code>.
           </li>
           <li>
-            Запись в базу ограничивают правила Firestore. Файл <code>firestore.rules</code> в
-            репозитории и инструкция в <code>docs/НАСТРОЙКА.md</code> описывают, как включить
-            вход владельца через Firebase Authentication и запретить запись всем остальным.
+            <strong>PIN</strong> — просто замок на двери панели, база о нём ничего не знает.
+            Правки в этом режиме остаются в текущем браузере.
           </li>
-          <li>Сессия панели истекает через 12 часов, после чего PIN спросят снова.</li>
+          <li>Сессия панели истекает через 12 часов.</li>
         </ul>
       </section>
 

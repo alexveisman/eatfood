@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Database, FolderOpen, Image as ImageIcon, KeyRound, LogOut, Upload, X } from 'lucide-react';
+import { CloudOff, Database, FolderOpen, Image as ImageIcon, KeyRound, LogOut, Upload, X } from 'lucide-react';
+import { type OwnerAccount, signOutOwner, watchOwner } from '../lib/firebaseAuthLazy';
 import type { Product } from '../types';
 import {
   deleteGalleryPhoto,
@@ -54,6 +55,13 @@ export const AdminProductManager: React.FC<AdminProductManagerProps> = ({
   const [editing, setEditing] = useState<{ product: Product | null } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
   const [status, setStatus] = useState<AdminStatus | null>(null);
+  const [owner, setOwner] = useState<OwnerAccount | null>(null);
+
+  // Следим за входом владельца: от него зависит, увидят ли покупатели правки.
+  useEffect(() => {
+    if (!isOpen) return;
+    return watchOwner(setOwner);
+  }, [isOpen]);
 
   // Панель перекрывает страницу целиком — прокрутку под ней нужно остановить.
   useEffect(() => {
@@ -127,7 +135,8 @@ export const AdminProductManager: React.FC<AdminProductManagerProps> = ({
 
           <div className="flex items-center gap-1.5 shrink-0">
             <button
-              onClick={() => {
+              onClick={async () => {
+                await signOutOwner();
                 logoutAdmin();
                 onLogout?.();
                 onClose();
@@ -171,11 +180,29 @@ export const AdminProductManager: React.FC<AdminProductManagerProps> = ({
           ))}
         </nav>
 
-        {status && (
-          <div className="shrink-0 px-3.5 sm:px-6 py-2 bg-white border-b border-stone-200">
-            <StatusBanner status={status} onDismiss={() => setStatus(null)} />
-          </div>
-        )}
+        {/*
+          Главное, что должен понимать владелец: доходят ли его правки до покупателей.
+          Без входа по почте правила базы запрещают запись, и всё остаётся в этом браузере.
+        */}
+        <div className="shrink-0 px-3.5 sm:px-6 py-2 bg-white border-b border-stone-200 space-y-2">
+          {owner ? (
+            <p className="text-[11px] text-emerald-800 bg-emerald-50 border border-emerald-200 rounded-lg px-2.5 py-1.5 leading-relaxed">
+              Вы вошли как <strong>{owner.email ?? 'владелец'}</strong> — изменения увидят все
+              посетители сайта.
+            </p>
+          ) : (
+            <p className="text-[11px] text-amber-900 bg-amber-50 border border-amber-300 rounded-lg px-2.5 py-1.5 leading-relaxed flex items-start gap-1.5">
+              <CloudOff className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-700" />
+              <span>
+                Режим «только это устройство». Изменения сохранятся в вашем браузере, но
+                покупатели их не увидят. Чтобы правки попали на сайт, выйдите и войдите по
+                почте и паролю.
+              </span>
+            </p>
+          )}
+
+          {status && <StatusBanner status={status} onDismiss={() => setStatus(null)} />}
+        </div>
 
         {/* Содержимое */}
         <div

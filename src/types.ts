@@ -2,7 +2,9 @@ export type Language = 'ru' | 'en' | 'he';
 
 /**
  * Изображение с набором адаптивных вариантов.
- * Генерируется скриптом scripts/optimize-images.mjs (см. src/assets/images/manifest.ts).
+ * Такие наборы генерирует скрипт scripts/optimize-images.mjs для фотографий,
+ * вшитых в сборку. Сейчас таких фотографий нет: все снимки владелец загружает
+ * через панель, и они приходят обычной строкой-ссылкой.
  */
 export interface ResponsiveImage {
   /** Запасной вариант (JPEG 800px) — используется как `src`. */
