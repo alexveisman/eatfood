@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "products": {
+      "title": "Products",
+      "description": "Menu items with photos, fillings, descriptions, and pricing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique product ID" },
+        "name": { "type": "string", "description": "Dish title" },
+        "category": { "type": "string", "description": "Category ID" },
+        "price": { "type": "number", "description": "Price in ILS" },
+        "unit": { "type": "string", "description": "Unit (e.g. шт, кг, набор)" },
+        "minQuantity": { "type": "number", "description": "Minimum order quantity" },
+        "stepQuantity": { "type": "number", "description": "Step for ordering" },
+        "shortDescription": { "type": "string", "description": "Short description" },
+        "fullDescription": { "type": "string", "description": "Detailed description" },
+        "ingredients": { "type": "array", "items": { "type": "string" }, "description": "Ingredients list" },
+        "image": { "type": "string", "description": "Primary photo URL or compressed image data URI" },
+        "gallery": { "type": "array", "items": { "type": "string" }, "description": "Additional photo URLs" },
+        "availableFillings": { "type": "array", "items": { "type": "string" }, "description": "Available fillings" },
+        "fillingRequired": { "type": "boolean", "description": "Whether filling selection is required" },
+        "cookingOptions": { "type": "array", "items": { "type": "string" }, "description": "Cooking/preparation options" },
+        "weight": { "type": "string", "description": "Portion weight" },
+        "isBestseller": { "type": "boolean", "description": "Flag for popular item" },
+        "isNew": { "type": "boolean", "description": "Flag for new item" },
+        "badge": { "type": "string", "description": "Optional badge" },
+        "storageInfo": { "type": "string", "description": "Storage recommendations" },
+        "cookingInstructions": { "type": "string", "description": "Cooking recommendations" },
+        "isPreorderOnly": { "type": "boolean", "description": "Flag for pre-order only" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Update timestamp" }
+      },
+      "required": ["id", "name", "category", "price", "unit"]
+    },
+    "gallery": {
+      "title": "Gallery Photos",
+      "description": "Showcase photos for the food carousel",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique photo ID" },
+        "title": { "type": "string", "description": "Dish title or caption" },
+        "category": { "type": "string", "description": "Dish category label" },
+        "image": { "type": "string", "description": "Photo URL or compressed image data URI" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["id", "image"]
+    },
+    "orders": {
+      "title": "Orders",
+      "description": "Incoming client orders",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Order ID" },
+        "customerName": { "type": "string", "description": "Customer full name" },
+        "customerPhone": { "type": "string", "description": "Customer contact phone" },
+        "deliveryType": { "type": "string", "description": "pickup or taxi" },
+        "preferredDate": { "type": "string", "description": "Preferred pickup date" },
+        "preferredTime": { "type": "string", "description": "Preferred pickup time" },
+        "notes": { "type": "string", "description": "Special wishes or allergens" },
+        "totalAmount": { "type": "number", "description": "Total order cost in ILS" },
+        "items": { "type": "array", "description": "Ordered products list" },
+        "status": { "type": "string", "description": "new, accepted, completed, cancelled" },
+        "createdAt": { "type": "string", "description": "Submission timestamp" }
+      },
+      "required": ["id", "customerName", "customerPhone", "totalAmount", "items"]
+    }
+  },
+  "firestore": {
+    "products": {
+      "entity": "products",
+      "description": "Menu collection readable by all customers, editable by admin"
+    },
+    "gallery": {
+      "entity": "gallery",
+      "description": "Gallery photos readable by all customers, editable by admin"
+    },
+    "orders": {
+      "entity": "orders",
+      "description": "Order collection creatable by customers, readable/updatable by admin"
+    }
+  }
+}

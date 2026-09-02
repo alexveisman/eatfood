@@ -1,0 +1,39 @@
+rules_version = '2';
+
+/*
+ * Правила Firebase Storage — хранилища фотографий блюд.
+ *
+ * Фото должны открываться у всех посетителей, а загружать их может только владелец.
+ * Ограничение по типу и размеру не даёт залить в хранилище посторонние файлы.
+ *
+ * Как включить: Firebase Console → Storage → Rules → вставить и опубликовать.
+ * Подробности в docs/НАСТРОЙКА.md.
+ */
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isOwner() {
+      return request.auth != null;
+    }
+
+    function isReasonableImage() {
+      return request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /products/{fileName} {
+      allow read: if true;
+      allow write: if isOwner() && isReasonableImage();
+    }
+
+    match /gallery/{fileName} {
+      allow read: if true;
+      allow write: if isOwner() && isReasonableImage();
+    }
+
+    // Всё остальное закрыто.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

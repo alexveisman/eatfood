@@ -1,0 +1,8 @@
+{
+  "name": "Домашняя кухня & выпечка",
+  "description": "Сайт-витрина домашней кухни, выпечки и полуфабрикатов ручной лепки с удобным заказом через WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
