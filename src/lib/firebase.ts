@@ -28,7 +28,18 @@ export const hasStorageBucket = Boolean(firebaseConfigData.storageBucket);
 let storagePromise: Promise<FirebaseStorage> | null = null;
 export function getStorageLazy(): Promise<FirebaseStorage> {
   if (!storagePromise) {
-    storagePromise = import('firebase/storage').then(({ getStorage }) => getStorage(app));
+    storagePromise = import('firebase/storage').then(({ getStorage }) => {
+      const storage = getStorage(app);
+      /*
+        По умолчанию SDK повторяет неудачную загрузку две минуты. Если хранилище
+        не настроено, владелец всё это время смотрит на крутящийся индикатор и
+        считает, что фотографии не работают. Сокращаем ожидание: запасной путь
+        (встроить фото в карточку) всё равно сработает.
+      */
+      storage.maxUploadRetryTime = 10_000;
+      storage.maxOperationRetryTime = 10_000;
+      return storage;
+    });
   }
   return storagePromise;
 }

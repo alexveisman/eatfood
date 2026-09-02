@@ -5,10 +5,12 @@ import {
   idbDeleteGalleryPhoto,
   idbGetAllGallery,
   idbGetAllProducts,
+  idbGetSetting,
   idbReplaceAllProducts,
   idbSaveAllProducts,
   idbSaveGalleryPhoto,
   idbSaveProduct,
+  idbSetSetting,
 } from '../utils/idbStorage';
 import { isResponsiveImage, isValidImageSource, toStorableImage } from '../utils/imageUrlHelper';
 
@@ -71,6 +73,79 @@ type StoredProduct = Omit<Product, 'image' | 'gallery'> & {
 
 const initialById = new Map(INITIAL_PRODUCTS.map((p) => [p.id, p]));
 
+const PENDING_KEY = 'pendingLocalProducts';
+
+/**
+ * Правки, которые сохранились на устройстве, но не доехали до облака.
+ *
+ * Без них происходило вот что: владелец загружал фото, оно появлялось в меню,
+ * запись в облако не проходила (правила базы или нет сети), а подписка на облако
+ * тут же присылала состояние сервера — где фото нет. Каталог перестраивался по
+ * серверу, и фотография пропадала с экрана, а idbReplaceAllProducts стирал и
+ * локальную копию, так что после перезагрузки вернуть её было уже нельзя.
+ *
+ * Теперь такие правки лежат отдельно и накладываются поверх облачных данных,
+ * пока облако их не примет.
+ */
+let pendingOverrides = new Map<string, StoredProduct>();
+let pendingLoaded: Promise<void> | null = null;
+
+function loadPendingOverrides(): Promise<void> {
+  if (!pendingLoaded) {
+    pendingLoaded = idbGetSetting<StoredProduct[]>(PENDING_KEY)
+      .then((rows) => {
+        pendingOverrides = new Map((rows ?? []).map((row) => [row.id, row]));
+      })
+      .catch(() => {
+        pendingOverrides = new Map();
+      });
+  }
+  return pendingLoaded;
+}
+
+function persistPendingOverrides(): void {
+  idbSetSetting(PENDING_KEY, [...pendingOverrides.values()]).catch((error) =>
+    console.warn('Не удалось запомнить несинхронизированные правки:', error)
+  );
+}
+
+function markPending(records: StoredProduct[]): void {
+  records.forEach((record) => pendingOverrides.set(record.id, record));
+  persistPendingOverrides();
+}
+
+function clearPending(ids: string[]): void {
+  let changed = false;
+  ids.forEach((id) => {
+    if (pendingOverrides.delete(id)) changed = true;
+  });
+  if (changed) persistPendingOverrides();
+}
+
+/**
+ * Убирает из локальных правок те, что облако уже подтвердило.
+ * Сравниваем по времени изменения: если в облаке запись не старее нашей — она доехала.
+ */
+function reconcilePending(cloudRecords: StoredProduct[]): void {
+  let changed = false;
+  for (const cloud of cloudRecords) {
+    const pending = pendingOverrides.get(cloud.id);
+    if (!pending) continue;
+    const cloudAt = cloud.updatedAt ?? '';
+    const pendingAt = pending.updatedAt ?? '';
+    if (cloudAt >= pendingAt) {
+      pendingOverrides.delete(cloud.id);
+      changed = true;
+    }
+  }
+  if (changed) persistPendingOverrides();
+}
+
+/** Есть ли правки, которых ещё нет в облаке (панель показывает это владельцу). */
+export function getPendingChangeCount(): number {
+  return pendingOverrides.size;
+}
+
 export const sortProductsByOrder = (list: Product[]): Product[] => {
   const fallbackOrder = new Map(INITIAL_PRODUCTS.map((p, index) => [p.id, p.orderIndex ?? index + 1]));
   return [...list].sort((a, b) => {
@@ -119,9 +194,15 @@ function mergeWithInitial(stored: StoredProduct, initial?: Product): Product {
   };
 }
 
-/** Собирает итоговый список: встроенное меню + правки владельца + его новые блюда − удалённые. */
+/**
+ * Собирает итоговый список: встроенное меню + правки владельца + его новые блюда − удалённые.
+ * Локальные несинхронизированные правки идут последними и перекрывают облачные.
+ */
 function buildCatalog(storedRecords: StoredProduct[]): Product[] {
-  const storedById = new Map(storedRecords.map((record) => [record.id, record]));
+  const storedById = new Map<string, StoredProduct>();
+  for (const record of storedRecords) storedById.set(record.id, record);
+  for (const record of pendingOverrides.values()) storedById.set(record.id, record);
+
   const result: Product[] = [];
 
   for (const initial of INITIAL_PRODUCTS) {
@@ -130,7 +211,7 @@ function buildCatalog(storedRecords: StoredProduct[]): Product[] {
     result.push(stored ? mergeWithInitial(stored, initial) : initial);
   }
 
-  for (const stored of storedRecords) {
+  for (const stored of storedById.values()) {
     if (initialById.has(stored.id) || stored.deleted) continue;
     result.push(mergeWithInitial(stored));
   }
@@ -156,6 +237,34 @@ function toStoredProduct(product: Product): StoredProduct {
     if (record[key] === undefined) delete record[key];
   }
   return record as StoredProduct;
+}
+
+/**
+ * Предел ожидания ответа сервера.
+ *
+ * Офлайн Firestore ставит запись в очередь, и обещание не завершается ни успехом,
+ * ни ошибкой — оно просто висит. Из-за этого правка не попадала в список
+ * несинхронизированных и терялась при следующем запуске сайта.
+ */
+const CLOUD_WRITE_TIMEOUT_MS = 8000;
+
+function withTimeout<T>(promise: Promise<T>, ms = CLOUD_WRITE_TIMEOUT_MS): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(
+      () => reject(new Error('сервер не ответил вовремя, изменения ждут на устройстве')),
+      ms
+    );
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      }
+    );
+  });
 }
 
 function estimateDocBytes(record: unknown): number {
@@ -186,6 +295,8 @@ let cachedGallery: GalleryPhotoItem[] = [];
  */
 let hasCloudProducts = false;
 let hasCloudGallery = false;
+/** Последний ответ облака — по нему пересобирается каталог при изменении локальных правок. */
+let cachedRemoteRecords: StoredProduct[] = [];
 
 const productListeners = new Set<(products: Product[]) => void>();
 const galleryListeners = new Set<(photos: GalleryPhotoItem[]) => void>();
@@ -220,10 +331,24 @@ export function subscribeToProducts(onUpdate: (products: Product[]) => void): ()
   productListeners.add(onUpdate);
   onUpdate([...cachedProducts]);
 
-  idbGetAllProducts()
+  // Сначала поднимаем несинхронизированные правки: без них первый же ответ
+  // облака построит каталог без них и сотрёт их с экрана.
+  loadPendingOverrides()
+    .then(() => idbGetAllProducts())
     .then((stored) => {
-      // Облако уже ответило — локальная копия устарела, применять её нельзя.
-      if (hasCloudProducts || !stored || stored.length === 0) return;
+      // Облако уже ответило — облачные данные свежее, но локальные правки
+      // всё равно накладываются внутри buildCatalog.
+      if (hasCloudProducts) {
+        cachedProducts = buildCatalog(cachedRemoteRecords);
+        notifyProductListeners();
+        return;
+      }
+      if (!stored || stored.length === 0) {
+        if (pendingOverrides.size === 0) return;
+        cachedProducts = buildCatalog([]);
+        notifyProductListeners();
+        return;
+      }
       cachedProducts = buildCatalog(stored as StoredProduct[]);
       notifyProductListeners();
     })
@@ -245,11 +370,27 @@ export function subscribeToProducts(onUpdate: (products: Product[]) => void): ()
             records.push({ ...(docSnap.data() as StoredProduct), id: docSnap.id });
           });
 
-          hasCloudProducts = true;
+          /*
+            Офлайн Firestore сразу присылает ответ из собственного кеша — и он пустой,
+            потому что с сервером ещё не общались. Раньше такой ответ принимался за
+            состояние облака: каталог перестраивался без правок владельца, а
+            idbReplaceAllProducts стирал и локальную копию. Фотография пропадала
+            насовсем. Пустой кеш теперь просто игнорируется.
+          */
+          const fromCache = snapshot.metadata.fromCache;
+          if (fromCache && records.length === 0) return;
+
+          cachedRemoteRecords = records;
           cachedProducts = buildCatalog(records);
-          // Держим локальную копию в точности как в облаке, чтобы офлайн показывал то же самое.
-          idbReplaceAllProducts(records).catch(() => {});
           notifyProductListeners();
+
+          // Заменять локальную копию и гасить локальные правки можно только по
+          // подтверждённому ответу сервера, а не по кешу.
+          if (!fromCache) {
+            hasCloudProducts = true;
+            reconcilePending(records);
+            idbReplaceAllProducts(records).catch(() => {});
+          }
         },
         (error) => {
           console.warn('Каталог из облака недоступен, работаем на локальных данных:', error.message);
@@ -289,14 +430,18 @@ export async function saveProduct(product: Product): Promise<SaveResult> {
 
   const sizeError = assertDocFits(record);
   if (sizeError) {
+    markPending([record]);
     return { savedLocally, syncedToCloud: false, error: sizeError };
   }
 
   try {
     const { db, doc, setDoc } = await getFirestoreApi();
-    await setDoc(doc(db, PRODUCTS_COLLECTION, product.id), record, { merge: true });
+    await withTimeout(setDoc(doc(db, PRODUCTS_COLLECTION, product.id), record, { merge: true }));
+    clearPending([record.id]);
     return { savedLocally, syncedToCloud: true };
   } catch (error) {
+    // Правка остаётся локальной: без этого следующий ответ облака стёр бы её.
+    markPending([record]);
     return {
       savedLocally,
       syncedToCloud: false,
@@ -338,6 +483,7 @@ export async function saveMultipleProducts(productsToSave: Product[]): Promise<S
 
   const tooBig = records.map(assertDocFits).filter(Boolean);
   if (tooBig.length > 0) {
+    markPending(records);
     return { savedLocally, syncedToCloud: false, error: tooBig[0] as string };
   }
 
@@ -348,10 +494,12 @@ export async function saveMultipleProducts(productsToSave: Product[]): Promise<S
       for (const record of records.slice(offset, offset + 400)) {
         batch.set(doc(db, PRODUCTS_COLLECTION, record.id), record, { merge: true });
       }
-      await batch.commit();
+      await withTimeout(batch.commit());
     }
+    clearPending(records.map((record) => record.id));
     return { savedLocally, syncedToCloud: true };
   } catch (error) {
+    markPending(records);
     return {
       savedLocally,
       syncedToCloud: false,
@@ -397,12 +545,14 @@ export async function deleteProduct(productId: string): Promise<SaveResult> {
   try {
     const { db, doc, setDoc, deleteDoc } = await getFirestoreApi();
     if (isBuiltIn) {
-      await setDoc(doc(db, PRODUCTS_COLLECTION, productId), tombstone, { merge: true });
+      await withTimeout(setDoc(doc(db, PRODUCTS_COLLECTION, productId), tombstone, { merge: true }));
     } else {
-      await deleteDoc(doc(db, PRODUCTS_COLLECTION, productId));
+      await withTimeout(deleteDoc(doc(db, PRODUCTS_COLLECTION, productId)));
     }
+    clearPending([productId]);
     return { savedLocally, syncedToCloud: true };
   } catch (error) {
+    markPending([tombstone]);
     return {
       savedLocally,
       syncedToCloud: false,
@@ -418,6 +568,7 @@ export async function deleteProduct(productId: string): Promise<SaveResult> {
  * Чистит и облако тоже — иначе подписка тут же вернула бы прежние правки обратно.
  */
 export async function resetProductsToDefault(): Promise<SaveResult> {
+  clearPending([...pendingOverrides.keys()]);
   cachedProducts = sortProductsByOrder(INITIAL_PRODUCTS);
   notifyProductListeners();
 
@@ -525,7 +676,7 @@ export async function saveGalleryPhoto(photo: GalleryPhotoItem): Promise<SaveRes
 
   try {
     const { db, doc, setDoc } = await getFirestoreApi();
-    await setDoc(doc(db, GALLERY_COLLECTION, record.id), record, { merge: true });
+    await withTimeout(setDoc(doc(db, GALLERY_COLLECTION, record.id), record, { merge: true }));
     return { savedLocally, syncedToCloud: true };
   } catch (error) {
     return {
@@ -552,7 +703,7 @@ export async function deleteGalleryPhoto(photoId: string): Promise<SaveResult> {
 
   try {
     const { db, doc, deleteDoc } = await getFirestoreApi();
-    await deleteDoc(doc(db, GALLERY_COLLECTION, photoId));
+    await withTimeout(deleteDoc(doc(db, GALLERY_COLLECTION, photoId)));
     return { savedLocally, syncedToCloud: true };
   } catch (error) {
     return {
@@ -575,6 +726,41 @@ export async function saveOrder(order: OrderItemRecord): Promise<SaveResult> {
       savedLocally: false,
       syncedToCloud: false,
       error: error instanceof Error ? error.message : String(error),
+    };
+  }
+}
+
+/**
+ * Досылает в облако правки, застрявшие на устройстве.
+ *
+ * Нужно после того, как владелец настроил Firebase и вошёл по почте: всё, что он
+ * успел наменять в локальном режиме, уезжает на сервер и становится видно покупателям.
+ */
+export async function flushPendingChanges(): Promise<SaveResult> {
+  await loadPendingOverrides();
+  const records = [...pendingOverrides.values()];
+  if (records.length === 0) {
+    return { savedLocally: true, syncedToCloud: true };
+  }
+
+  try {
+    const { db, doc, writeBatch } = await getFirestoreApi();
+    for (let offset = 0; offset < records.length; offset += 400) {
+      const batch = writeBatch(db);
+      for (const record of records.slice(offset, offset + 400)) {
+        batch.set(doc(db, PRODUCTS_COLLECTION, record.id), record, { merge: true });
+      }
+      await withTimeout(batch.commit());
+    }
+    clearPending(records.map((record) => record.id));
+    return { savedLocally: true, syncedToCloud: true };
+  } catch (error) {
+    return {
+      savedLocally: true,
+      syncedToCloud: false,
+      error: `Не удалось отправить в облако ${records.length} изменений: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
     };
   }
 }

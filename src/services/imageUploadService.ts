@@ -23,6 +23,25 @@ export interface UploadedImage {
   warning?: string;
 }
 
+/** Жёсткий предел ожидания хранилища, чтобы интерфейс не подвисал. */
+const STORAGE_TIMEOUT_MS = 12_000;
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error(`${label}: превышено ожидание`)), ms);
+    promise.then(
+      (value) => {
+        clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        clearTimeout(timer);
+        reject(error);
+      }
+    );
+  });
+}
+
 function storagePathFor(scope: string, id: string, fileName: string): string {
   const extension = (fileName.split('.').pop() || 'jpg').toLowerCase().replace(/[^a-z0-9]/g, '');
   const safeId = id.replace(/[^a-zA-Z0-9_-]/g, '-');
@@ -54,17 +73,22 @@ export async function uploadImage(
 
   if (hasStorageBucket) {
     try {
-      const [storage, { getDownloadURL, ref, uploadBytes }] = await Promise.all([
-        getStorageLazy(),
-        import('firebase/storage'),
-      ]);
+      const [storage, { getDownloadURL, ref, uploadBytes }] = await withTimeout(
+        Promise.all([getStorageLazy(), import('firebase/storage')]),
+        STORAGE_TIMEOUT_MS,
+        'Подключение к хранилищу'
+      );
 
       const objectRef = ref(storage, storagePathFor(scope, id, file.name));
-      await uploadBytes(objectRef, compressed.blob, {
-        contentType: 'image/jpeg',
-        cacheControl: 'public, max-age=31536000, immutable',
-      });
-      const url = await getDownloadURL(objectRef);
+      await withTimeout(
+        uploadBytes(objectRef, compressed.blob, {
+          contentType: 'image/jpeg',
+          cacheControl: 'public, max-age=31536000, immutable',
+        }),
+        STORAGE_TIMEOUT_MS,
+        'Загрузка в хранилище'
+      );
+      const url = await withTimeout(getDownloadURL(objectRef), STORAGE_TIMEOUT_MS, 'Ссылка на файл');
       return { url, mode: 'storage', bytes: compressed.bytes };
     } catch (error) {
       console.warn('Firebase Storage недоступен, встраиваем фото в документ:', error);

@@ -5,7 +5,9 @@ import type { Product } from '../types';
 import {
   deleteGalleryPhoto,
   deleteProduct,
+  flushPendingChanges,
   type GalleryPhotoItem,
+  getPendingChangeCount,
   resetProductsToDefault,
   saveGalleryPhoto,
   saveMultipleProducts,
@@ -62,6 +64,26 @@ export const AdminProductManager: React.FC<AdminProductManagerProps> = ({
     if (!isOpen) return;
     return watchOwner(setOwner);
   }, [isOpen]);
+
+  /*
+    Как только владелец вошёл, досылаем в облако всё, что он успел наменять
+    в локальном режиме — иначе эти правки так и остались бы на его устройстве.
+  */
+  useEffect(() => {
+    if (!owner || getPendingChangeCount() === 0) return;
+    let cancelled = false;
+    flushPendingChanges().then((result) => {
+      if (cancelled) return;
+      setStatus(
+        result.syncedToCloud
+          ? { tone: 'success', message: 'Изменения, сохранённые ранее на этом устройстве, отправлены в облако.' }
+          : { tone: 'warning', message: result.error ?? 'Не удалось отправить накопленные изменения.' }
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [owner]);
 
   // Панель перекрывает страницу целиком — прокрутку под ней нужно остановить.
   useEffect(() => {
@@ -195,8 +217,8 @@ export const AdminProductManager: React.FC<AdminProductManagerProps> = ({
               <CloudOff className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-700" />
               <span>
                 Режим «только это устройство». Изменения сохранятся в вашем браузере, но
-                покупатели их не увидят. Чтобы правки попали на сайт, выйдите и войдите по
-                почте и паролю.
+                покупатели их не увидят. Войдите по почте и паролю — всё накопленное
+                автоматически уедет на сайт.
               </span>
             </p>
           )}
