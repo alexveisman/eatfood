@@ -18,6 +18,8 @@ interface SmartImageProps {
   priority?: boolean;
   /** Что показать, если фото нет или оно не загрузилось. */
   fallback?: React.ReactNode;
+  /** Вызывается, когда картинку загрузить не удалось (все запасные адреса исчерпаны). */
+  onFailed?: (src: string) => void;
   onClick?: () => void;
 }
 
@@ -36,6 +38,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   wrapperClassName = '',
   priority = false,
   fallback,
+  onFailed,
   onClick,
 }) => {
   const resolved = useMemo(() => resolveImage(source), [source]);
@@ -70,6 +73,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
       }
     }
     setHasFailed(true);
+    onFailed?.(currentSrc);
   };
 
   const showPlaceholderArt = !resolved || hasFailed;

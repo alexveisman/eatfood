@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Camera, Link2, Loader2, Trash2, Upload } from 'lucide-react';
+import { AlertTriangle, Camera, Link2, Loader2, Trash2, Upload } from 'lucide-react';
 import type { ImageSource } from '../../types';
 import { uploadImage } from '../../services/imageUploadService';
 import { convertGoogleDriveUrl, isResponsiveImage } from '../../utils/imageUrlHelper';
@@ -34,6 +34,7 @@ export const PhotoPicker: React.FC<PhotoPickerProps> = ({
   const [isUploading, setIsUploading] = useState(false);
   const [urlDraft, setUrlDraft] = useState('');
   const [isDragOver, setIsDragOver] = useState(false);
+  const [loadFailed, setLoadFailed] = useState(false);
 
   const handleFile = async (file: File | undefined) => {
     if (!file) return;
@@ -41,6 +42,7 @@ export const PhotoPicker: React.FC<PhotoPickerProps> = ({
     onNotice?.(null);
     try {
       const uploaded = await uploadImage(file, { scope, id });
+      setLoadFailed(false);
       onChange(uploaded.url);
       onNotice?.(uploaded.warning ?? null);
     } catch (error) {
@@ -56,10 +58,15 @@ export const PhotoPicker: React.FC<PhotoPickerProps> = ({
   const applyUrl = () => {
     const converted = convertGoogleDriveUrl(urlDraft);
     if (!converted) return;
+    setLoadFailed(false);
     onChange(converted);
     setUrlDraft('');
     onNotice?.(null);
   };
+
+  const isGoogleDriveLink =
+    typeof value === 'string' &&
+    (value.includes('googleusercontent.com') || value.includes('drive.google.com'));
 
   const isBuiltIn = isResponsiveImage(value);
 
@@ -83,6 +90,7 @@ export const PhotoPicker: React.FC<PhotoPickerProps> = ({
           source={value}
           alt="Текущее фото блюда"
           sizes={compact ? '160px' : '(max-width: 640px) 100vw, 400px'}
+          onFailed={() => setLoadFailed(true)}
           wrapperClassName={`${compact ? 'h-28' : 'h-44 sm:h-52'} w-full rounded-2xl`}
           fallback={
             <div className="w-full h-full flex flex-col items-center justify-center gap-1.5 text-stone-400">
@@ -161,6 +169,28 @@ export const PhotoPicker: React.FC<PhotoPickerProps> = ({
           Применить
         </button>
       </div>
+
+      {/*
+        Раньше не открывшаяся картинка выглядела как «фото просто нет»: владелец
+        вставлял ссылку, видел заглушку и не понимал, в чём дело. Самая частая
+        причина — закрытый доступ к файлу на Google Диске.
+      */}
+      {loadFailed && (
+        <div className="flex items-start gap-2 p-2.5 rounded-xl bg-amber-50 border border-amber-300 text-[11px] text-amber-900 leading-relaxed">
+          <AlertTriangle className="w-3.5 h-3.5 shrink-0 mt-0.5 text-amber-700" />
+          <span>
+            {isGoogleDriveLink ? (
+              <>
+                Картинка по ссылке не открывается. Чаще всего файл на Google Диске закрыт:
+                откройте его → «Настройки доступа» → <strong>«Все, у кого есть ссылка»</strong>.
+                Надёжнее всего — не давать ссылку, а загрузить сам файл кнопкой выше.
+              </>
+            ) : (
+              <>Картинка по этой ссылке не открывается. Проверьте адрес или загрузите файл кнопкой выше.</>
+            )}
+          </span>
+        </div>
+      )}
 
       {isBuiltIn && (
         <p className="text-[11px] text-stone-500 leading-snug">
