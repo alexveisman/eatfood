@@ -19,19 +19,28 @@ interface RestaurantMenuListProps {
   onResetFilters: () => void;
 }
 
+/**
+ * Дробные цены пишем по правилам языка: по-русски «7,8 ₪», иначе «7.8 ₪».
+ * Без этого цена в шапке карточки и цена в списке начинок выглядели по-разному.
+ */
+const formatPrice = (price: number, lang: Language): string =>
+  price.toLocaleString(lang === 'ru' ? 'ru-RU' : lang === 'he' ? 'he-IL' : 'en-US', {
+    maximumFractionDigits: 2,
+  });
+
 // Helper to compute unit / piece breakdown if applicable
 const getUnitPriceBreakdown = (price: number, unit: string, lang: Language): string | null => {
   const matchPcs = unit.match(/(\d+)/);
   if (matchPcs && matchPcs[1]) {
     const count = parseInt(matchPcs[1], 10);
     if (count > 1) {
-      const perUnit = Math.round((price / count) * 10) / 10;
+      const perUnit = formatPrice(Math.round((price / count) * 10) / 10, lang);
       const pcLabel = lang === 'he' ? 'יח׳' : lang === 'en' ? 'pc' : 'шт';
       return `~${perUnit} ₪ / ${pcLabel}`;
     }
   }
   if (unit.includes('кг') || unit.includes('kg') || unit.includes('ק״ג')) {
-    const per100g = Math.round((price / 10) * 10) / 10;
+    const per100g = formatPrice(Math.round((price / 10) * 10) / 10, lang);
     const gLabel = lang === 'he' ? '100 גרם' : lang === 'en' ? '100g' : '100г';
     return `${per100g} ₪ / ${gLabel}`;
   }
@@ -206,7 +215,8 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                         }`}
                       >
                         <span className="font-extrabold text-sm sm:text-base text-[#4A3728] whitespace-nowrap">
-                          {product.price} <span className="text-[#D97706] text-xs sm:text-sm">{t.currency}</span>
+                          {formatPrice(product.price, currentLang)}{' '}
+                          <span className="text-[#D97706] text-xs sm:text-sm">{t.currency}</span>
                         </span>
                         <div className="text-[10px] sm:text-[11px] text-gray-500 font-medium sm:whitespace-nowrap">
                           <span>{product.unit}</span>

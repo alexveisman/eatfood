@@ -597,70 +597,198 @@ export interface LocalizedProductData {
 }
 
 export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProductData>> = {
+  'syrniki': {
+    ru: {
+      name: 'Сырники творожные',
+      unit: 'за 1 шт',
+      weight: '~58 г / шт, партия 10 шт',
+      badge: 'Завтрак 🥞',
+      shortDescription: 'Пышные творожные сырники на манке — румяная корочка снаружи, нежная середина.',
+      fullDescription: 'Сырники из весового творога 9%: обжариваем до золотистой корочки, внутри остаются мягкими и нежными. Хороши на завтрак со сметаной, джемом или сгущёнкой.',
+      ingredients: [
+        'творог 9%',
+        'яйцо',
+        'манка',
+        'крахмал кукурузный',
+        'сахар',
+        'ванилин',
+        'соль',
+        'мука пшеничная',
+        'масло растительное'
+      ],
+      storageInfo: 'Хранить в холодильнике до 48 часов.',
+      cookingInstructions: 'Разогреть на сухой сковороде под крышкой 2–3 минуты с каждой стороны или в духовке при 160 °C.'
+    },
+    en: {
+      name: 'Curd Cheese Syrniki',
+      unit: 'per 1 pc',
+      weight: '~58 g / pc, batch of 10',
+      badge: 'Breakfast 🥞',
+      shortDescription: 'Fluffy curd cheese fritters with a golden crust and a soft, tender centre.',
+      fullDescription: 'Syrniki made from fresh 9% curd cheese, pan-fried to a golden crust while staying soft inside. Perfect for breakfast with sour cream, jam or condensed milk.',
+      ingredients: [
+        'curd cheese 9%',
+        'egg',
+        'semolina',
+        'corn starch',
+        'sugar',
+        'vanillin',
+        'salt',
+        'wheat flour',
+        'vegetable oil'
+      ],
+      storageInfo: 'Keep refrigerated for up to 48 hours.',
+      cookingInstructions: 'Reheat in a dry covered pan for 2-3 minutes per side, or in the oven at 160 °C.'
+    },
+    he: {
+      name: 'סירניקי גבינה',
+      unit: 'ל-1 יח׳',
+      weight: 'כ-58 גרם ליחידה, מנה של 10',
+      badge: 'ארוחת בוקר 🥞',
+      shortDescription: 'לביבות גבינה אווריריות עם קרום זהוב מבחוץ ומרקם רך ועדין מבפנים.',
+      fullDescription: 'סירניקי מגבינה לבנה 9% טרייה, מטוגנים עד לקרום זהוב ונשארים רכים בפנים. מצוינים לארוחת בוקר עם שמנת חמוצה, ריבה או חלב מרוכז.',
+      ingredients: [
+        'גבינה לבנה 9%',
+        'ביצה',
+        'סולת',
+        'קורנפלור',
+        'סוכר',
+        'וניל',
+        'מלח',
+        'קמח חיטה',
+        'שמן צמחי'
+      ],
+      storageInfo: 'לשמור בקירור עד 48 שעות.',
+      cookingInstructions: 'לחמם במחבת יבשה מכוסה 2-3 דקות מכל צד, או בתנור ב-160 °C.'
+    }
+  },
   'pirozhki-homemade': {
     ru: {
       name: 'Пирожки домашние с начинкой',
-      unit: '8 ₪ / шт (пак 60 ₪ / 10 шт)',
-      weight: '~75 г / шт (пак 10 шт ~750 г)',
+      unit: 'за 1 шт',
+      weight: '~108 г / шт, партия 13 шт',
       badge: 'На любой вкус',
       shortDescription: 'Пышное тесто с румяной корочкой и щедрой сочной начинкой на ваш выбор.',
       fullDescription: 'Наши фирменные домашние пирожки — как в детстве у бабушки! Готовятся исключительно из натуральных ингредиентов: отборная мука, сливочное масло, фермерские яйца. Начинки кладем от души, тесто тонкое и воздушное.',
-      ingredients: ['мука', 'молоко', 'сливочное масло', 'яйца', 'дрожжи', 'сахар', 'соль', 'начинка на выбор'],
-      availableFillings: [
-        'Яйцо и зеленый лук',
-        'Творог соленый с зеленью',
-        'Творог сладкий с ванилью',
-        'Картофель с луком / грибами',
-        'Капуста',
-        'Сыр с зеленью',
-        'Сочная вишня (сладкие)',
-        'Клубника'
+      ingredients: [
+        'мука пшеничная',
+        'вода',
+        'дрожжи сухие',
+        'соль',
+        'сахар',
+        'масло растительное',
+        'сметана',
+        'яйцо',
+        'картофель',
+        'грибы шампиньоны',
+        'лук репчатый',
+        'перец чёрный / специи',
+        'зелёный лук',
+        'зелень (укроп/петрушка)',
+        'творог 9%',
+        'ванилин',
+        'ягоды замороженные',
+        'крахмал кукурузный',
+        'фарш телячий',
+        'сыр (pizza mix / твёрдый)'
       ],
-      cookingOptions: ['Печеные', 'Жареные'],
+      availableFillings: [
+        'Картофель, грибы и лук — 7,8 ₪/шт',
+        'Яйцо и зелёный лук — 8,4 ₪/шт',
+        'Грибы и лук — 9,3 ₪/шт',
+        'Творог сладкий — 9,5 ₪/шт',
+        'Ягоды — 9,6 ₪/шт',
+        'Творог с зеленью — 9,7 ₪/шт',
+        'Телятина с луком — 10,3 ₪/шт',
+        'Сыр с зеленью — 11,1 ₪/шт'
+      ],
+      cookingOptions: ['Печёные'],
       storageInfo: 'Хранить до 48 часов при комнатной температуре или разогревать в духовке/микроволновке.',
       cookingInstructions: 'Рекомендуем подогреть в духовке 3-5 минут при 170°C для возвращения хрустящей корочки.'
     },
     en: {
       name: 'Homemade Stuffed Pirozhki',
-      unit: '8 ₪ / pc (pack 60 ₪ / 10 pcs)',
-      weight: '~75g / pc (pack of 10 ~750g)',
+      unit: 'per 1 pc',
+      weight: '~108 g / pc, batch of 13',
       badge: 'For every taste',
       shortDescription: 'Fluffy golden yeast pastry with generous, juicy filling of your choice.',
       fullDescription: 'Our signature homemade pirozhki are just like grandma used to make! Made exclusively from premium natural ingredients: fine flour, farm butter, and fresh eggs. Generously filled with airy, tender dough.',
-      ingredients: ['flour', 'milk', 'butter', 'eggs', 'yeast', 'sugar', 'salt', 'filling of choice'],
-      availableFillings: [
-        'Egg & Spring Onions',
-        'Salted Cottage Cheese & Herbs',
-        'Sweet Vanilla Cottage Cheese',
-        'Potato with Onions / Mushrooms',
-        'Cabbage',
-        'Cheese & Herbs',
-        'Juicy Sweet Cherry',
-        'Strawberry'
+      ingredients: [
+        'wheat flour',
+        'water',
+        'dry yeast',
+        'salt',
+        'sugar',
+        'vegetable oil',
+        'sour cream',
+        'egg',
+        'potato',
+        'champignon mushrooms',
+        'onion',
+        'black pepper & spices',
+        'spring onion',
+        'herbs (dill / parsley)',
+        'curd cheese 9%',
+        'vanillin',
+        'frozen berries',
+        'corn starch',
+        'minced veal',
+        'cheese (pizza mix / hard)'
       ],
-      cookingOptions: ['Baked', 'Fried'],
+      availableFillings: [
+        'Potato, mushrooms & onion — 7.8 ₪ / pc',
+        'Egg & spring onion — 8.4 ₪ / pc',
+        'Mushrooms & onion — 9.3 ₪ / pc',
+        'Sweet curd — 9.5 ₪ / pc',
+        'Berries — 9.6 ₪ / pc',
+        'Curd & herbs — 9.7 ₪ / pc',
+        'Veal & onion — 10.3 ₪ / pc',
+        'Cheese & herbs — 11.1 ₪ / pc'
+      ],
+      cookingOptions: ['Baked'],
       storageInfo: 'Store up to 48 hours at room temperature; easily reheated in oven or microwave.',
       cookingInstructions: 'Reheat in a preheated oven at 170°C (340°F) for 3-5 minutes for optimal crispiness.'
     },
     he: {
       name: 'פירוז׳קי ביתי במגוון מילויים',
-      unit: '8 ₪ / יח׳ (מארז 60 ₪ / 10 יח׳)',
-      weight: 'כ-75 גרם / יח׳ (מארז כ-750 גרם)',
+      unit: 'ל-1 יח׳',
+      weight: 'כ-108 גרם ליחידה, מנה של 13',
       badge: 'לכל טעם',
       shortDescription: 'בצק שמרים רך ואוורירי עם ציפוי זהוב ומילוי עשיר לבחירתכם.',
       fullDescription: 'פירוז׳קי ביתיים אמיתיים בטעם של פעם! מוכנים מחומרי גלם מובחרים: קמח איכותי, חמאת חווה וביצים טריות. שפע של מילוי עסיסי ובצק נימוח בפה.',
-      ingredients: ['קמח', 'חלב', 'חמאה', 'ביצים', 'שמרים', 'סוכר', 'מלח', 'מילוי לבחירה'],
-      availableFillings: [
-        'ביצה קשה ובצל ירוק',
-        'גבינת טוורוג מלוחה עם עשבי תיבול',
-        'גבינת טוורוג מתוקה עם וניל',
-        'תפוחי אדמה עם בצל / פטריות',
-        'כרוב',
-        'גבינה עם עשבי תיבול',
-        'דובדבנים עסיסיים (מתוק)',
-        'תות שדה'
+      ingredients: [
+        'קמח חיטה',
+        'מים',
+        'שמרים יבשים',
+        'מלח',
+        'סוכר',
+        'שמן צמחי',
+        'שמנת חמוצה',
+        'ביצה',
+        'תפוחי אדמה',
+        'פטריות שמפיניון',
+        'בצל',
+        'פלפל שחור ותבלינים',
+        'בצל ירוק',
+        'עשבי תיבול (שמיר/פטרוזיליה)',
+        'גבינה לבנה 9%',
+        'וניל',
+        'פירות יער קפואים',
+        'קורנפלור',
+        'בשר עגל טחון',
+        'גבינה (פיצה מיקס / קשה)'
       ],
-      cookingOptions: ['אפויים', 'מטוגנים'],
+      availableFillings: [
+        'תפוח אדמה, פטריות ובצל — 7.8 ₪ / יח׳',
+        'ביצה ובצל ירוק — 8.4 ₪ / יח׳',
+        'פטריות ובצל — 9.3 ₪ / יח׳',
+        'גבינה לבנה מתוקה — 9.5 ₪ / יח׳',
+        'פירות יער — 9.6 ₪ / יח׳',
+        'גבינה לבנה ועשבי תיבול — 9.7 ₪ / יח׳',
+        'בשר עגל ובצל — 10.3 ₪ / יח׳',
+        'גבינה ועשבי תיבול — 11.1 ₪ / יח׳'
+      ],
+      cookingOptions: ['אפויים'],
       storageInfo: 'נשמר עד 48 שעות בטמפרטורת החדר. ניתן לחמם בתנור או במיקרוגל.',
       cookingInstructions: 'מומלץ לחמם 3-5 דקות בתנור ב-170 מעלות להחזרת הפריכות המושלמת.'
     }
@@ -735,33 +863,66 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'lazy-vareniki': {
     ru: {
       name: 'Ленивые вареники творожные',
-      unit: 'за 500 г (35 ₪)',
-      weight: '500 г (порция на 2-3 человека)',
+      unit: 'за 1 кг',
+      weight: 'фасовка 500 г или 1 кг',
       badge: 'Любимое из детства',
       shortDescription: 'Воздушные творожные облачка из отборного 9% творога. Идеальный полезный завтрак за 3 минуты!',
       fullDescription: 'Мягкие, тающие во рту ленивые вареники, в которых минимум муки и максимум нежного фермерского творога. Готовятся моментально: бросил в кипящую воду — через 2 минуты вкуснейший ресторанный завтрак готов!',
-      ingredients: ['творог', 'яйца', 'мука', 'сахар', 'ваниль', 'соль'],
-      cookingInstructions: 'Опустить в кипящую слегка подсоленную воду. После всплытия варить ровно 2 минуты на умеренном огне. Подавать со сливочным маслом, сметаной, медом или свежими ягодами.'
+      ingredients: [
+        'творог 9%',
+        'манка',
+        'сахар',
+        'соль',
+        'мука пшеничная',
+        'мак'
+      ],
+      cookingInstructions: 'Опустить в кипящую слегка подсоленную воду. После всплытия варить ровно 2 минуты на умеренном огне. Подавать со сливочным маслом, сметаной, медом или свежими ягодами.',
+      availableFillings: [
+        'Классические — 103 ₪/кг',
+        'С маком — 103 ₪/кг'
+      ]
     },
     en: {
       name: 'Lazy Sweet Cottage Dumplings',
-      unit: 'per 500g (35 ₪)',
-      weight: '500g (serves 2-3)',
+      unit: 'per 1 kg',
+      weight: '500 g or 1 kg pack',
       badge: 'Childhood Favorite',
       shortDescription: 'Fluffy cottage cheese clouds with 9% rich farmer curd. Perfect wholesome breakfast in 3 mins!',
       fullDescription: 'Melt-in-your-mouth lazy vareniki made with maximum fresh curd and minimum flour. Ready in just 2 minutes after boiling — serve with butter, berries, honey, or sour cream.',
-      ingredients: ['cottage cheese', 'eggs', 'flour', 'sugar', 'vanilla', 'salt'],
-      cookingInstructions: 'Drop into gently boiling salted water. Cook for 2 minutes after they float to the top. Serve warm with butter, cream, or jam.'
+      ingredients: [
+        'curd cheese 9%',
+        'semolina',
+        'sugar',
+        'salt',
+        'wheat flour',
+        'poppy seeds'
+      ],
+      cookingInstructions: 'Drop into gently boiling salted water. Cook for 2 minutes after they float to the top. Serve warm with butter, cream, or jam.',
+      availableFillings: [
+        'Classic — 103 ₪ / kg',
+        'With poppy seeds — 103 ₪ / kg'
+      ]
     },
     he: {
       name: 'ורניקי גבינה עצלים (לביבות גבינה מבושלות)',
-      unit: 'ל-500 גרם (35 ₪)',
-      weight: '500 גרם (מתאים ל-2-3 סועדים)',
+      unit: 'ל-1 ק״ג',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       badge: 'אהוב מילדות',
       shortDescription: 'ענני גבינת טוורוג 9% נימוחים בפה. ארוחת בוקר מושלמת ובריאה ב-3 דקות!',
       fullDescription: 'ורניקי עצלים רכים וקטיפתיים עם מקסימום גבינת חווה עשירה ומינימום קמח. בישול קצר של 2 דקות במים רותחים והמנה מוכנה להגשה עם חמאה, שמנת, דבש או פירות יער.',
-      ingredients: ['טוורוג', 'ביצים', 'קמח', 'סוכר', 'וניל', 'מלח'],
-      cookingInstructions: 'להכניס למים רותחים עם מעט מלח. לאחר שהם צפים, לבשל 2 דקות בלבד. להגיש עם חמאה מומסת, שמנת חמוצה או ריבה.'
+      ingredients: [
+        'גבינה לבנה 9%',
+        'סולת',
+        'סוכר',
+        'מלח',
+        'קמח חיטה',
+        'פרג'
+      ],
+      cookingInstructions: 'להכניס למים רותחים עם מעט מלח. לאחר שהם צפים, לבשל 2 דקות בלבד. להגיש עם חמאה מומסת, שמנת חמוצה או ריבה.',
+      availableFillings: [
+        'קלאסי — 103 ₪ / ק״ג',
+        'עם פרג — 103 ₪ / ק״ג'
+      ]
     }
   },
 
@@ -769,42 +930,75 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     ru: {
       name: 'Пельмени домашние',
       unit: 'за 1 кг',
-      weight: '1000 г (~75-80 шт)',
+      weight: 'фасовка 500 г или 1 кг',
       badge: 'Сытный обед 🥟',
       shortDescription: 'Сочнейший фарш, тонкое эластичное тесто, ароматный бульончик внутри каждого пельмешка.',
       fullDescription: 'Настоящие домашние пельмени ручной лепки. Мы используем только отборное мясо, лук, свежемолотый черный перец и чистейшую воду для сочности.',
-      ingredients: ['мука', 'фарш (говядина / курица)', 'лук', 'вода', 'соль', 'черный перец'],
+      ingredients: [
+        'мука пшеничная',
+        'яйцо',
+        'вода',
+        'масло растительное',
+        'соль',
+        'фарш куриный',
+        'лук репчатый',
+        'перец чёрный / специи',
+        'фарш телячий'
+      ],
       availableFillings: [
-        'Курица + говядина (75 ₪ / 1 кг)',
-        'Чистая говядина (85 ₪ / 1 кг)'
+        'Курица — 90 ₪/кг',
+        'Телятина с курицей — 95 ₪/кг',
+        'Телятина — 101 ₪/кг'
       ],
       cookingInstructions: 'Варить в кипящей подсоленной воде с лавровым листом и перцем горошком 6-7 минут после всплытия. Подавать с кусочком сливочного масла и сметаной.'
     },
     en: {
       name: 'Homemade Pelmeni Dumplings',
       unit: 'per 1 kg',
-      weight: '1000g (~75-80 pcs)',
+      weight: '500 g or 1 kg pack',
       badge: 'Hearty Dish 🥟',
       shortDescription: 'Juicy premium meat filling, silky thin dough, aromatic broth sealed in every bite.',
       fullDescription: 'Authentic homemade pelmeni crafted with fresh chilled meat, onions, black pepper, and ice water for maximum juiciness.',
-      ingredients: ['flour', 'minced meat (beef / chicken)', 'onion', 'water', 'salt', 'black pepper'],
+      ingredients: [
+        'wheat flour',
+        'egg',
+        'water',
+        'vegetable oil',
+        'salt',
+        'minced chicken',
+        'onion',
+        'black pepper & spices',
+        'minced veal'
+      ],
       availableFillings: [
-        'Chicken + Beef (75 ₪ / 1 kg)',
-        'Pure Beef (85 ₪ / 1 kg)'
+        'Chicken — 90 ₪ / kg',
+        'Veal & chicken mix — 95 ₪ / kg',
+        'Veal — 101 ₪ / kg'
       ],
       cookingInstructions: 'Boil in salted water with a bay leaf and peppercorns for 6-7 minutes after they float. Serve with butter and sour cream.'
     },
     he: {
       name: 'פלמני ביתי',
       unit: 'ל-1 ק״ג',
-      weight: '1,000 גרם (כ-75-80 יח׳)',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       badge: 'מנה משביעה 🥟',
       shortDescription: 'בשר מובחר עסיסי, בצק משי דקיק ומרק עשיר שנשמר בתוך כל כיסון.',
       fullDescription: 'פלמני מסורתיים בעבודת יד. בשר טרי טחון, בצל עסיסי, פלפל שחור גרוס ומים קרים לשמירה על עסיסיות מושלמת.',
-      ingredients: ['קמח', 'בשר טחון (בקר / עוף)', 'בצל', 'מים', 'מלח', 'פלפל שחור'],
+      ingredients: [
+        'קמח חיטה',
+        'ביצה',
+        'מים',
+        'שמן צמחי',
+        'מלח',
+        'בשר עוף טחון',
+        'בצל',
+        'פלפל שחור ותבלינים',
+        'בשר עגל טחון'
+      ],
       availableFillings: [
-        'עוף + בקר (75 ₪ / 1 ק״ג)',
-        'בקר מובחר (85 ₪ / 1 ק״ג)'
+        'עוף — 90 ₪ / ק״ג',
+        'תערובת עגל ועוף — 95 ₪ / ק״ג',
+        'בשר עגל — 101 ₪ / ק״ג'
       ],
       cookingInstructions: 'לבשל במים רותחים מומלחים עם עלי דפנה וגרגרי פלפל במשך 6-7 דקות מרגע הציפה. להגיש עם חמאה ושמנת חמוצה.'
     }
@@ -813,52 +1007,130 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'vareniki-handmade': {
     ru: {
       name: 'Вареники домашние',
-      unit: 'за 1 кг (от 50 ₪)',
-      weight: '1000 г (~55-60 шт)',
+      unit: 'за 1 кг',
+      weight: 'фасовка 500 г или 1 кг',
       badge: 'Ручная лепка',
       shortDescription: 'Ручная фигурная лепка с косичкой, обилие начинки и тонкое прочное тесто, которое не разваривается.',
       fullDescription: 'Классические вареники с любовью вылепленные вручную. Тонкое тесто бережно удерживает сочную начинку. Идеально подходят как для сытного обеда, так и для сладкого десерта.',
-      ingredients: ['мука', 'вода', 'яйца', 'растительное масло', 'соль', 'начинка на выбор'],
+      ingredients: [
+        'мука пшеничная',
+        'яйцо',
+        'вода',
+        'масло растительное',
+        'соль',
+        'капуста белокочанная',
+        'морковь',
+        'лук репчатый',
+        'томатная паста',
+        'картофель',
+        'грибы шампиньоны',
+        'перец чёрный / специи',
+        'творог 9%',
+        'сметана',
+        'сахар',
+        'ванилин',
+        'ягоды замороженные',
+        'крахмал кукурузный',
+        'зелень (укроп/петрушка)',
+        'зелёный лук',
+        'вишня замороженная',
+        'сыр (pizza mix / твёрдый)'
+      ],
       availableFillings: [
-        'С картошкой и луком / грибами (50 ₪ / 1 кг)',
-        'С капустой (50 ₪ / 1 кг)',
-        'С творогом соленым (60 ₪ / 1 кг)',
-        'С творогом сладким (60 ₪ / 1 кг)',
-        'С сочной спелой вишней (60 ₪ / 1 кг)'
+        'Капуста, морковь и лук — 115 ₪/кг',
+        'Картофель, грибы и лук — 121 ₪/кг',
+        'Творог сладкий — 134 ₪/кг',
+        'Грибы и лук — 134 ₪/кг',
+        'Ягоды — 135 ₪/кг',
+        'Творог с зеленью — 136 ₪/кг',
+        'Вишня — 141 ₪/кг',
+        'Сыр с зеленью — 149 ₪/кг'
       ],
       cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.'
     },
     en: {
       name: 'Homemade Vareniki Dumplings',
-      unit: 'per 1 kg (from 50 ₪)',
-      weight: '1000g (~55-60 pcs)',
+      unit: 'per 1 kg',
+      weight: '500 g or 1 kg pack',
       badge: 'Handcrafted',
       shortDescription: 'Artisan braided edge, generous filling, and silky elastic dough that never breaks.',
       fullDescription: 'Traditional handmade vareniki dumplings filled with comforting savory and sweet fillings. Elastic dough keeps every drop of juice inside.',
-      ingredients: ['flour', 'water', 'eggs', 'vegetable oil', 'salt', 'filling of choice'],
+      ingredients: [
+        'wheat flour',
+        'egg',
+        'water',
+        'vegetable oil',
+        'salt',
+        'white cabbage',
+        'carrot',
+        'onion',
+        'tomato paste',
+        'potato',
+        'champignon mushrooms',
+        'black pepper & spices',
+        'curd cheese 9%',
+        'sour cream',
+        'sugar',
+        'vanillin',
+        'frozen berries',
+        'corn starch',
+        'herbs (dill / parsley)',
+        'spring onion',
+        'frozen sour cherries',
+        'cheese (pizza mix / hard)'
+      ],
       availableFillings: [
-        'With Potato & Onion / Mushrooms (50 ₪ / 1 kg)',
-        'With Cabbage (50 ₪ / 1 kg)',
-        'With Salted Cottage Cheese (60 ₪ / 1 kg)',
-        'With Sweet Cottage Cheese (60 ₪ / 1 kg)',
-        'With Juicy Ripe Cherry (60 ₪ / 1 kg)'
+        'Cabbage, carrot & onion — 115 ₪ / kg',
+        'Potato, mushrooms & onion — 121 ₪ / kg',
+        'Sweet curd — 134 ₪ / kg',
+        'Mushrooms & onion — 134 ₪ / kg',
+        'Berries — 135 ₪ / kg',
+        'Curd & herbs — 136 ₪ / kg',
+        'Sour cherry — 141 ₪ / kg',
+        'Cheese & herbs — 149 ₪ / kg'
       ],
       cookingInstructions: 'Boil in salted water (or sweetened water for cherries) for 4-5 minutes after floating. Toss with melted butter.'
     },
     he: {
       name: 'ורניקי ביתי',
-      unit: 'ל-1 ק״ג (החל מ-50 ₪)',
-      weight: '1,000 גרם (כ-55-60 יח׳)',
+      unit: 'ל-1 ק״ג',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       badge: 'עבודת יד',
       shortDescription: 'סגירה ידנית מעוטרת, שפע מילוי עשיר ובצק דק ועמיד שאינו מתפרק בבישול.',
       fullDescription: 'ורניקי קלאסיים בעבודת יד מוקפדת. מתאימים לארוחת צהריים משביעה או כקינוח מתוק מפנק.',
-      ingredients: ['קמח', 'מים', 'ביצים', 'שמן צמחי', 'מלח', 'מילוי לבחירה'],
+      ingredients: [
+        'קמח חיטה',
+        'ביצה',
+        'מים',
+        'שמן צמחי',
+        'מלח',
+        'כרוב לבן',
+        'גזר',
+        'בצל',
+        'רסק עגבניות',
+        'תפוחי אדמה',
+        'פטריות שמפיניון',
+        'פלפל שחור ותבלינים',
+        'גבינה לבנה 9%',
+        'שמנת חמוצה',
+        'סוכר',
+        'וניל',
+        'פירות יער קפואים',
+        'קורנפלור',
+        'עשבי תיבול (שמיר/פטרוזיליה)',
+        'בצל ירוק',
+        'דובדבנים קפואים',
+        'גבינה (פיצה מיקס / קשה)'
+      ],
       availableFillings: [
-        'עם תפוחי אדמה ובצל / פטריות (50 ₪ / 1 ק״ג)',
-        'עם כרוב (50 ₪ / 1 ק״ג)',
-        'עם גבינת טוורוג מלוחה (60 ₪ / 1 ק״ג)',
-        'עם גבינת טוורוג מתוקה (60 ₪ / 1 ק״ג)',
-        'עם דובדבנים עסיסיים (60 ₪ / 1 ק״ג)'
+        'כרוב, גזר ובצל — 115 ₪ / ק״ג',
+        'תפוח אדמה, פטריות ובצל — 121 ₪ / ק״ג',
+        'גבינה לבנה מתוקה — 134 ₪ / ק״ג',
+        'פטריות ובצל — 134 ₪ / ק״ג',
+        'פירות יער — 135 ₪ / ק״ג',
+        'גבינה לבנה ועשבי תיבול — 136 ₪ / ק״ג',
+        'דובדבנים — 141 ₪ / ק״ג',
+        'גבינה ועשבי תיבול — 149 ₪ / ק״ג'
       ],
       cookingInstructions: 'להכניס למים רותחים מומלחים (או ממותקים לדובדבנים). לבשל 4-5 דקות לאחר הציפה. למרוח בחמאה.'
     }
@@ -867,58 +1139,145 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'pancakes-blini': {
     ru: {
       name: 'Блинчики домашние тонкие',
-      unit: '30 ₪ / стопка (~20 шт) | от 7 ₪ / шт с начинкой',
-      weight: 'стопка ~20 шт или поштучно с начинкой',
+      unit: 'за 1 шт',
+      weight: '~131 г / шт с начинкой, ~76 г без начинки',
       badge: 'С пылу с жару 🥞',
       shortDescription: 'Нежнейшие кружевные блинчики на молоке: стопочкой со сливочным маслом или с сочными начинками на выбор.',
       fullDescription: 'Тоненькие золотистые блинчики с дырочками, пропитанные сливочным маслом. Предлагаются аппетитной стопкой без начинки (~20 шт за 30 ₪) или завернутые с богатыми домашними начинками (от 7 ₪/шт).',
-      ingredients: ['молоко', 'мука', 'яйца', 'сливочное масло', 'сахар', 'соль', 'начинка на выбор'],
+      ingredients: [
+        'мука пшеничная',
+        'яйцо',
+        'молоко',
+        'эшель / йогурт',
+        'масло растительное',
+        'сахар',
+        'соль',
+        'картофель',
+        'грибы шампиньоны',
+        'лук репчатый',
+        'перец чёрный / специи',
+        'зелёный лук',
+        'зелень (укроп/петрушка)',
+        'творог 9%',
+        'сметана',
+        'ванилин',
+        'яблоко',
+        'ягоды замороженные',
+        'крахмал кукурузный',
+        'вишня замороженная',
+        'фарш телячий',
+        'джем ягодный (свой)',
+        'сыр (pizza mix / твёрдый)'
+      ],
       availableFillings: [
-        'Без начинки (стопка ~20 шт — 30 ₪)',
-        'С творогом сладким (8 ₪ / шт)',
-        'С яблоком и корицей (7 ₪ / шт)',
-        'С вишней (8 ₪ / шт)',
-        'С творогом соленым и зеленью (8 ₪ / шт)',
-        'С картофелем и луком / грибами (7 ₪ / шт)',
-        'С капустой (7 ₪ / шт)'
+        'Без начинки — 5,6 ₪/шт',
+        'Картофель, грибы и лук — 8,8 ₪/шт',
+        'Яйцо и зелёный лук — 9,4 ₪/шт',
+        'Творог с яблоком — 10 ₪/шт',
+        'Грибы и лук — 10,2 ₪/шт',
+        'Творог сладкий — 10,5 ₪/шт',
+        'Ягоды — 10,6 ₪/шт',
+        'Творог с зеленью — 10,8 ₪/шт',
+        'Вишня — 11,3 ₪/шт',
+        'Телятина с луком — 11,4 ₪/шт',
+        'Творожный крем и наш джем — 11,7 ₪/шт',
+        'Сыр с зеленью — 12,2 ₪/шт'
       ],
       cookingInstructions: 'Разогреть на среднем огне на сливочном масле по 2 минуты с каждой стороны до хрустящей корочки.'
     },
     en: {
       name: 'Thin Homemade Blini Crepes',
-      unit: '30 ₪ / stack (~20 pcs) | from 7 ₪ / pc filled',
-      weight: 'stack ~20 pcs or per piece with filling',
+      unit: 'per 1 pc',
+      weight: '~131 g / pc filled, ~76 g plain',
       badge: 'Hot from Pan 🥞',
       shortDescription: 'Delicate lace milk crepes: plain stack brushed with butter or with rich fillings.',
       fullDescription: 'Paper-thin golden crepes folded into neat parcels with generous fillings or served as a plain stack of ~20 pcs for 30 ₪.',
-      ingredients: ['milk', 'flour', 'eggs', 'butter', 'sugar', 'salt', 'filling of choice'],
+      ingredients: [
+        'wheat flour',
+        'egg',
+        'milk',
+        'eshel / yoghurt',
+        'vegetable oil',
+        'sugar',
+        'salt',
+        'potato',
+        'champignon mushrooms',
+        'onion',
+        'black pepper & spices',
+        'spring onion',
+        'herbs (dill / parsley)',
+        'curd cheese 9%',
+        'sour cream',
+        'vanillin',
+        'apple',
+        'frozen berries',
+        'corn starch',
+        'frozen sour cherries',
+        'minced veal',
+        'berry jam (our own)',
+        'cheese (pizza mix / hard)'
+      ],
       availableFillings: [
-        'Plain Crepes Stack (~20 pcs — 30 ₪)',
-        'With Sweet Cottage Cheese (8 ₪ / pc)',
-        'With Apple & Cinnamon (7 ₪ / pc)',
-        'With Juicy Cherry (8 ₪ / pc)',
-        'With Salted Cottage Cheese & Herbs (8 ₪ / pc)',
-        'With Potato & Onion / Mushrooms (7 ₪ / pc)',
-        'With Braised Cabbage (7 ₪ / pc)'
+        'Plain, no filling — 5.6 ₪ / pc',
+        'Potato, mushrooms & onion — 8.8 ₪ / pc',
+        'Egg & spring onion — 9.4 ₪ / pc',
+        'Curd & apple — 10 ₪ / pc',
+        'Mushrooms & onion — 10.2 ₪ / pc',
+        'Sweet curd — 10.5 ₪ / pc',
+        'Berries — 10.6 ₪ / pc',
+        'Curd & herbs — 10.8 ₪ / pc',
+        'Sour cherry — 11.3 ₪ / pc',
+        'Veal & onion — 11.4 ₪ / pc',
+        'Curd cream & our own jam — 11.7 ₪ / pc',
+        'Cheese & herbs — 12.2 ₪ / pc'
       ],
       cookingInstructions: 'Pan-fry in butter over medium heat for 2 minutes per side until golden and crisp.'
     },
     he: {
       name: 'בלינצ׳ס ביתי דקיק במילויים',
-      unit: '30 ₪ / ערימה (כ-20 יח׳) | החל מ-7 ₪ / יח׳ עם מילוי',
-      weight: 'ערימה כ-20 יח׳ או לפי יחידה עם מילוי',
+      unit: 'ל-1 יח׳',
+      weight: 'כ-131 גרם עם מילוי, כ-76 גרם ללא מילוי',
       badge: 'חם מהמחבת 🥞',
       shortDescription: 'חביתיות דקיקות ותחרתיות על בסיס חלב: ערימה עם חמאה או במגוון מילויים עשירים.',
       fullDescription: 'בלינצ׳ס זהובים ורכים עטופים במעטפות עם שפע מילוי טרי או בערימה של כ-20 יחידות ללא מילוי ב-30 ₪.',
-      ingredients: ['חלב', 'קמח', 'ביצים', 'חמאה', 'סוכר', 'מלח', 'מילוי לבחירה'],
+      ingredients: [
+        'קמח חיטה',
+        'ביצה',
+        'חלב',
+        'אשל / יוגורט',
+        'שמן צמחי',
+        'סוכר',
+        'מלח',
+        'תפוחי אדמה',
+        'פטריות שמפיניון',
+        'בצל',
+        'פלפל שחור ותבלינים',
+        'בצל ירוק',
+        'עשבי תיבול (שמיר/פטרוזיליה)',
+        'גבינה לבנה 9%',
+        'שמנת חמוצה',
+        'וניל',
+        'תפוח',
+        'פירות יער קפואים',
+        'קורנפלור',
+        'דובדבנים קפואים',
+        'בשר עגל טחון',
+        'ריבת פירות יער ביתית',
+        'גבינה (פיצה מיקס / קשה)'
+      ],
       availableFillings: [
-        'ללא מילוי (ערימה של כ-20 יח׳ — 30 ₪)',
-        'עם גבינת טוורוג מתוקה (8 ₪ / יח׳)',
-        'עם תפוח עץ וקינמון (7 ₪ / יח׳)',
-        'עם דובדבנים עסיסיים (8 ₪ / יח׳)',
-        'עם גבינת טוורוג מלוחה ועשבי תיבול (8 ₪ / יח׳)',
-        'עם תפוחי אדמה ובצל / פטריות (7 ₪ / יח׳)',
-        'עם כרוב מאודה (7 ₪ / יח׳)'
+        'ללא מילוי — 5.6 ₪ / יח׳',
+        'תפוח אדמה, פטריות ובצל — 8.8 ₪ / יח׳',
+        'ביצה ובצל ירוק — 9.4 ₪ / יח׳',
+        'גבינה לבנה ותפוח — 10 ₪ / יח׳',
+        'פטריות ובצל — 10.2 ₪ / יח׳',
+        'גבינה לבנה מתוקה — 10.5 ₪ / יח׳',
+        'פירות יער — 10.6 ₪ / יח׳',
+        'גבינה לבנה ועשבי תיבול — 10.8 ₪ / יח׳',
+        'דובדבנים — 11.3 ₪ / יח׳',
+        'בשר עגל ובצל — 11.4 ₪ / יח׳',
+        'קרם גבינה וריבה ביתית — 11.7 ₪ / יח׳',
+        'גבינה ועשבי תיבול — 12.2 ₪ / יח׳'
       ],
       cookingInstructions: 'לחמם במחבת על אש בינונית עם מעט חמאה 2 דקות מכל צד עד לפריכות זהובה.'
     }
@@ -1048,45 +1407,78 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     ru: {
       name: 'Голубцы домашние',
       unit: 'за 1 кг',
-      weight: '1 кг с ароматной подливой',
+      weight: 'фасовка 500 г или 1 кг',
       badge: 'Сытный обед 🍲',
       shortDescription: 'В капустных и виноградных листьях, томлёные в томатном соусе.',
       fullDescription: 'Настоящие домашние голубцы в капустных и виноградных листьях с сочным фаршем и рисом, томлёные в нежном томатном соусе.',
-      ingredients: ['фарш (говядина / курица / индейка)', 'капустные и виноградные листья', 'рис', 'морковь', 'лук', 'томатный соус', 'зелень', 'специи'],
+      ingredients: [
+        'куриная грудка',
+        'рис',
+        'лук репчатый',
+        'морковь',
+        'томатная паста',
+        'масло растительное',
+        'соль',
+        'перец чёрный / специи',
+        'капуста белокочанная',
+        'фарш телячий'
+      ],
       availableFillings: [
-        'В капустных листьях',
-        'В виноградных листьях (долма)',
-        'Ассорти (капустные + виноградные)'
+        'Курица с рисом — 95 ₪/кг',
+        'Телятина с рисом — 96 ₪/кг',
+        'Курица без риса — 107 ₪/кг'
       ],
       cookingInstructions: 'Поставляются готовыми в термоконтейнере. Разогреть в кастрюле под крышкой или в микроволновке 3-4 минуты.'
     },
     en: {
       name: 'Homemade Stuffed Leaves (Golubtsy & Dolma)',
       unit: 'per 1 kg',
-      weight: '1 kg with sauce',
+      weight: '500 g or 1 kg pack',
       badge: 'Hearty Lunch 🍲',
       shortDescription: 'In cabbage and grape leaves, simmered in rich tomato sauce.',
       fullDescription: 'Homestyle stuffed cabbage and tender grape leaves with seasoned minced meat and rice, simmered in flavorful tomato sauce.',
-      ingredients: ['minced meat (beef / chicken / turkey)', 'cabbage and grape leaves', 'rice', 'carrots', 'onions', 'tomato sauce', 'herbs', 'spices'],
+      ingredients: [
+        'chicken breast',
+        'rice',
+        'onion',
+        'carrot',
+        'tomato paste',
+        'vegetable oil',
+        'salt',
+        'black pepper & spices',
+        'white cabbage',
+        'minced veal'
+      ],
       availableFillings: [
-        'Cabbage leaves',
-        'Grape leaves (Dolma)',
-        'Assorted (Cabbage + Grape leaves)'
+        'Chicken & rice — 95 ₪ / kg',
+        'Veal & rice — 96 ₪ / kg',
+        'Chicken, no rice — 107 ₪ / kg'
       ],
       cookingInstructions: 'Delivered ready to eat in a container. Reheat in a covered saucepan or microwave for 3-4 minutes.'
     },
     he: {
       name: 'גולובצי ועלי גפן ביתיים',
       unit: 'ל-1 ק״ג',
-      weight: '1 ק״ג עם רוטב עשיר',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       badge: 'ארוחה משביעה 🍲',
       shortDescription: 'בעלי כרוב ועלי גפן, מבושלים ברוטב עגבניות עשיר.',
       fullDescription: 'ממולאים ביתיים מסורתיים בעלי כרוב ועלי גפן עם מילוי בשר עסיסי ואורז, מבושלים ברוטב עגבניות עשיר.',
-      ingredients: ['בשר טחון (בקר / עוף / הודו)', 'עלי כרוב ועלי גפן', 'אורז', 'גזר', 'בצל', 'רוטב עגבניות', 'עשבי תיבול', 'תבלינים'],
+      ingredients: [
+        'חזה עוף',
+        'אורז',
+        'בצל',
+        'גזר',
+        'רסק עגבניות',
+        'שמן צמחי',
+        'מלח',
+        'פלפל שחור ותבלינים',
+        'כרוב לבן',
+        'בשר עגל טחון'
+      ],
       availableFillings: [
-        'בעלי כרוב',
-        'בעלי גפן (דולמה)',
-        'מיקס (כרוב + עלי גפן)'
+        'עוף ואורז — 95 ₪ / ק״ג',
+        'בשר עגל ואורז — 96 ₪ / ק״ג',
+        'עוף ללא אורז — 107 ₪ / ק״ג'
       ],
       cookingInstructions: 'מגיע מוכן בקופסה תרמית. לחמם בסיר מכוסה או במיקרוגל 3-4 דקות.'
     }
@@ -1095,59 +1487,143 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-olivier': {
     ru: {
       name: 'Салат «Оливье» праздничный (предзаказ)',
-      unit: '40 ₪ / 500 г (75 ₪ / 1 кг)',
-      weight: '500 г / 1000 г',
+      unit: 'за 1 кг',
+      weight: 'фасовка 500 г или 1 кг',
       shortDescription: 'Тот самый любимый домашний Оливье. Свежие и маринованные огурчики, нежное мясо/колбаска, домашний соус.',
       fullDescription: 'Любимый салат к праздничному столу или воскресному обеду. Все овощи отварены до идеальной текстуры и нарезаны аккуратным мелким кубиком. По вашему желанию заправляем или отдаем соус отдельно.',
-      ingredients: [],
-      storageInfo: 'Готовится строго в день заказа. Срок хранения в холодильнике до 36 часов.'
+      ingredients: [
+        'картофель',
+        'морковь',
+        'куриная грудка',
+        'яйцо',
+        'огурцы солёные',
+        'горошек консервированный',
+        'майонез',
+        'лук репчатый',
+        'соль',
+        'колбаса докторская'
+      ],
+      storageInfo: 'Готовится строго в день заказа. Срок хранения в холодильнике до 36 часов.',
+      availableFillings: [
+        'С куриной грудкой — 48 ₪/кг',
+        'С докторской колбасой — 49 ₪/кг'
+      ]
     },
     en: {
       name: 'Holiday Olivier Salad (Pre-order)',
-      unit: '40 ₪ / 500g (75 ₪ / 1 kg)',
-      weight: '500g / 1000g',
+      unit: 'per 1 kg',
+      weight: '500 g or 1 kg pack',
       shortDescription: 'The beloved traditional Olivier salad with crisp pickles, sweet peas, eggs, and homemade dressing.',
       fullDescription: 'Classic celebratory salad diced with precision and prepared on the day of delivery. Dressing can be mixed or packed on the side upon request.',
-      ingredients: [],
-      storageInfo: 'Prepared fresh on the delivery day. Keeps up to 36 hours in refrigerator.'
+      ingredients: [
+        'potato',
+        'carrot',
+        'chicken breast',
+        'egg',
+        'pickled cucumbers',
+        'canned green peas',
+        'mayonnaise',
+        'onion',
+        'salt',
+        'bologna sausage'
+      ],
+      storageInfo: 'Prepared fresh on the delivery day. Keeps up to 36 hours in refrigerator.',
+      availableFillings: [
+        'With chicken breast — 48 ₪ / kg',
+        'With bologna sausage — 49 ₪ / kg'
+      ]
     },
     he: {
       name: 'סלט אוליבייה חגיגי (בהזמנה מראש)',
-      unit: '40 ₪ / 500 גרם (75 ₪ / 1 ק״ג)',
-      weight: '500 גרם / 1000 גרם',
+      unit: 'ל-1 ק״ג',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       shortDescription: 'סלט תפוחי האדמה והירקות הקלאסי עם אפונה מתוקה, חמוצים ורוטב ביתי.',
       fullDescription: 'הסלט האהוב ביותר לשולחן החג. כל הירקות מבושלים לדיוק מושלם וחתוכים לקוביות קטנות. ניתן לקבל מתובל או עם רוטב בצד לבחירתכם.',
-      ingredients: [],
-      storageInfo: 'מוכן טרי ביום ההזמנה. נשמר במקרר עד 36 שעות.'
+      ingredients: [
+        'תפוחי אדמה',
+        'גזר',
+        'חזה עוף',
+        'ביצה',
+        'מלפפונים חמוצים',
+        'אפונה משומרת',
+        'מיונז',
+        'בצל',
+        'מלח',
+        'נקניק דוקטורסקאיה'
+      ],
+      storageInfo: 'מוכן טרי ביום ההזמנה. נשמר במקרר עד 36 שעות.',
+      availableFillings: [
+        'עם חזה עוף — 48 ₪ / ק״ג',
+        'עם נקניק דוקטורסקאיה — 49 ₪ / ק״ג'
+      ]
     }
   },
 
   'salad-herring-coat': {
     ru: {
       name: 'Салат «Сельдь под шубой» (предзаказ)',
-      unit: '40 ₪ / 500 г (75 ₪ / 1 кг)',
-      weight: '500 г / 1000 г',
+      unit: 'за 1 кг',
+      weight: 'фасовка 500 г или 1 кг',
       shortDescription: 'Сочная малосольная селёдочка, нежнейшие слои сладкой свеклы, моркови и картофеля.',
       fullDescription: 'Классическая «Шуба», выложенная идеальными воздушными слоями. Малосольная нежная селедка без косточек, пропитанные слои овощей и легкая сеточка соуса. Тает во рту!',
-      ingredients: [],
+      ingredients: [
+        'свёкла',
+        'картофель',
+        'морковь',
+        'сельдь филе',
+        'майонез',
+        'лук репчатый',
+        'зелёный лук',
+        'яйцо',
+        'зелень (укроп/петрушка)',
+        'лимон',
+        'уксус',
+        'соль'
+      ],
       storageInfo: 'Доставляется в удобном праздничном контейнере. Готов к подаче на стол.'
     },
     en: {
       name: 'Herring Under a Fur Coat (Pre-order)',
-      unit: '40 ₪ / 500g (75 ₪ / 1 kg)',
-      weight: '500g / 1000g',
+      unit: 'per 1 kg',
+      weight: '500 g or 1 kg pack',
       shortDescription: 'Layered salted herring with sweet beets, carrots, potatoes, and delicate dressing.',
       fullDescription: 'Traditional layered Shuba salad with delicate spiced herring fillets, fluffy roasted beet and potato layers, and eggs. Looks stunning on any festive table.',
-      ingredients: [],
+      ingredients: [
+        'beetroot',
+        'potato',
+        'carrot',
+        'herring fillet',
+        'mayonnaise',
+        'onion',
+        'spring onion',
+        'egg',
+        'herbs (dill / parsley)',
+        'lemon',
+        'vinegar',
+        'salt'
+      ],
       storageInfo: 'Delivered in a festive presentation box. Ready to serve.'
     },
     he: {
       name: 'דג מליח בשכבות ירקות וסלק (שובה)',
-      unit: '40 ₪ / 500 גרם (75 ₪ / 1 ק״ג)',
-      weight: '500 גרם / 1000 גרם',
+      unit: 'ל-1 ק״ג',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       shortDescription: 'הרינג מלוח עדין בשכבות אווריריות של סלק מתוק, גזר, תפוחי אדמה ורוטב עדין.',
       fullDescription: 'סלט ה״שובה״ הקלאסי המסורתי. פילה הרינג מלוח ללא עצמות, שכבות סלק אפוי עסיסי, תפוחי אדמה וביצים. מראה מרהיב וטעם עשיר.',
-      ingredients: [],
+      ingredients: [
+        'סלק',
+        'תפוחי אדמה',
+        'גזר',
+        'פילה הרינג',
+        'מיונז',
+        'בצל',
+        'בצל ירוק',
+        'ביצה',
+        'עשבי תיבול (שמיר/פטרוזיליה)',
+        'לימון',
+        'חומץ',
+        'מלח'
+      ],
       storageInfo: 'נמסר בקופסה חגיגית ומוכן מיד להגשה לשולחן.'
     }
   },
@@ -1155,27 +1631,78 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-vinegret': {
     ru: {
       name: 'Винегрет',
-      unit: '35 ₪ / 500 г (65 ₪ / 1 кг)',
-      weight: '500 г / 1000 г',
+      unit: 'за 1 кг',
+      weight: 'фасовка 500 г или 1 кг',
       shortDescription: 'Запеченные корнеплоды, хрустящие бочковые огурчики, квашеная капуста и свежая зелень.',
       fullDescription: 'Яркий, свежий и сочный домашний винегрет. Овощи запекаются в духовке для максимального сохранения вкуса и витаминов.',
-      ingredients: []
+      ingredients: [
+        'свёкла',
+        'картофель',
+        'морковь',
+        'лук репчатый',
+        'зелёный лук',
+        'горчица',
+        'огурцы солёные',
+        'квашеная капуста (своя)',
+        'масло растительное',
+        'соль',
+        'горошек консервированный',
+        'фасоль консервированная'
+      ],
+      availableFillings: [
+        'Классический — 40 ₪/кг',
+        'С фасолью и горошком — 39 ₪/кг'
+      ]
     },
     en: {
       name: 'Vinegret Salad',
-      unit: '35 ₪ / 500g (65 ₪ / 1 kg)',
-      weight: '500g / 1000g',
+      unit: 'per 1 kg',
+      weight: '500 g or 1 kg pack',
       shortDescription: 'Oven-roasted root veggies, crunchy barrel pickles, sauerkraut, and fresh herbs.',
       fullDescription: 'Vibrant and refreshing traditional beet salad. Vegetables are baked in the oven to concentrate flavors.',
-      ingredients: []
+      ingredients: [
+        'beetroot',
+        'potato',
+        'carrot',
+        'onion',
+        'spring onion',
+        'mustard',
+        'pickled cucumbers',
+        'sauerkraut (our own)',
+        'vegetable oil',
+        'salt',
+        'canned green peas',
+        'canned beans'
+      ],
+      availableFillings: [
+        'Classic — 40 ₪ / kg',
+        'With beans & green peas — 39 ₪ / kg'
+      ]
     },
     he: {
       name: 'סלט ויניגרט',
-      unit: '35 ₪ / 500 גרם (65 ₪ / 1 ק״ג)',
-      weight: '500 גרם / 1000 גרם',
+      unit: 'ל-1 ק״ג',
+      weight: 'אריזה 500 גרם או 1 ק״ג',
       shortDescription: 'ירקות שורש אפויים, מלפפונים חמוצים פריכים, כרוב כבוש ועשבי תיבול.',
       fullDescription: 'סלט ויניגרט צבעוני, רענן ובריא. הירקות נאפים בתנור לשמירה על הטעם הטבעי והוויטמינים.',
-      ingredients: []
+      ingredients: [
+        'סלק',
+        'תפוחי אדמה',
+        'גזר',
+        'בצל',
+        'בצל ירוק',
+        'חרדל',
+        'מלפפונים חמוצים',
+        'כרוב כבוש ביתי',
+        'שמן צמחי',
+        'מלח',
+        'אפונה משומרת',
+        'שעועית משומרת'
+      ],
+      availableFillings: [
+        'קלאסי — 40 ₪ / ק״ג',
+        'עם שעועית ואפונה — 39 ₪ / ק״ג'
+      ]
     }
   },
 
