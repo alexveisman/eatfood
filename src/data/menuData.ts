@@ -56,7 +56,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 1,
     name: 'Пирожки домашние с начинкой',
     category: 'bakery',
-    price: 7.8,
+    price: 8,
     unit: 'за 1 шт',
     minQuantity: 1,
     stepQuantity: 1,
@@ -90,14 +90,14 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Картофель, грибы и лук — 7,8 ₪/шт',
-      'Яйцо и зелёный лук — 8,4 ₪/шт',
-      'Грибы и лук — 9,3 ₪/шт',
-      'Творог сладкий — 9,5 ₪/шт',
-      'Ягоды — 9,6 ₪/шт',
-      'Творог с зеленью — 9,7 ₪/шт',
-      'Телятина с луком — 10,3 ₪/шт',
-      'Сыр с зеленью — 11,1 ₪/шт'
+      'Картофель, грибы и лук — 8 ₪/шт',
+      'Яйцо и зелёный лук — 8 ₪/шт',
+      'Грибы и лук — 8 ₪/шт',
+      'Творог сладкий — 10 ₪/шт',
+      'Творог с зеленью — 10 ₪/шт',
+      'Ягоды — 10 ₪/шт',
+      'Телятина с луком — 10 ₪/шт',
+      'Сыр с зеленью — 10 ₪/шт'
     ],
     fillingRequired: true,
     cookingOptions: [
@@ -174,7 +174,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 4,
     name: 'Блинчики домашние тонкие',
     category: 'blini',
-    price: 5.6,
+    price: 4,
     unit: 'за 1 шт',
     minQuantity: 1,
     stepQuantity: 1,
@@ -211,18 +211,18 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Без начинки — 5,6 ₪/шт',
-      'Картофель, грибы и лук — 8,8 ₪/шт',
-      'Яйцо и зелёный лук — 9,4 ₪/шт',
+      'Без начинки — 4 ₪/шт',
+      'Картофель, грибы и лук — 8 ₪/шт',
+      'Яйцо и зелёный лук — 8 ₪/шт',
+      'Грибы и лук — 8 ₪/шт',
+      'Творог сладкий — 10 ₪/шт',
+      'Творог с зеленью — 10 ₪/шт',
       'Творог с яблоком — 10 ₪/шт',
-      'Грибы и лук — 10,2 ₪/шт',
-      'Творог сладкий — 10,5 ₪/шт',
-      'Ягоды — 10,6 ₪/шт',
-      'Творог с зеленью — 10,8 ₪/шт',
-      'Вишня — 11,3 ₪/шт',
-      'Телятина с луком — 11,4 ₪/шт',
-      'Творожный крем и наш джем — 11,7 ₪/шт',
-      'Сыр с зеленью — 12,2 ₪/шт'
+      'Ягоды — 10 ₪/шт',
+      'Вишня — 10 ₪/шт',
+      'Творожный крем и наш джем — 10 ₪/шт',
+      'Телятина с луком — 10 ₪/шт',
+      'Сыр с зеленью — 10 ₪/шт'
     ],
     fillingRequired: true,
     cookingInstructions: 'Разогреть на среднем огне на сливочном масле по 2 минуты с каждой стороны до хрустящей корочки.'
@@ -298,7 +298,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 7,
     name: 'Вареники домашние',
     category: 'dumplings_mains',
-    price: 115,
+    price: 100,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -334,14 +334,14 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Капуста, морковь и лук — 115 ₪/кг',
-      'Картофель, грибы и лук — 121 ₪/кг',
-      'Творог сладкий — 134 ₪/кг',
-      'Грибы и лук — 134 ₪/кг',
-      'Ягоды — 135 ₪/кг',
-      'Творог с зеленью — 136 ₪/кг',
-      'Вишня — 141 ₪/кг',
-      'Сыр с зеленью — 149 ₪/кг'
+      'Картофель, грибы и лук',
+      'Капуста, морковь и лук',
+      'Грибы и лук',
+      'Творог сладкий',
+      'Творог с зеленью',
+      'Ягоды',
+      'Вишня',
+      'Сыр с зеленью'
     ],
     fillingRequired: true,
     cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.'
@@ -353,7 +353,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 8,
     name: 'Ленивые вареники творожные',
     category: 'dumplings_mains',
-    price: 103,
+    price: 80,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -375,10 +375,10 @@ export const PRODUCTS: Product[] = [
     gallery: [],
     cookingInstructions: 'Опустить в кипящую слегка подсоленную воду. После всплытия варить ровно 2 минуты на умеренном огне. Подавать со сливочным маслом, сметаной, медом или свежими ягодами.',
     availableFillings: [
-      'Классические — 103 ₪/кг',
-      'С маком — 103 ₪/кг'
+      'Классические',
+      'С маком'
     ],
-    fillingRequired: true
+    fillingRequired: true,
   },
 
   // 9. Булочки с маком
@@ -489,7 +489,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 13,
     name: 'Голубцы домашние',
     category: 'dumplings_mains',
-    price: 95,
+    price: 100,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -513,12 +513,12 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Курица с рисом — 95 ₪/кг',
-      'Телятина с рисом — 96 ₪/кг',
-      'Курица без риса — 107 ₪/кг'
+      'Курица с рисом',
+      'Курица без риса',
+      'Телятина с рисом'
     ],
     cookingInstructions: 'Поставляются готовыми в термоконтейнере. Разогреть в кастрюле под крышкой или в микроволновке 3-4 минуты.',
-    fillingRequired: true
+    fillingRequired: true,
   },
 
   // 14. Салат Оливье (без тега)
@@ -527,7 +527,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 14,
     name: 'Салат «Оливье» праздничный',
     category: 'salads',
-    price: 48,
+    price: 70,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -552,10 +552,10 @@ export const PRODUCTS: Product[] = [
     gallery: [],
     storageInfo: 'Готовится строго в день заказа. Срок хранения в холодильнике до 36 часов.',
     availableFillings: [
-      'С куриной грудкой — 48 ₪/кг',
-      'С докторской колбасой — 49 ₪/кг'
+      'С куриной грудкой',
+      'С докторской колбасой'
     ],
-    fillingRequired: true
+    fillingRequired: true,
   },
 
   // 15. Винегрет (без тега)
@@ -564,7 +564,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 15,
     name: 'Винегрет',
     category: 'salads',
-    price: 39,
+    price: 70,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -590,10 +590,10 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Классический — 40 ₪/кг',
-      'С фасолью и горошком — 39 ₪/кг'
+      'Классический',
+      'С фасолью и горошком'
     ],
-    fillingRequired: true
+    fillingRequired: true,
   },
 
   // 16. Сельдь под шубой (без тега)
@@ -602,7 +602,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 16,
     name: 'Салат «Сельдь под шубой»',
     category: 'salads',
-    price: 62,
+    price: 80,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
