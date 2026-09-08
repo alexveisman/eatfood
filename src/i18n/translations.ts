@@ -693,14 +693,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'сыр (pizza mix / твёрдый)'
       ],
       availableFillings: [
-        'Картофель, грибы и лук — 8 ₪/шт',
-        'Яйцо и зелёный лук — 8 ₪/шт',
-        'Грибы и лук — 8 ₪/шт',
-        'Творог сладкий — 10 ₪/шт',
-        'Творог с зеленью — 10 ₪/шт',
-        'Ягоды — 10 ₪/шт',
-        'Телятина с луком — 10 ₪/шт',
-        'Сыр с зеленью — 10 ₪/шт'
+        'Картофель, грибы и лук — 7,8 ₪/шт',
+        'Яйцо и зелёный лук — 8,4 ₪/шт',
+        'Грибы и лук — 9,3 ₪/шт',
+        'Творог сладкий — 9,5 ₪/шт',
+        'Ягоды — 9,6 ₪/шт',
+        'Творог с зеленью — 9,7 ₪/шт',
+        'Телятина с луком — 10,3 ₪/шт',
+        'Сыр с зеленью — 11,1 ₪/шт'
       ],
       cookingOptions: ['Печёные'],
       storageInfo: 'Хранить до 48 часов при комнатной температуре или разогревать в духовке/микроволновке.',
@@ -736,14 +736,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'cheese (pizza mix / hard)'
       ],
       availableFillings: [
-        'Potato, mushrooms & onion — 8 ₪ / pc',
-        'Egg & spring onion — 8 ₪ / pc',
-        'Mushrooms & onion — 8 ₪ / pc',
-        'Sweet curd — 10 ₪ / pc',
-        'Curd & herbs — 10 ₪ / pc',
-        'Berries — 10 ₪ / pc',
-        'Veal & onion — 10 ₪ / pc',
-        'Cheese & herbs — 10 ₪ / pc'
+        'Potato, mushrooms & onion — 7.8 ₪ / pc',
+        'Egg & spring onion — 8.4 ₪ / pc',
+        'Mushrooms & onion — 9.3 ₪ / pc',
+        'Sweet curd — 9.5 ₪ / pc',
+        'Berries — 9.6 ₪ / pc',
+        'Curd & herbs — 9.7 ₪ / pc',
+        'Veal & onion — 10.3 ₪ / pc',
+        'Cheese & herbs — 11.1 ₪ / pc'
       ],
       cookingOptions: ['Baked'],
       storageInfo: 'Store up to 48 hours at room temperature; easily reheated in oven or microwave.',
@@ -779,14 +779,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'גבינה (פיצה מיקס / קשה)'
       ],
       availableFillings: [
-        'תפוח אדמה, פטריות ובצל — 8 ₪ / יח׳',
-        'ביצה ובצל ירוק — 8 ₪ / יח׳',
-        'פטריות ובצל — 8 ₪ / יח׳',
-        'גבינה לבנה מתוקה — 10 ₪ / יח׳',
-        'גבינה לבנה ועשבי תיבול — 10 ₪ / יח׳',
-        'פירות יער — 10 ₪ / יח׳',
-        'בשר עגל ובצל — 10 ₪ / יח׳',
-        'גבינה ועשבי תיבול — 10 ₪ / יח׳'
+        'תפוח אדמה, פטריות ובצל — 7.8 ₪ / יח׳',
+        'ביצה ובצל ירוק — 8.4 ₪ / יח׳',
+        'פטריות ובצל — 9.3 ₪ / יח׳',
+        'גבינה לבנה מתוקה — 9.5 ₪ / יח׳',
+        'פירות יער — 9.6 ₪ / יח׳',
+        'גבינה לבנה ועשבי תיבול — 9.7 ₪ / יח׳',
+        'בשר עגל ובצל — 10.3 ₪ / יח׳',
+        'גבינה ועשבי תיבול — 11.1 ₪ / יח׳'
       ],
       cookingOptions: ['אפויים'],
       storageInfo: 'נשמר עד 48 שעות בטמפרטורת החדר. ניתן לחמם בתנור או במיקרוגל.',
@@ -878,8 +878,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       cookingInstructions: 'Опустить в кипящую слегка подсоленную воду. После всплытия варить ровно 2 минуты на умеренном огне. Подавать со сливочным маслом, сметаной, медом или свежими ягодами.',
       availableFillings: [
-        'Классические',
-        'С маком'
+        'Классические — 103 ₪/кг',
+        'С маком — 103 ₪/кг'
       ],
     },
     en: {
@@ -899,8 +899,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       cookingInstructions: 'Drop into gently boiling salted water. Cook for 2 minutes after they float to the top. Serve warm with butter, cream, or jam.',
       availableFillings: [
-        'Classic',
-        'With poppy seeds'
+        'Classic — 103 ₪ / kg',
+        'With poppy seeds — 103 ₪ / kg'
       ],
     },
     he: {
@@ -920,8 +920,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       cookingInstructions: 'להכניס למים רותחים עם מעט מלח. לאחר שהם צפים, לבשל 2 דקות בלבד. להגיש עם חמאה מומסת, שמנת חמוצה או ריבה.',
       availableFillings: [
-        'קלאסי',
-        'עם פרג'
+        'קלאסי — 103 ₪ / ק״ג',
+        'עם פרג — 103 ₪ / ק״ג'
       ],
     }
   },
@@ -948,7 +948,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'Курица — 90 ₪/кг',
         'Телятина с курицей — 95 ₪/кг',
-        'Телятина — 101 ₪/кг'
+        'Телятина — 100 ₪/кг'
       ],
       cookingInstructions: 'Варить в кипящей подсоленной воде с лавровым листом и перцем горошком 6-7 минут после всплытия. Подавать с кусочком сливочного масла и сметаной.'
     },
@@ -973,7 +973,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'Chicken — 90 ₪ / kg',
         'Veal & chicken mix — 95 ₪ / kg',
-        'Veal — 101 ₪ / kg'
+        'Veal — 100 ₪ / kg'
       ],
       cookingInstructions: 'Boil in salted water with a bay leaf and peppercorns for 6-7 minutes after they float. Serve with butter and sour cream.'
     },
@@ -998,7 +998,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'עוף — 90 ₪ / ק״ג',
         'תערובת עגל ועוף — 95 ₪ / ק״ג',
-        'בשר עגל — 101 ₪ / ק״ג'
+        'בשר עגל — 100 ₪ / ק״ג'
       ],
       cookingInstructions: 'לבשל במים רותחים מומלחים עם עלי דפנה וגרגרי פלפל במשך 6-7 דקות מרגע הציפה. להגיש עם חמאה ושמנת חמוצה.'
     }
@@ -1037,14 +1037,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'сыр (pizza mix / твёрдый)'
       ],
       availableFillings: [
-        'Картофель, грибы и лук',
-        'Капуста, морковь и лук',
-        'Грибы и лук',
-        'Творог сладкий',
-        'Творог с зеленью',
-        'Ягоды',
-        'Вишня',
-        'Сыр с зеленью'
+        'Капуста, морковь и лук — 115 ₪/кг',
+        'Картофель, грибы и лук — 121 ₪/кг',
+        'Творог сладкий — 134 ₪/кг',
+        'Грибы и лук — 134 ₪/кг',
+        'Ягоды — 135 ₪/кг',
+        'Творог с зеленью — 136 ₪/кг',
+        'Вишня — 141 ₪/кг',
+        'Сыр с зеленью — 149 ₪/кг'
       ],
       cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.'
     },
@@ -1080,14 +1080,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'cheese (pizza mix / hard)'
       ],
       availableFillings: [
-        'Potato, mushrooms & onion',
-        'Cabbage, carrot & onion',
-        'Mushrooms & onion',
-        'Sweet curd',
-        'Curd & herbs',
-        'Berries',
-        'Sour cherry',
-        'Cheese & herbs'
+        'Cabbage, carrot & onion — 115 ₪ / kg',
+        'Potato, mushrooms & onion — 121 ₪ / kg',
+        'Sweet curd — 134 ₪ / kg',
+        'Mushrooms & onion — 134 ₪ / kg',
+        'Berries — 135 ₪ / kg',
+        'Curd & herbs — 136 ₪ / kg',
+        'Sour cherry — 141 ₪ / kg',
+        'Cheese & herbs — 149 ₪ / kg'
       ],
       cookingInstructions: 'Boil in salted water (or sweetened water for cherries) for 4-5 minutes after floating. Toss with melted butter.'
     },
@@ -1123,14 +1123,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'גבינה (פיצה מיקס / קשה)'
       ],
       availableFillings: [
-        'תפוח אדמה, פטריות ובצל',
-        'כרוב, גזר ובצל',
-        'פטריות ובצל',
-        'גבינה לבנה מתוקה',
-        'גבינה לבנה ועשבי תיבול',
-        'פירות יער',
-        'דובדבנים',
-        'גבינה ועשבי תיבול'
+        'כרוב, גזר ובצל — 115 ₪ / ק״ג',
+        'תפוח אדמה, פטריות ובצל — 121 ₪ / ק״ג',
+        'גבינה לבנה מתוקה — 134 ₪ / ק״ג',
+        'פטריות ובצל — 134 ₪ / ק״ג',
+        'פירות יער — 135 ₪ / ק״ג',
+        'גבינה לבנה ועשבי תיבול — 136 ₪ / ק״ג',
+        'דובדבנים — 141 ₪ / ק״ג',
+        'גבינה ועשבי תיבול — 149 ₪ / ק״ג'
       ],
       cookingInstructions: 'להכניס למים רותחים מומלחים (או ממותקים לדובדבנים). לבשל 4-5 דקות לאחר הציפה. למרוח בחמאה.'
     }
@@ -1170,18 +1170,18 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'сыр (pizza mix / твёрдый)'
       ],
       availableFillings: [
-        'Без начинки — 4 ₪/шт',
-        'Картофель, грибы и лук — 8 ₪/шт',
-        'Яйцо и зелёный лук — 8 ₪/шт',
-        'Грибы и лук — 8 ₪/шт',
-        'Творог сладкий — 10 ₪/шт',
-        'Творог с зеленью — 10 ₪/шт',
+        'Без начинки — 5,6 ₪/шт',
+        'Картофель, грибы и лук — 8,8 ₪/шт',
+        'Яйцо и зелёный лук — 9,4 ₪/шт',
         'Творог с яблоком — 10 ₪/шт',
-        'Ягоды — 10 ₪/шт',
-        'Вишня — 10 ₪/шт',
-        'Творожный крем и наш джем — 10 ₪/шт',
-        'Телятина с луком — 10 ₪/шт',
-        'Сыр с зеленью — 10 ₪/шт'
+        'Грибы и лук — 10,2 ₪/шт',
+        'Творог сладкий — 10,5 ₪/шт',
+        'Ягоды — 10,6 ₪/шт',
+        'Творог с зеленью — 10,8 ₪/шт',
+        'Вишня — 11,3 ₪/шт',
+        'Телятина с луком — 11,4 ₪/шт',
+        'Творожный крем и наш джем — 11,7 ₪/шт',
+        'Сыр с зеленью — 12,2 ₪/шт'
       ],
       cookingInstructions: 'Разогреть на среднем огне на сливочном масле по 2 минуты с каждой стороны до хрустящей корочки.'
     },
@@ -1218,18 +1218,18 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'cheese (pizza mix / hard)'
       ],
       availableFillings: [
-        'Plain, no filling — 4 ₪ / pc',
-        'Potato, mushrooms & onion — 8 ₪ / pc',
-        'Egg & spring onion — 8 ₪ / pc',
-        'Mushrooms & onion — 8 ₪ / pc',
-        'Sweet curd — 10 ₪ / pc',
-        'Curd & herbs — 10 ₪ / pc',
+        'Plain, no filling — 5.6 ₪ / pc',
+        'Potato, mushrooms & onion — 8.8 ₪ / pc',
+        'Egg & spring onion — 9.4 ₪ / pc',
         'Curd & apple — 10 ₪ / pc',
-        'Berries — 10 ₪ / pc',
-        'Sour cherry — 10 ₪ / pc',
-        'Curd cream & our own jam — 10 ₪ / pc',
-        'Veal & onion — 10 ₪ / pc',
-        'Cheese & herbs — 10 ₪ / pc'
+        'Mushrooms & onion — 10.2 ₪ / pc',
+        'Sweet curd — 10.5 ₪ / pc',
+        'Berries — 10.6 ₪ / pc',
+        'Curd & herbs — 10.8 ₪ / pc',
+        'Sour cherry — 11.3 ₪ / pc',
+        'Veal & onion — 11.4 ₪ / pc',
+        'Curd cream & our own jam — 11.7 ₪ / pc',
+        'Cheese & herbs — 12.2 ₪ / pc'
       ],
       cookingInstructions: 'Pan-fry in butter over medium heat for 2 minutes per side until golden and crisp.'
     },
@@ -1266,18 +1266,18 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'גבינה (פיצה מיקס / קשה)'
       ],
       availableFillings: [
-        'ללא מילוי — 4 ₪ / יח׳',
-        'תפוח אדמה, פטריות ובצל — 8 ₪ / יח׳',
-        'ביצה ובצל ירוק — 8 ₪ / יח׳',
-        'פטריות ובצל — 8 ₪ / יח׳',
-        'גבינה לבנה מתוקה — 10 ₪ / יח׳',
-        'גבינה לבנה ועשבי תיבול — 10 ₪ / יח׳',
+        'ללא מילוי — 5.6 ₪ / יח׳',
+        'תפוח אדמה, פטריות ובצל — 8.8 ₪ / יח׳',
+        'ביצה ובצל ירוק — 9.4 ₪ / יח׳',
         'גבינה לבנה ותפוח — 10 ₪ / יח׳',
-        'פירות יער — 10 ₪ / יח׳',
-        'דובדבנים — 10 ₪ / יח׳',
-        'קרם גבינה וריבה ביתית — 10 ₪ / יח׳',
-        'בשר עגל ובצל — 10 ₪ / יח׳',
-        'גבינה ועשבי תיבול — 10 ₪ / יח׳'
+        'פטריות ובצל — 10.2 ₪ / יח׳',
+        'גבינה לבנה מתוקה — 10.5 ₪ / יח׳',
+        'פירות יער — 10.6 ₪ / יח׳',
+        'גבינה לבנה ועשבי תיבול — 10.8 ₪ / יח׳',
+        'דובדבנים — 11.3 ₪ / יח׳',
+        'בשר עגל ובצל — 11.4 ₪ / יח׳',
+        'קרם גבינה וריבה ביתית — 11.7 ₪ / יח׳',
+        'גבינה ועשבי תיבול — 12.2 ₪ / יח׳'
       ],
       cookingInstructions: 'לחמם במחבת על אש בינונית עם מעט חמאה 2 דקות מכל צד עד לפריכות זהובה.'
     }
@@ -1424,9 +1424,9 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'фарш телячий'
       ],
       availableFillings: [
-        'Курица с рисом',
-        'Курица без риса',
-        'Телятина с рисом'
+        'Курица с рисом — 95 ₪/кг',
+        'Телятина с рисом — 96 ₪/кг',
+        'Курица без риса — 107 ₪/кг'
       ],
       cookingInstructions: 'Поставляются готовыми в термоконтейнере. Разогреть в кастрюле под крышкой или в микроволновке 3-4 минуты.'
     },
@@ -1450,9 +1450,9 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'minced veal'
       ],
       availableFillings: [
-        'Chicken & rice',
-        'Chicken, no rice',
-        'Veal & rice'
+        'Chicken & rice — 95 ₪ / kg',
+        'Veal & rice — 96 ₪ / kg',
+        'Chicken, no rice — 107 ₪ / kg'
       ],
       cookingInstructions: 'Delivered ready to eat in a container. Reheat in a covered saucepan or microwave for 3-4 minutes.'
     },
@@ -1476,9 +1476,9 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'בשר עגל טחון'
       ],
       availableFillings: [
-        'עוף ואורז',
-        'עוף ללא אורז',
-        'בשר עגל ואורז'
+        'עוף ואורז — 95 ₪ / ק״ג',
+        'בשר עגל ואורז — 96 ₪ / ק״ג',
+        'עוף ללא אורז — 107 ₪ / ק״ג'
       ],
       cookingInstructions: 'מגיע מוכן בקופסה תרמית. לחמם בסיר מכוסה או במיקרוגל 3-4 דקות.'
     }
@@ -1505,8 +1505,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       storageInfo: 'Готовится строго в день заказа. Срок хранения в холодильнике до 36 часов.',
       availableFillings: [
-        'С куриной грудкой',
-        'С докторской колбасой'
+        'С куриной грудкой — 48 ₪/кг',
+        'С докторской колбасой — 49 ₪/кг'
       ],
     },
     en: {
@@ -1529,8 +1529,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       storageInfo: 'Prepared fresh on the delivery day. Keeps up to 36 hours in refrigerator.',
       availableFillings: [
-        'With chicken breast',
-        'With bologna sausage'
+        'With chicken breast — 48 ₪ / kg',
+        'With bologna sausage — 49 ₪ / kg'
       ],
     },
     he: {
@@ -1553,8 +1553,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       ],
       storageInfo: 'מוכן טרי ביום ההזמנה. נשמר במקרר עד 36 שעות.',
       availableFillings: [
-        'עם חזה עוף',
-        'עם נקניק דוקטורסקאיה'
+        'עם חזה עוף — 48 ₪ / ק״ג',
+        'עם נקניק דוקטורסקאיה — 49 ₪ / ק״ג'
       ],
     }
   },
@@ -1650,8 +1650,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'фасоль консервированная'
       ],
       availableFillings: [
-        'Классический',
-        'С фасолью и горошком'
+        'Классический — 40 ₪/кг',
+        'С фасолью и горошком — 39 ₪/кг'
       ],
     },
     en: {
@@ -1675,8 +1675,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'canned beans'
       ],
       availableFillings: [
-        'Classic',
-        'With beans & green peas'
+        'Classic — 40 ₪ / kg',
+        'With beans & green peas — 39 ₪ / kg'
       ],
     },
     he: {
@@ -1700,8 +1700,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'שעועית משומרת'
       ],
       availableFillings: [
-        'קלאסי',
-        'עם שעועית ואפונה'
+        'קלאסי — 40 ₪ / ק״ג',
+        'עם שעועית ואפונה — 39 ₪ / ק״ג'
       ],
     }
   },
