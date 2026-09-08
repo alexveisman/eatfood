@@ -27,6 +27,8 @@ export interface TranslationDict {
 
   // Product Card & Modal
   currency: string;
+  /** Подпись вместо цены у блюд, которые считаются под конкретный заказ. */
+  priceOnRequest: string;
   inCart: string;
   addToOrder: string;
   chooseOptions: string;
@@ -168,6 +170,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     showAllMenu: 'Показать всё меню',
 
     currency: '₪',
+    priceOnRequest: 'Цена по договорённости',
     inCart: 'В корзине',
     addToOrder: 'В заказ',
     chooseOptions: 'Выбрать',
@@ -303,6 +306,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     showAllMenu: 'Show full menu',
 
     currency: '₪',
+    priceOnRequest: 'Price on request',
     inCart: 'In Cart',
     addToOrder: 'Add',
     chooseOptions: 'Select',
@@ -438,6 +442,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     showAllMenu: 'הצג את כל התפריט',
 
     currency: '₪',
+    priceOnRequest: 'מחיר בתיאום',
     inCart: 'בעגלה',
     addToOrder: 'להזמנה',
     chooseOptions: 'לבחור',
@@ -797,7 +802,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'placinte-moldavian': {
     ru: {
       name: 'Плацинды домашние молдавские',
-      unit: '45 ₪ / шт (сет: 125 ₪ / 3 шт)',
+      unit: 'за 1 шт (~500 г)',
       weight: '~500 г (крупная плацинда)',
       badge: 'Фирменное блюдо',
       shortDescription: 'Слоеное тесто с сочной домашней начинкой, запеченное до золотистого глянца.',
@@ -818,7 +823,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Moldavian Layered Placinte',
-      unit: '45 ₪ / pc (set: 125 ₪ / 3 pcs)',
+      unit: 'per 1 pc (~500 g)',
       weight: '~500g (large placinta)',
       badge: 'Signature Dish',
       shortDescription: 'Layered pastry packed with rich savory or sweet filling.',
@@ -839,7 +844,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'פלצ\'ינטה מולדבית מסורתית',
-      unit: '45 ₪ / יח׳ (סט: 125 ₪ / 3 יח׳)',
+      unit: 'ליחידה (כ-500 גרם)',
       weight: 'כ-500 גרם (מאפה גדול)',
       badge: 'מנת הדגל',
       shortDescription: 'בצק עלים עם שפע מילוי ביתי, פריך ושזוף.',
@@ -1286,42 +1291,42 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'cinnamon-rolls': {
     ru: {
       name: 'Синнабоны (корица / фисташка)',
-      unit: '15–20 ₪ / шт',
+      unit: 'за 1 шт',
       weight: '~130 г / шт (4 шт ~500 г)',
       badge: 'Тает во рту',
       shortDescription: 'Ультрамягкие сдобные завитки с ароматной корицей или фисташкой под шапкой сливочного крема.',
       fullDescription: 'Те самые знаменитые булочки-синнабоны! Мягкое как облачко дрожжевое тесто с карамельной прослойкой из корицы или фисташки, политые нежным сливочным кремом.',
       ingredients: ['мука', 'сливочное масло', 'молоко', 'сахар', 'корица', 'фисташка', 'сыр', 'сахарная пудра', 'ваниль'],
       availableFillings: [
-        'С ароматной корицей и крем-чизом (15 ₪)',
+        'С ароматной корицей и крем-чизом (18 ₪)',
         'Фисташковые синабоны с кремом (20 ₪)'
       ],
       cookingInstructions: 'Перед подачей подогрейте 15-20 секунд в микроволновке — крем растает и булочка станет неземной!'
     },
     en: {
       name: 'Cinnabons (Cinnamon / Pistachio)',
-      unit: '15–20 ₪ / pc',
+      unit: 'per 1 pc',
       weight: '~130g / pc (4 pcs ~500g)',
       badge: 'Melts in Your Mouth',
       shortDescription: 'Ultra-soft swirls of spiced cinnamon or pistachio smothered in rich cream cheese frosting.',
       fullDescription: 'Authentic Cinnabon brioche rolls! Cloud-like dough swirled with brown sugar, fragrant cinnamon or pistachio, generously frosted while warm with smooth cream cheese glaze.',
       ingredients: ['flour', 'butter', 'milk', 'sugar', 'cinnamon', 'pistachio', 'cream cheese', 'powdered sugar', 'vanilla'],
       availableFillings: [
-        'Cinnamon with Cream Cheese (15 ₪)',
+        'Cinnamon with Cream Cheese (18 ₪)',
         'Pistachio Cinnabons with Cream (20 ₪)'
       ],
       cookingInstructions: 'Microwave for 15-20 seconds before serving so the frosting melts into the warm layers!'
     },
     he: {
       name: 'סינבון (קינמון / פיסטוק)',
-      unit: '15–20 ₪ / יח׳',
+      unit: 'ל-1 יח׳',
       weight: 'כ-130 גרם / יח׳ (מארז כ-500 גרם)',
       badge: 'נמס בפה',
       shortDescription: 'שבלולי שמרים רכים במיוחד במילוי קינמון או פיסטוק וקרם גבינת שמנת קטיפתי.',
       fullDescription: 'מאפי הסינבון המפורסמים! בצק שמרים רך כענן עם שכבות סוכר חום, קינמון או פיסטוק איכותי, מצופים בקרם עשיר של גבינת שמנת.',
       ingredients: ['קמח', 'חמאה', 'חלב', 'סוכר', 'קינמון', 'פיסטוק', 'גבינת שמנת', 'אבקת סוכר', 'תמצית וניל'],
       availableFillings: [
-        'קינמון וקרם גבינה (15 ₪)',
+        'קינמון וקרם גבינה (18 ₪)',
         'סינבון פיסטוק עם קרם (20 ₪)'
       ],
       cookingInstructions: 'מומלץ לחמם 15-20 שניות במיקרוגל לפני האכילה — הקרם נמס והמאפה פשוט נמס בפה!'
@@ -1373,7 +1378,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'vatrushki-cottage-cheese': {
     ru: {
       name: 'Ватрушки с творогом и нежным сметанным кремом',
-      unit: '8 ₪ / шт',
+      unit: 'за 1 шт',
       weight: '~100 г / шт',
       badge: 'Нежный творог 🧀',
       shortDescription: 'Пышное сдобное тесто с щедрой шапкой из творога и шелковистого сметанного крема.',
@@ -1383,7 +1388,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Cottage Cheese Vatrushki with Sour Cream Glaze',
-      unit: '8 ₪ / pc',
+      unit: 'per 1 pc',
       weight: '~100g / pc',
       badge: 'Fresh Curd 🧀',
       shortDescription: 'Fluffy sweet yeast dough topped generously with farm cottage cheese and silky sour cream glaze.',
@@ -1393,7 +1398,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'ואטרושקי עם גבינת טוורוג וציפוי קרם שמנת',
-      unit: '8 ₪ / יח׳',
+      unit: 'ל-1 יח׳',
       weight: 'כ-100 גרם / יח׳',
       badge: 'טוורוג עשיר 🧀',
       shortDescription: 'בצק שמרים עשיר ותפוח עם שפע גבינת טוורוג וקרם שמנת חמוצה קטיפתי.',
@@ -1716,10 +1721,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Горячий ароматный осетинский пирог с тончайшим нежным тестом и щедрой сочной начинкой, обильно смазанный сливочным маслом.',
       ingredients: ['мука', 'сыр', 'сливочное масло', 'молоко', 'дрожжи', 'соль', 'начинка на выбор'],
       availableFillings: [
-        'С сыром и зеленью (Уалибах) — 85 ₪',
-        'С сыром и картофелем (Картофджин) — 85 ₪',
+        'С сыром и зеленью (Уалибах) — 80 ₪',
+        'С сыром и картофелем (Картофджин) — 80 ₪',
         'С сочным мясным фаршем (Фыдджин) — 95 ₪',
-        'С сыром и листьями свеклы (Цахараджин) — 85 ₪'
+        'С сыром и листьями свеклы (Цахараджин) — 80 ₪'
       ],
       storageInfo: 'Разогревать в духовке.'
     },
@@ -1732,10 +1737,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Hot aromatic Ossetian flatbread pie with paper-thin crust, loaded with melted cheese and seasoned fillings, brushed with melted butter.',
       ingredients: ['flour', 'cheese', 'butter', 'milk', 'yeast', 'salt', 'filling of choice'],
       availableFillings: [
-        'With Cheese & Fresh Herbs (Walibakh) — 85 ₪',
-        'With Cheese & Potatoes (Kartofdzhin) — 85 ₪',
+        'With Cheese & Fresh Herbs (Walibakh) — 80 ₪',
+        'With Cheese & Potatoes (Kartofdzhin) — 80 ₪',
         'With Juicy Minced Meat (Fyddzhin) — 95 ₪',
-        'With Cheese & Beetroot Leaves (Tsakharadzhin) — 85 ₪'
+        'With Cheese & Beetroot Leaves (Tsakharadzhin) — 80 ₪'
       ],
       storageInfo: 'Best reheated in the oven.'
     },
@@ -1748,10 +1753,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'פאי אוסטי מסורתי חם וריחני עם בצק דק במיוחד, מילוי עשיר ונמס בפה וציפוי חמאה נימוחה.',
       ingredients: ['קמח', 'גבינה', 'חמאה', 'חלב', 'שמרים', 'מלח', 'מילוי לבחירה'],
       availableFillings: [
-        'עם גבינה ועשבי תיבול (ואליבאח) — 85 ₪',
-        'עם גבינה ותפוחי אדמה (קרטופג׳ין) — 85 ₪',
+        'עם גבינה ועשבי תיבול (ואליבאח) — 80 ₪',
+        'עם גבינה ותפוחי אדמה (קרטופג׳ין) — 80 ₪',
         'עם בשר טחון עסיסי (פידג׳ין) — 95 ₪',
-        'עם גבינה ועלי סלק (צחרדג׳ין) — 85 ₪'
+        'עם גבינה ועלי סלק (צחרדג׳ין) — 80 ₪'
       ],
       storageInfo: 'מומלץ לחימום קל בתנור.'
     }
@@ -1808,7 +1813,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'custom-sweet-bakes': {
     ru: {
       name: 'Сладкая выпечка на ваш вкус',
-      unit: 'под заказ (от 60 ₪)',
+      unit: 'зависит от веса и пожеланий',
       weight: 'по договоренности',
       badge: 'На заказ 🍰',
       shortDescription: 'Шарлотка, брауни, тарты, рулеты, торты («Медовик», «Наполеон»), чизкейки и любые десерты.',
@@ -1827,7 +1832,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Custom Sweet Bakes & Desserts',
-      unit: 'custom order (from 60 ₪)',
+      unit: 'depends on weight and wishes',
       weight: 'as requested',
       badge: 'To Order 🍰',
       shortDescription: 'Apple Sharlotka, brownies, fruit tarts, sweet rolls, cakes (Medovik, Napoleon), and cheesecakes.',
@@ -1846,7 +1851,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'מאפים וקינוחים מתוקים לפי טעמכם',
-      unit: 'בהזמנה מראש (החל מ-60 ₪)',
+      unit: 'תלוי במשקל ובבקשות',
       weight: 'לפי תיאום',
       badge: 'בהזמנה אישית 🍰',
       shortDescription: 'שרלוטקה תפוחים, בראוניז, טארטים, רולדות, עוגות (מדוביק, נפוליאון), עוגות גבינה ועוד.',

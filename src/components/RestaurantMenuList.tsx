@@ -223,10 +223,17 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                           currentLang === 'he' ? 'sm:text-left' : 'sm:text-right'
                         }`}
                       >
-                        <span className="font-extrabold text-sm sm:text-base text-[#4A3728] whitespace-nowrap">
-                          {formatPrice(product.price, currentLang)}{' '}
-                          <span className="text-[#D97706] text-xs sm:text-sm">{t.currency}</span>
-                        </span>
+                        {/* Цена в ноль означает «считается под заказ» — числа тут нет. */}
+                        {product.price > 0 ? (
+                          <span className="font-extrabold text-sm sm:text-base text-[#4A3728] whitespace-nowrap">
+                            {formatPrice(product.price, currentLang)}{' '}
+                            <span className="text-[#D97706] text-xs sm:text-sm">{t.currency}</span>
+                          </span>
+                        ) : (
+                          <span className="font-bold text-xs sm:text-sm text-[#8B5E3C]">
+                            {t.priceOnRequest}
+                          </span>
+                        )}
                         <div className="text-[10px] sm:text-[11px] text-gray-500 font-medium sm:whitespace-nowrap">
                           <span>{product.unit}</span>
                           {unitBreakdown && (
@@ -239,7 +246,9 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
 
                       <button
                         onClick={() => openDirectWhatsAppInquiry(
-                          `${product.name} (${product.price} ₪, ${product.unit})`,
+                          product.price > 0
+                            ? `${product.name} (${product.price} ₪, ${product.unit})`
+                            : `${product.name} (${product.unit})`,
                           undefined,
                           currentLang
                         )}
