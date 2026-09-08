@@ -1497,8 +1497,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-olivier': {
     ru: {
       name: 'Салат «Оливье» праздничный (предзаказ)',
-      unit: 'за 1 кг',
-      weight: 'фасовка 500 г или 1 кг',
+      unit: 'за 500 г',
+      weight: 'контейнер 500 г (есть и 1 кг)',
       shortDescription: 'Тот самый любимый домашний Оливье. Свежие и маринованные огурчики, нежное мясо/колбаска, домашний соус.',
       fullDescription: 'Любимый салат к праздничному столу или воскресному обеду. Все овощи отварены до идеальной текстуры и нарезаны аккуратным мелким кубиком. По вашему желанию заправляем или отдаем соус отдельно.',
       ingredients: [
@@ -1521,8 +1521,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Holiday Olivier Salad (Pre-order)',
-      unit: 'per 1 kg',
-      weight: '500 g or 1 kg pack',
+      unit: 'per 500 g',
+      weight: '500 g container (1 kg also available)',
       shortDescription: 'The beloved traditional Olivier salad with crisp pickles, sweet peas, eggs, and homemade dressing.',
       fullDescription: 'Classic celebratory salad diced with precision and prepared on the day of delivery. Dressing can be mixed or packed on the side upon request.',
       ingredients: [
@@ -1545,8 +1545,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'סלט אוליבייה חגיגי (בהזמנה מראש)',
-      unit: 'ל-1 ק״ג',
-      weight: 'אריזה 500 גרם או 1 ק״ג',
+      unit: 'ל-500 גרם',
+      weight: 'מיכל 500 גרם (יש גם 1 ק״ג)',
       shortDescription: 'סלט תפוחי האדמה והירקות הקלאסי עם אפונה מתוקה, חמוצים ורוטב ביתי.',
       fullDescription: 'הסלט האהוב ביותר לשולחן החג. כל הירקות מבושלים לדיוק מושלם וחתוכים לקוביות קטנות. ניתן לקבל מתובל או עם רוטב בצד לבחירתכם.',
       ingredients: [
@@ -1572,8 +1572,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-herring-coat': {
     ru: {
       name: 'Салат «Сельдь под шубой» (предзаказ)',
-      unit: 'за 1 кг',
-      weight: 'фасовка 500 г или 1 кг',
+      unit: 'за 500 г',
+      weight: 'контейнер 500 г (есть и 1 кг)',
       shortDescription: 'Сочная малосольная селёдочка, нежнейшие слои сладкой свеклы, моркови и картофеля.',
       fullDescription: 'Классическая «Шуба», выложенная идеальными воздушными слоями. Малосольная нежная селедка без косточек, пропитанные слои овощей и легкая сеточка соуса. Тает во рту!',
       ingredients: [
@@ -1594,8 +1594,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Herring Under a Fur Coat (Pre-order)',
-      unit: 'per 1 kg',
-      weight: '500 g or 1 kg pack',
+      unit: 'per 500 g',
+      weight: '500 g container (1 kg also available)',
       shortDescription: 'Layered salted herring with sweet beets, carrots, potatoes, and delicate dressing.',
       fullDescription: 'Traditional layered Shuba salad with delicate spiced herring fillets, fluffy roasted beet and potato layers, and eggs. Looks stunning on any festive table.',
       ingredients: [
@@ -1616,8 +1616,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'דג מליח בשכבות ירקות וסלק (שובה)',
-      unit: 'ל-1 ק״ג',
-      weight: 'אריזה 500 גרם או 1 ק״ג',
+      unit: 'ל-500 גרם',
+      weight: 'מיכל 500 גרם (יש גם 1 ק״ג)',
       shortDescription: 'הרינג מלוח עדין בשכבות אווריריות של סלק מתוק, גזר, תפוחי אדמה ורוטב עדין.',
       fullDescription: 'סלט ה״שובה״ הקלאסי המסורתי. פילה הרינג מלוח ללא עצמות, שכבות סלק אפוי עסיסי, תפוחי אדמה וביצים. מראה מרהיב וטעם עשיר.',
       ingredients: [
@@ -1641,8 +1641,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-vinegret': {
     ru: {
       name: 'Винегрет',
-      unit: 'за 1 кг',
-      weight: 'фасовка 500 г или 1 кг',
+      unit: 'за 500 г',
+      weight: 'контейнер 500 г (есть и 1 кг)',
       shortDescription: 'Запеченные корнеплоды, хрустящие бочковые огурчики, квашеная капуста и свежая зелень.',
       fullDescription: 'Яркий, свежий и сочный домашний винегрет. Овощи запекаются в духовке для максимального сохранения вкуса и витаминов.',
       ingredients: [
@@ -1666,8 +1666,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Vinegret Salad',
-      unit: 'per 1 kg',
-      weight: '500 g or 1 kg pack',
+      unit: 'per 500 g',
+      weight: '500 g container (1 kg also available)',
       shortDescription: 'Oven-roasted root veggies, crunchy barrel pickles, sauerkraut, and fresh herbs.',
       fullDescription: 'Vibrant and refreshing traditional beet salad. Vegetables are baked in the oven to concentrate flavors.',
       ingredients: [
@@ -1691,8 +1691,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'סלט ויניגרט',
-      unit: 'ל-1 ק״ג',
-      weight: 'אריזה 500 גרם או 1 ק״ג',
+      unit: 'ל-500 גרם',
+      weight: 'מיכל 500 גרם (יש גם 1 ק״ג)',
       shortDescription: 'ירקות שורש אפויים, מלפפונים חמוצים פריכים, כרוב כבוש ועשבי תיבול.',
       fullDescription: 'סלט ויניגרט צבעוני, רענן ובריא. הירקות נאפים בתנור לשמירה על הטעם הטבעי והוויטמינים.',
       ingredients: [

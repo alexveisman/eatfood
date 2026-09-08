@@ -39,19 +39,26 @@ const formatPrice = (price: number, lang: Language): string =>
 const getUnitPriceBreakdown = (price: number, unit: string, lang: Language): string | null => {
   if (unit.includes('₪')) return null;
 
-  const matchPcs = unit.match(/(\d+)/);
-  if (matchPcs && matchPcs[1]) {
-    const count = parseInt(matchPcs[1], 10);
+  const gLabel = lang === 'he' ? '100 גרם' : lang === 'en' ? '100g' : '100г';
+  const per100 = (grams: number) => `${formatPrice(price / (grams / 100), lang)} ₪ / ${gLabel}`;
+
+  // Килограммы: «за 1 кг», «за 1 шт (~1 кг)».
+  const kg = unit.match(/(\d+(?:[.,]\d+)?)\s*(?:кг|kg|ק״ג)/);
+  if (kg) return per100(parseFloat(kg[1].replace(',', '.')) * 1000);
+
+  // Граммы: «за 500 г». Раньше эта запись не распознавалась, и первое число
+  // принималось за количество штук — выходило «~0 ₪ / шт».
+  const grams = unit.match(/(\d+)\s*(?:г|g|גרם)(?![а-яёa-z])/i);
+  if (grams) return per100(parseInt(grams[1], 10));
+
+  // Штуки: число должно стоять прямо перед словом «шт», иначе это не количество.
+  const pcs = unit.match(/(\d+)\s*(?:шт|pcs?|יח)/);
+  if (pcs) {
+    const count = parseInt(pcs[1], 10);
     if (count > 1) {
-      const perUnit = formatPrice(price / count, lang);
       const pcLabel = lang === 'he' ? 'יח׳' : lang === 'en' ? 'pc' : 'шт';
-      return `~${perUnit} ₪ / ${pcLabel}`;
+      return `~${formatPrice(price / count, lang)} ₪ / ${pcLabel}`;
     }
-  }
-  if (unit.includes('кг') || unit.includes('kg') || unit.includes('ק״ג')) {
-    const per100g = formatPrice(price / 10, lang);
-    const gLabel = lang === 'he' ? '100 גרם' : lang === 'en' ? '100g' : '100г';
-    return `${per100g} ₪ / ${gLabel}`;
   }
   return null;
 };
