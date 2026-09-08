@@ -29,6 +29,8 @@ export interface TranslationDict {
   currency: string;
   /** Подпись вместо цены у блюд, которые считаются под конкретный заказ. */
   priceOnRequest: string;
+  /** Приставка к цене у блюд с вариантами разной стоимости. */
+  priceFromPrefix: string;
   inCart: string;
   addToOrder: string;
   chooseOptions: string;
@@ -171,6 +173,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
 
     currency: '₪',
     priceOnRequest: 'Цена по договорённости',
+    priceFromPrefix: 'от',
     inCart: 'В корзине',
     addToOrder: 'В заказ',
     chooseOptions: 'Выбрать',
@@ -307,6 +310,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
 
     currency: '₪',
     priceOnRequest: 'Price on request',
+    priceFromPrefix: 'from',
     inCart: 'In Cart',
     addToOrder: 'Add',
     chooseOptions: 'Select',
@@ -443,6 +447,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
 
     currency: '₪',
     priceOnRequest: 'מחיר בתיאום',
+    priceFromPrefix: 'החל מ־',
     inCart: 'בעגלה',
     addToOrder: 'להזמנה',
     chooseOptions: 'לבחור',
@@ -1336,7 +1341,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'poppy-seed-buns': {
     ru: {
       name: 'Булочки с маком',
-      unit: '10 ₪ / шт (пак 35 ₪ / 4 шт)',
+      unit: 'за 1 шт (пак 35 ₪ / 4 шт)',
       weight: '~120 г / шт (4 шт ~480 г)',
       badge: 'Мягкое тесто',
       shortDescription: 'Пышные сдобные булочки из мягкого дрожжевого теста со щедрой начинкой из сочного мака.',
@@ -1349,7 +1354,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Poppy Seed Buns',
-      unit: '10 ₪ / pc (pack 35 ₪ / 4 pcs)',
+      unit: 'per 1 pc (pack 35 ₪ / 4 pcs)',
       weight: '~120g / pc (4 pcs ~480g)',
       badge: 'Soft Brioche',
       shortDescription: 'Fluffy brioche buns with sweet juicy poppy seed filling.',
@@ -1362,7 +1367,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'לחמניות שמרים במילוי פרג',
-      unit: '10 ₪ / יח׳ (מארז 35 ₪ / 4 יח׳)',
+      unit: 'ל-1 יח׳ (מארז 35 ₪ / 4 יח׳)',
       weight: 'כ-120 גרם / יח׳ (מארז כ-480 גרם)',
       badge: 'בצק רך',
       shortDescription: 'לחמניות שמרים תפוחות עם מילוי פרג עסיסי.',
@@ -1723,7 +1728,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'С сыром и зеленью (Уалибах) — 80 ₪',
         'С сыром и картофелем (Картофджин) — 80 ₪',
-        'С сочным мясным фаршем (Фыдджин) — 95 ₪',
+        'С сочным мясным фаршем (Фыдджин) — 90 ₪',
         'С сыром и листьями свеклы (Цахараджин) — 80 ₪'
       ],
       storageInfo: 'Разогревать в духовке.'
@@ -1739,7 +1744,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'With Cheese & Fresh Herbs (Walibakh) — 80 ₪',
         'With Cheese & Potatoes (Kartofdzhin) — 80 ₪',
-        'With Juicy Minced Meat (Fyddzhin) — 95 ₪',
+        'With Juicy Minced Meat (Fyddzhin) — 90 ₪',
         'With Cheese & Beetroot Leaves (Tsakharadzhin) — 80 ₪'
       ],
       storageInfo: 'Best reheated in the oven.'
@@ -1755,7 +1760,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       availableFillings: [
         'עם גבינה ועשבי תיבול (ואליבאח) — 80 ₪',
         'עם גבינה ותפוחי אדמה (קרטופג׳ין) — 80 ₪',
-        'עם בשר טחון עסיסי (פידג׳ין) — 95 ₪',
+        'עם בשר טחון עסיסי (פידג׳ין) — 90 ₪',
         'עם גבינה ועלי סלק (צחרדג׳ין) — 80 ₪'
       ],
       storageInfo: 'מומלץ לחימום קל בתנור.'
@@ -1765,7 +1770,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'ciabatta-focaccia': {
     ru: {
       name: 'Чиабатта / Фокачча домашняя',
-      unit: 'за 1 шт (от 10 ₪)',
+      unit: 'за 1 шт',
       weight: '~200-400 г',
       badge: 'Ароматный хлеб 🥖',
       shortDescription: 'Хрустящая корочка, крупная пористость, оливковое масло первого отжима и розмарин.',
@@ -1780,7 +1785,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Artisan Ciabatta & Focaccia',
-      unit: 'per 1 pc (from 10 ₪)',
+      unit: 'per 1 pc',
       weight: '~200-400g',
       badge: 'Artisan Bread 🥖',
       shortDescription: 'Crisp airy crust, open crumb, extra virgin olive oil, and rosemary.',
@@ -1795,7 +1800,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'צ׳יאבטה ופוקאצ׳ה ביתית',
-      unit: 'ליחידה (החל מ-10 ₪)',
+      unit: 'ל-1 יח׳',
       weight: 'כ-200-400 גרם',
       badge: 'לחם ארטיזנל 🥖',
       shortDescription: 'קרום פריך, בועות אוויר גדולות, שמן זית כתית מעולה ורוזמרין ריחני.',

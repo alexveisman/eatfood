@@ -39,6 +39,8 @@ export interface Product {
   name: string;
   category: CategoryId;
   price: number;
+  /** Показывать цену как «от N ₪»: у блюда есть варианты дороже базового. */
+  priceFrom?: boolean;
   unit: string;
   minQuantity?: number;
   stepQuantity?: number;

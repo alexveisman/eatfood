@@ -226,6 +226,12 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                         {/* Цена в ноль означает «считается под заказ» — числа тут нет. */}
                         {product.price > 0 ? (
                           <span className="font-extrabold text-sm sm:text-base text-[#4A3728] whitespace-nowrap">
+                            {/* «от», когда варианты блюда стоят по-разному. */}
+                            {product.priceFrom && (
+                              <span className="font-semibold text-[11px] sm:text-xs text-[#8B5E3C] mr-1">
+                                {t.priceFromPrefix}
+                              </span>
+                            )}
                             {formatPrice(product.price, currentLang)}{' '}
                             <span className="text-[#D97706] text-xs sm:text-sm">{t.currency}</span>
                           </span>
