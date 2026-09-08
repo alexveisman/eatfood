@@ -20,27 +20,36 @@ interface RestaurantMenuListProps {
 }
 
 /**
- * Дробные цены пишем по правилам языка: по-русски «7,8 ₪», иначе «7.8 ₪».
- * Без этого цена в шапке карточки и цена в списке начинок выглядели по-разному.
+ * Цены показываем целыми шекелями — по просьбе владельца, копейки в меню
+ * только мешают читать. Округляется и расчётная цена за 100 г.
  */
 const formatPrice = (price: number, lang: Language): string =>
-  price.toLocaleString(lang === 'ru' ? 'ru-RU' : lang === 'he' ? 'he-IL' : 'en-US', {
-    maximumFractionDigits: 2,
+  Math.round(price).toLocaleString(lang === 'ru' ? 'ru-RU' : lang === 'he' ? 'he-IL' : 'en-US', {
+    maximumFractionDigits: 0,
   });
 
-// Helper to compute unit / piece breakdown if applicable
+/**
+ * Подсказка вида «9 ₪ / 100г» или «~15 ₪ / шт».
+ *
+ * Считаем её только если в единице измерения указано чистое количество.
+ * У части блюд единица — свободный текст с ценами внутри («45 ₪ / шт (сет:
+ * 125 ₪ / 3 шт)»), и первое число там означает цену, а не количество: расчёт
+ * принимал его за штуки и выдавал бессмысленное «~1 ₪ / шт».
+ */
 const getUnitPriceBreakdown = (price: number, unit: string, lang: Language): string | null => {
+  if (unit.includes('₪')) return null;
+
   const matchPcs = unit.match(/(\d+)/);
   if (matchPcs && matchPcs[1]) {
     const count = parseInt(matchPcs[1], 10);
     if (count > 1) {
-      const perUnit = formatPrice(Math.round((price / count) * 10) / 10, lang);
+      const perUnit = formatPrice(price / count, lang);
       const pcLabel = lang === 'he' ? 'יח׳' : lang === 'en' ? 'pc' : 'шт';
       return `~${perUnit} ₪ / ${pcLabel}`;
     }
   }
   if (unit.includes('кг') || unit.includes('kg') || unit.includes('ק״ג')) {
-    const per100g = formatPrice(Math.round((price / 10) * 10) / 10, lang);
+    const per100g = formatPrice(price / 10, lang);
     const gLabel = lang === 'he' ? '100 גרם' : lang === 'en' ? '100g' : '100г';
     return `${per100g} ₪ / ${gLabel}`;
   }
