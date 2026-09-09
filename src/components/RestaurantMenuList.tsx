@@ -37,6 +37,10 @@ const formatPrice = (price: number, lang: Language): string =>
  * принимал его за штуки и выдавал бессмысленное «~1 ₪ / шт».
  */
 const getUnitPriceBreakdown = (price: number, unit: string, lang: Language): string | null => {
+  // Через «·» в единице можно дописать цену другой фасовки («за 500 г · 1 кг — 85 ₪»).
+  // Считаем только по первой части: цена слева относится именно к ней.
+  const [primary] = unit.split('·');
+  unit = primary.trim();
   if (unit.includes('₪')) return null;
 
   const gLabel = lang === 'he' ? '100 גרם' : lang === 'en' ? '100g' : '100г';
@@ -235,7 +239,7 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                           <span className="font-extrabold text-sm sm:text-base text-[#4A3728] whitespace-nowrap">
                             {/* «от», когда варианты блюда стоят по-разному. */}
                             {product.priceFrom && (
-                              <span className="font-semibold text-[11px] sm:text-xs text-[#8B5E3C] mr-1">
+                              <span className="font-semibold text-[11px] sm:text-xs text-[#8B5E3C] me-1">
                                 {t.priceFromPrefix}
                               </span>
                             )}
@@ -259,8 +263,10 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
 
                       <button
                         onClick={() => openDirectWhatsAppInquiry(
+                          // «от» переносим и в заявку: без него клиент решил бы,
+                          // что дорогой вариант стоит столько же, сколько дешёвый.
                           product.price > 0
-                            ? `${product.name} (${product.price} ₪, ${product.unit})`
+                            ? `${product.name} (${product.priceFrom ? `${t.priceFromPrefix} ` : ''}${product.price} ₪, ${product.unit})`
                             : `${product.name} (${product.unit})`,
                           undefined,
                           currentLang

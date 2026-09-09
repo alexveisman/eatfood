@@ -1497,8 +1497,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'salad-olivier': {
     ru: {
       name: 'Салат «Оливье» праздничный (предзаказ)',
-      unit: 'за 500 г',
-      weight: 'контейнер 500 г (есть и 1 кг)',
+      unit: 'за 500 г · 1 кг — 85 ₪',
+      weight: 'контейнер 500 г или 1 кг',
       shortDescription: 'Тот самый любимый домашний Оливье. Свежие и маринованные огурчики, нежное мясо/колбаска, домашний соус.',
       fullDescription: 'Любимый салат к праздничному столу или воскресному обеду. Все овощи отварены до идеальной текстуры и нарезаны аккуратным мелким кубиком. По вашему желанию заправляем или отдаем соус отдельно.',
       ingredients: [
@@ -1521,8 +1521,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Holiday Olivier Salad (Pre-order)',
-      unit: 'per 500 g',
-      weight: '500 g container (1 kg also available)',
+      unit: 'per 500 g · 1 kg — 85 ₪',
+      weight: '500 g or 1 kg container',
       shortDescription: 'The beloved traditional Olivier salad with crisp pickles, sweet peas, eggs, and homemade dressing.',
       fullDescription: 'Classic celebratory salad diced with precision and prepared on the day of delivery. Dressing can be mixed or packed on the side upon request.',
       ingredients: [
@@ -1545,8 +1545,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'סלט אוליבייה חגיגי (בהזמנה מראש)',
-      unit: 'ל-500 גרם',
-      weight: 'מיכל 500 גרם (יש גם 1 ק״ג)',
+      unit: 'ל-500 גרם · 1 ק״ג — 85 ₪',
+      weight: 'מיכל 500 גרם או 1 ק״ג',
       shortDescription: 'סלט תפוחי האדמה והירקות הקלאסי עם אפונה מתוקה, חמוצים ורוטב ביתי.',
       fullDescription: 'הסלט האהוב ביותר לשולחן החג. כל הירקות מבושלים לדיוק מושלם וחתוכים לקוביות קטנות. ניתן לקבל מתובל או עם רוטב בצד לבחירתכם.',
       ingredients: [

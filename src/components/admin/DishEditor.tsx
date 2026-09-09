@@ -24,6 +24,7 @@ const EMPTY_DRAFT = {
   name: '',
   category: 'bakery' as CategoryId,
   price: 50,
+  priceFrom: false,
   unit: 'шт',
   weight: '',
   badge: '',
@@ -48,6 +49,7 @@ function draftFrom(product: Product | null) {
     name: product.name,
     category: product.category,
     price: product.price,
+    priceFrom: product.priceFrom ?? false,
     unit: product.unit,
     weight: product.weight ?? '',
     badge: product.badge ?? '',
@@ -103,6 +105,7 @@ export const DishEditor: React.FC<DishEditorProps> = ({ product, onCancel, onSav
       name: draft.name.trim(),
       category: draft.category,
       price: Number(draft.price) || 0,
+      priceFrom: draft.priceFrom,
       unit: draft.unit.trim() || 'шт',
       image,
       shortDescription: draft.shortDescription.trim(),
@@ -203,6 +206,13 @@ export const DishEditor: React.FC<DishEditorProps> = ({ product, onCancel, onSav
                 />
               </Field>
             </div>
+
+            <Toggle
+              checked={draft.priceFrom}
+              onChange={(v) => set('priceFrom', v)}
+              label="Цена «от»"
+              hint="Когда варианты блюда стоят по-разному"
+            />
 
             <div className="grid grid-cols-2 gap-3">
               <Field label="Единица" hint="Показывается рядом с ценой">
