@@ -10,7 +10,9 @@ import { photoForDish } from '../assets/images/builtInPhotos';
  * выводится аккуратная заглушка.
  */
 
-export const WHATSAPP_PHONE = '972500000000'; // Default phone number (easy to configure)
+// Номер для WhatsApp в международном формате: 972 (Израиль) + номер без ведущего нуля.
+// Местная запись 055-269-1864 превращается в 972552691864.
+export const WHATSAPP_PHONE = '972552691864';
 export const PICKUP_ADDRESS = 'ул. Реувен Рубин 5';
 
 export const CATEGORIES: Category[] = [
