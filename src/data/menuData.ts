@@ -1,16 +1,13 @@
 import { Category, Product, Review } from '../types';
+import { photoForDish } from '../assets/images/builtInPhotos';
 
 /*
- * Встроенных фотографий в меню нет.
+ * В самих карточках ниже поле `image` пустое — фотографии подставляются в конце
+ * файла по имени файла в src/assets/images/source/ (см. builtInPhotos.ts).
  *
- * Раньше здесь были восемь стоковых снимков из шаблона: они показывались у блюд,
- * пока владелец не загрузит свои, и скачивались при каждом открытии сайта.
- * Теперь фотография появляется только тогда, когда её добавили через панель
- * владельца, а до этого у блюда выводится аккуратная заглушка.
- *
- * Как вернуть фото в код (если однажды понадобится): положить файлы в
- * src/assets/images/source/, выполнить `npm run images` и подставить сюда
- * IMAGES.<ключ> в поле image. Подробности — в README.
+ * Стоковых снимков из шаблона здесь больше нет: они грузились при каждом
+ * открытии сайта и показывали чужую еду. Если фотографии для блюда нет,
+ * выводится аккуратная заглушка.
  */
 
 export const WHATSAPP_PHONE = '972500000000'; // Default phone number (easy to configure)
@@ -705,5 +702,14 @@ export const INITIAL_REVIEWS: Review[] = [
   }
 ];
 
-export const INITIAL_PRODUCTS: Product[] = PRODUCTS;
+/**
+ * Подставляем фотографии, лежащие в src/assets/images/source/, по имени файла.
+ * Владельцу достаточно загрузить туда файл с именем блюда — код править не нужно.
+ * Фото, загруженное через панель владельца, всё равно окажется главнее: оно
+ * приходит из облака и перекрывает встроенное.
+ */
+export const INITIAL_PRODUCTS: Product[] = PRODUCTS.map((product) => {
+  const photo = photoForDish(product.id);
+  return photo ? { ...product, image: photo } : product;
+});
 

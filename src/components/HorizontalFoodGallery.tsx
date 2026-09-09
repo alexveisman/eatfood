@@ -4,6 +4,7 @@ import type { ImageSource, Language, Product } from '../types';
 import { getTranslations } from '../utils/i18nHelper';
 import type { GalleryPhotoItem } from '../services/productService';
 import { isValidImageSource } from '../utils/imageUrlHelper';
+import { BUILT_IN_GALLERY } from '../assets/images/builtInPhotos';
 import { SmartImage } from './SmartImage';
 import { ImageLightbox } from './ImageLightbox';
 
@@ -54,6 +55,15 @@ export const HorizontalFoodGallery: React.FC<HorizontalFoodGalleryProps> = ({
       if (seen.has(key)) continue;
       seen.add(key);
       entries.push({ id: product.id, title: product.name, image: product.image });
+    }
+
+    // Снимки из репозитория с именем `gallery-*` — они не привязаны к блюду,
+    // поэтому попадают в ленту только здесь.
+    for (const photo of BUILT_IN_GALLERY) {
+      const key = imageKey(photo.image);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      entries.push(photo);
     }
 
     return entries;
