@@ -19,10 +19,6 @@ import galleryPirozhkiBoxW400 from './generated/gallery-pirozhki-box-400.webp';
 import galleryPirozhkiBoxW800 from './generated/gallery-pirozhki-box-800.webp';
 import galleryPirozhkiBoxW1200 from './generated/gallery-pirozhki-box-1200.webp';
 import galleryPirozhkiBoxFallback from './generated/gallery-pirozhki-box-800.jpg';
-import galleryPlacinteCheeseW400 from './generated/gallery-placinte-cheese-400.webp';
-import galleryPlacinteCheeseW800 from './generated/gallery-placinte-cheese-800.webp';
-import galleryPlacinteCheeseW1200 from './generated/gallery-placinte-cheese-1200.webp';
-import galleryPlacinteCheeseFallback from './generated/gallery-placinte-cheese-800.jpg';
 import gallerySausageRollsW400 from './generated/gallery-sausage-rolls-400.webp';
 import gallerySausageRollsW800 from './generated/gallery-sausage-rolls-800.webp';
 import gallerySausageRollsW1200 from './generated/gallery-sausage-rolls-1200.webp';
@@ -39,6 +35,10 @@ import pirozhkiHomemadeW400 from './generated/pirozhki-homemade-400.webp';
 import pirozhkiHomemadeW800 from './generated/pirozhki-homemade-800.webp';
 import pirozhkiHomemadeW1200 from './generated/pirozhki-homemade-1200.webp';
 import pirozhkiHomemadeFallback from './generated/pirozhki-homemade-800.jpg';
+import placinteMoldavianW400 from './generated/placinte-moldavian-400.webp';
+import placinteMoldavianW800 from './generated/placinte-moldavian-800.webp';
+import placinteMoldavianW1200 from './generated/placinte-moldavian-1200.webp';
+import placinteMoldavianFallback from './generated/placinte-moldavian-800.jpg';
 import saladHerringCoatW400 from './generated/salad-herring-coat-400.webp';
 import saladHerringCoatW800 from './generated/salad-herring-coat-800.webp';
 import saladHerringCoatW1200 from './generated/salad-herring-coat-1200.webp';
@@ -73,12 +73,6 @@ export const IMAGES = {
     blurDataUrl: 'data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JbACdMoRwA8AVv+mjnPOeCqd8AeqpkAD7iBvkXjZTjvm3c93qmfNWZw7zJbn5ufBqX7V+ocpyUgEDyxNBRaLvnBW1Md14IwSSv6XxSiyJiVaVX6bBjBFo+I2MdSm4fFoRay06UN94oX1hcYIi8Rscyedo4cMqSu93pWScSxYPrgNQB0prj2rmq3bBsYhZEFm08cICJGyybpmBo+2Yj0ZlVpjnIpPe0AA=',
     aspectRatio: 0.5625,
   },
-  galleryPlacinteCheese: {
-    src: galleryPlacinteCheeseFallback,
-    srcSet: [`${galleryPlacinteCheeseW400} 400w`, `${galleryPlacinteCheeseW800} 800w`, `${galleryPlacinteCheeseW1200} 1200w`].join(', '),
-    blurDataUrl: 'data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAABQBQCdASoQABwAPu1iqU2ppaQiMAgBMB2JbACdMoCGA1gYb5mkVgqDVLqQx98+pnzVgUAA/ryYaSxK4CUFXRRt2TA4F6lLOHgzbRSKOFKZeUEcb2gbBf+mHw8jNfbzbFUOWzlQlw1U44TWxXjUAlnQeOqE/NUzUvVntWiLvFgkq0WM0d6a4JWKSpOHjCxQvrqyAXS4bvZS2T6ttscCbsRIURfN2k5+ckaA57zGgXfjRSvPymMyj5kEielQi9ycy4+1hH99pTIYetj9iZxfzrm4AK+fw6ScGO1OkR+VAAA=',
-    aspectRatio: 0.5625,
-  },
   gallerySausageRolls: {
     src: gallerySausageRollsFallback,
     srcSet: [`${gallerySausageRollsW400} 400w`, `${gallerySausageRollsW800} 800w`, `${gallerySausageRollsW1200} 1200w`].join(', '),
@@ -102,6 +96,12 @@ export const IMAGES = {
     srcSet: [`${pirozhkiHomemadeW400} 400w`, `${pirozhkiHomemadeW800} 800w`, `${pirozhkiHomemadeW1200} 1200w`].join(', '),
     blurDataUrl: 'data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAADQBACdASoQABcAPu1iqU2ppaOiMAgBMB2JbACdMoRwN6AAVe4hiZ129Ws1UZz6gAD9sFApYiNOZV0PzSSZu05Y8vPW6F3hr8imH6uRp/5grM2gpHXRf0KZSZ8sCHHUjyJx+rkB9YpeXu/7MHymYfQ012XEuIS9phNLhZy1fEqbVpBXOKIptZsNUTQ7yx5hLxMRXLm7FT/N2cjNyN17q88mzNVhucJTtoN2TT+ZPYAynOZKNBBkruAAAAA=',
     aspectRatio: 0.6879,
+  },
+  placinteMoldavian: {
+    src: placinteMoldavianFallback,
+    srcSet: [`${placinteMoldavianW400} 400w`, `${placinteMoldavianW800} 800w`, `${placinteMoldavianW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAABQBQCdASoQABwAPu1iqU2ppaQiMAgBMB2JbACdMoCGA1gYb5mkVgqDVLqQx98+pnzVgUAA/ryYaSxK4CUFXRRt2TA4F6lLOHgzbRSKOFKZeUEcb2gbBf+mHw8jNfbzbFUOWzlQlw1U44TWxXjUAlnQeOqE/NUzUvVntWiLvFgkq0WM0d6a4JWKSpOHjCxQvrqyAXS4bvZS2T6ttscCbsRIURfN2k5+ckaA57zGgXfjRSvPymMyj5kEielQi9ycy4+1hH99pTIYetj9iZxfzrm4AK+fw6ScGO1OkR+VAAA=',
+    aspectRatio: 0.5625,
   },
   saladHerringCoat: {
     src: saladHerringCoatFallback,
