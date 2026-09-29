@@ -11,6 +11,14 @@ import galleryChallahW400 from './generated/gallery-challah-400.webp';
 import galleryChallahW800 from './generated/gallery-challah-800.webp';
 import galleryChallahW1200 from './generated/gallery-challah-1200.webp';
 import galleryChallahFallback from './generated/gallery-challah-800.jpg';
+import galleryPirozhkiBasketW400 from './generated/gallery-pirozhki-basket-400.webp';
+import galleryPirozhkiBasketW800 from './generated/gallery-pirozhki-basket-800.webp';
+import galleryPirozhkiBasketW1200 from './generated/gallery-pirozhki-basket-1200.webp';
+import galleryPirozhkiBasketFallback from './generated/gallery-pirozhki-basket-800.jpg';
+import galleryPirozhkiBoxW400 from './generated/gallery-pirozhki-box-400.webp';
+import galleryPirozhkiBoxW800 from './generated/gallery-pirozhki-box-800.webp';
+import galleryPirozhkiBoxW1200 from './generated/gallery-pirozhki-box-1200.webp';
+import galleryPirozhkiBoxFallback from './generated/gallery-pirozhki-box-800.jpg';
 import galleryPlacinteCheeseW400 from './generated/gallery-placinte-cheese-400.webp';
 import galleryPlacinteCheeseW800 from './generated/gallery-placinte-cheese-800.webp';
 import galleryPlacinteCheeseW1200 from './generated/gallery-placinte-cheese-1200.webp';
@@ -23,6 +31,14 @@ import galleryTiramisuW400 from './generated/gallery-tiramisu-400.webp';
 import galleryTiramisuW800 from './generated/gallery-tiramisu-800.webp';
 import galleryTiramisuW1200 from './generated/gallery-tiramisu-1200.webp';
 import galleryTiramisuFallback from './generated/gallery-tiramisu-800.jpg';
+import pancakesBliniW400 from './generated/pancakes-blini-400.webp';
+import pancakesBliniW800 from './generated/pancakes-blini-800.webp';
+import pancakesBliniW1200 from './generated/pancakes-blini-1200.webp';
+import pancakesBliniFallback from './generated/pancakes-blini-800.jpg';
+import pirozhkiHomemadeW400 from './generated/pirozhki-homemade-400.webp';
+import pirozhkiHomemadeW800 from './generated/pirozhki-homemade-800.webp';
+import pirozhkiHomemadeW1200 from './generated/pirozhki-homemade-1200.webp';
+import pirozhkiHomemadeFallback from './generated/pirozhki-homemade-800.jpg';
 import saladHerringCoatW400 from './generated/salad-herring-coat-400.webp';
 import saladHerringCoatW800 from './generated/salad-herring-coat-800.webp';
 import saladHerringCoatW1200 from './generated/salad-herring-coat-1200.webp';
@@ -45,6 +61,18 @@ export const IMAGES = {
     blurDataUrl: 'data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAACwBACdASoQABwAPu1iqk4ppaQiMAgBMB2JZACdACKV+wRj35qjv9NW8jXOzMEAAP7DHE5409xaWb/7EbOXQyT7U5Sg5UGEoau1wsYNEWo7afBmbss3G5UvGopClwJIzJXtyiFLdEKDTvkbxDQCiR1ecobHdZbj/SUQGhy9OmFiGXaObfzrQLnGlRARED6W9pGzJdhde8YqH21s4PJhhZY/UCEv7DpNuGmgAA==',
     aspectRatio: 0.5629,
   },
+  galleryPirozhkiBasket: {
+    src: galleryPirozhkiBasketFallback,
+    srcSet: [`${galleryPirozhkiBasketW400} 400w`, `${galleryPirozhkiBasketW800} 800w`, `${galleryPirozhkiBasketW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAAAwBQCdASoQABwAPu1iqU2ppaOiMAgBMB2JbACdMoMYBsADQMyvJ4h33/L0dqzPL9pCoAD+7qCtsN+8i4IfRtN6nFPSUa5MjZ0jTORHuDCt9YJ/CanIaziiZfJI2ZC/vUYeWiVoJb225VwiFw/yKIubLB3TSYY0EA1oM7n3ef/MtHvjcbGpDPFWsfFnCnzGANwEQJED2jjm9iO+rI341sydlk3BxFHiA63w+RlxVgIwCBybMmeg/CHKoAA=',
+    aspectRatio: 0.5625,
+  },
+  galleryPirozhkiBox: {
+    src: galleryPirozhkiBoxFallback,
+    srcSet: [`${galleryPirozhkiBoxW400} 400w`, `${galleryPirozhkiBoxW800} 800w`, `${galleryPirozhkiBoxW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JbACdMoRwA8AVv+mjnPOeCqd8AeqpkAD7iBvkXjZTjvm3c93qmfNWZw7zJbn5ufBqX7V+ocpyUgEDyxNBRaLvnBW1Md14IwSSv6XxSiyJiVaVX6bBjBFo+I2MdSm4fFoRay06UN94oX1hcYIi8Rscyedo4cMqSu93pWScSxYPrgNQB0prj2rmq3bBsYhZEFm08cICJGyybpmBo+2Yj0ZlVpjnIpPe0AA=',
+    aspectRatio: 0.5625,
+  },
   galleryPlacinteCheese: {
     src: galleryPlacinteCheeseFallback,
     srcSet: [`${galleryPlacinteCheeseW400} 400w`, `${galleryPlacinteCheeseW800} 800w`, `${galleryPlacinteCheeseW1200} 1200w`].join(', '),
@@ -62,6 +90,18 @@ export const IMAGES = {
     srcSet: [`${galleryTiramisuW400} 400w`, `${galleryTiramisuW800} 800w`, `${galleryTiramisuW1200} 1200w`].join(', '),
     blurDataUrl: 'data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoQABwAPu1iqU2ppaOiMAgBMB2JZACdMoRwAdDFCCXkKC8+kimFS4AAAP5+kE0e1RcSq0XKR+wl0pB76zHEkGSPrwnMqvB04wzwbqK1+9NHyzyhDQzg/KwbjO69T984rfd2z+vLIWS20XgqovVJhT8uO7Zj1BFK0uEvMFG2ydSm/snqxLuzrQhzgwjO3g78A1QTTkgAAAA=',
     aspectRatio: 0.5629,
+  },
+  pancakesBlini: {
+    src: pancakesBliniFallback,
+    srcSet: [`${pancakesBliniW400} 400w`, `${pancakesBliniW800} 800w`, `${pancakesBliniW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAwBACdASoQABwAPu1iqk2ppaQiMAgBMB2JZgC7AB07Irdzdxtdg1xcrqgA/rycr56tMIA1pMMpTNIppWmvpo49NyHNenT6VjjPRngWQkexudbZiFqAalugtmnWFEAJ5V8GXMDuxz6YOtQ7V4/LzTEd+lxvVhVcDsD9u7gSh53/3wWibs79NkSULqoNCM0gAAA=',
+    aspectRatio: 0.5629,
+  },
+  pirozhkiHomemade: {
+    src: pirozhkiHomemadeFallback,
+    srcSet: [`${pirozhkiHomemadeW400} 400w`, `${pirozhkiHomemadeW800} 800w`, `${pirozhkiHomemadeW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAADQBACdASoQABcAPu1iqU2ppaOiMAgBMB2JbACdMoRwN6AAVe4hiZ129Ws1UZz6gAD9sFApYiNOZV0PzSSZu05Y8vPW6F3hr8imH6uRp/5grM2gpHXRf0KZSZ8sCHHUjyJx+rkB9YpeXu/7MHymYfQ012XEuIS9phNLhZy1fEqbVpBXOKIptZsNUTQ7yx5hLxMRXLm7FT/N2cjNyN17q88mzNVhucJTtoN2TT+ZPYAynOZKNBBkruAAAAA=',
+    aspectRatio: 0.6879,
   },
   saladHerringCoat: {
     src: saladHerringCoatFallback,

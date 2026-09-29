@@ -37,10 +37,8 @@ const GALLERY_CAPTIONS: Record<string, string> = {
   galleryPlacinteCheese: 'Плацинды с творогом и зеленью',
   gallerySausageRolls: 'Сосиски в тесте с кунжутом',
   galleryTiramisu: 'Тирамису в разрезе',
-  // Эти снимки владелец собирался прислать, но они пока не загружены.
-  galleryDraniki: 'Драники картофельные',
   galleryPirozhkiBox: 'Пирожки прямо из духовки',
-  galleryPirozhokCherry: 'Пирожок с вишней в разрезе',
+  galleryPirozhkiBasket: 'Пирожки в корзинке',
 };
 
 export interface BuiltInGalleryPhoto {
