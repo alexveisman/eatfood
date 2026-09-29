@@ -32,6 +32,12 @@ export function photoForDish(dishId: string): ImageSource | undefined {
  * фото всё равно покажется с общим текстом.
  */
 const GALLERY_CAPTIONS: Record<string, string> = {
+  galleryBliniPlatter: 'Блинчики шоколадные и классические',
+  galleryChallah: 'Халы к субботнему столу',
+  galleryPlacinteCheese: 'Плацинды с творогом и зеленью',
+  gallerySausageRolls: 'Сосиски в тесте с кунжутом',
+  galleryTiramisu: 'Тирамису в разрезе',
+  // Эти снимки владелец собирался прислать, но они пока не загружены.
   galleryDraniki: 'Драники картофельные',
   galleryPirozhkiBox: 'Пирожки прямо из духовки',
   galleryPirozhokCherry: 'Пирожок с вишней в разрезе',
