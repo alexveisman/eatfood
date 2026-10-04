@@ -1340,41 +1340,44 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
 
   'poppy-seed-buns': {
     ru: {
-      name: 'Булочки с маком',
+      name: 'Булочки сдобные',
       unit: 'за 1 шт (пак 35 ₪ / 4 шт)',
       weight: '~120 г / шт (4 шт ~480 г)',
       badge: 'Мягкое тесто',
-      shortDescription: 'Пышные сдобные булочки из мягкого дрожжевого теста со щедрой начинкой из сочного мака.',
-      fullDescription: 'Для настоящих ценителей домашней выпечки! Тесто нежнейшее и пушистое, с щедрой начинкой из сочного мака.',
-      ingredients: ['мука', 'мак', 'молоко', 'сливочное масло', 'сахар', 'яйца'],
+      shortDescription: 'Пышные булочки из мягкого дрожжевого теста — с сочным маком или с корицей.',
+      fullDescription: 'Для настоящих ценителей домашней выпечки! Тесто нежнейшее и пушистое, начинка на выбор: щедрый сочный мак или ароматная корица с сахаром.',
+      ingredients: ['мука', 'мак', 'корица', 'молоко', 'сливочное масло', 'сахар', 'яйца'],
       availableFillings: [
-        'С сочным маком'
+        'С сочным маком',
+        'С корицей'
       ],
       storageInfo: 'Хранятся мягкими до 3 дней в закрытом контейнере.'
     },
     en: {
-      name: 'Poppy Seed Buns',
+      name: 'Sweet Yeast Buns',
       unit: 'per 1 pc (pack 35 ₪ / 4 pcs)',
       weight: '~120g / pc (4 pcs ~480g)',
       badge: 'Soft Brioche',
-      shortDescription: 'Fluffy brioche buns with sweet juicy poppy seed filling.',
-      fullDescription: 'Delicious homemade brioche buns packed with juicy sweet poppy seed filling in soft golden yeast dough.',
-      ingredients: ['flour', 'poppy seeds', 'milk', 'butter', 'sugar', 'eggs'],
+      shortDescription: 'Fluffy brioche buns with juicy poppy seed or cinnamon filling.',
+      fullDescription: 'Delicious homemade brioche buns in soft golden yeast dough. Choose your filling: generous juicy poppy seeds or fragrant cinnamon sugar.',
+      ingredients: ['flour', 'poppy seeds', 'cinnamon', 'milk', 'butter', 'sugar', 'eggs'],
       availableFillings: [
-        'With Juicy Poppy Seeds'
+        'With Juicy Poppy Seeds',
+        'With Cinnamon'
       ],
       storageInfo: 'Stays soft for up to 3 days in an airtight box.'
     },
     he: {
-      name: 'לחמניות שמרים במילוי פרג',
+      name: 'לחמניות שמרים מתוקות',
       unit: 'ל-1 יח׳ (מארז 35 ₪ / 4 יח׳)',
       weight: 'כ-120 גרם / יח׳ (מארז כ-480 גרם)',
       badge: 'בצק רך',
-      shortDescription: 'לחמניות שמרים תפוחות עם מילוי פרג עסיסי.',
-      fullDescription: 'מאפי שמרים ביתיים ואווריריים במילוי פרג עסיסי עשיר.',
-      ingredients: ['קמח', 'פרג', 'חלב', 'חמאה', 'סוכר', 'ביצים'],
+      shortDescription: 'לחמניות שמרים תפוחות במילוי פרג עסיסי או קינמון.',
+      fullDescription: 'מאפי שמרים ביתיים ואווריריים. המילוי לבחירתכם: פרג עסיסי ונדיב או קינמון וסוכר ריחניים.',
+      ingredients: ['קמח', 'פרג', 'קינמון', 'חלב', 'חמאה', 'סוכר', 'ביצים'],
       availableFillings: [
-        'מילוי פרג עסיסי'
+        'מילוי פרג עסיסי',
+        'מילוי קינמון'
       ],
       storageInfo: 'נשמר רך עד 3 ימים בקופסה סגורה.'
     }
