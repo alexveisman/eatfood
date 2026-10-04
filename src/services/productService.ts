@@ -201,15 +201,35 @@ function mergeWithInitial(stored: StoredProduct, initial?: Product): Product {
 }
 
 /**
- * Устарела ли запись по сравнению со встроенным меню.
+ * Что из записи применить к каталогу.
  *
- * Касается только блюд, которые есть в коде: собственные блюда владельца
- * сравнивать не с чем, и они остаются всегда. Запись без даты изменения —
- * из самой первой версии сайта, её тоже считаем устаревшей.
+ * Возвращает запись целиком, её урезанную версию или null, если применять
+ * нечего. Нужно это из-за записей, оставшихся в облаке от первой версии
+ * сайта: цены и фотографии в них давно не те, и они перекрывали код.
+ *
+ * Отбрасывать такую запись целиком тоже нельзя — вместе с устаревшей ценой
+ * пропадала бы фотография, которую владелец когда-то загрузил сам. Поэтому
+ * от устаревшей записи остаётся только снимок, и только для блюда, у
+ * которого своего снимка в репозитории нет.
  */
-function isOutdated(record: StoredProduct): boolean {
-  if (!initialById.has(record.id)) return false;
-  return (record.updatedAt ?? '') < MENU_REVISION;
+function forCatalog(record: StoredProduct): StoredProduct | null {
+  const initial = initialById.get(record.id);
+
+  // Своё блюдо владельца сравнивать не с чем, удаление — всегда его решение.
+  if (!initial || record.deleted) return record;
+
+  // Запись правили после обновления меню — она свежее кода, применяем целиком.
+  if ((record.updatedAt ?? '') >= MENU_REVISION) return record;
+
+  // Дальше — устаревшая запись: цены и описания в ней старее кода и не нужны.
+  // А вот фотографию владелец загружал сам, и терять её нельзя. Оставляем её,
+  // но только там, где своего снимка в репозитории нет: если мы фото клали,
+  // оно новее.
+  if (isValidImageSource(initial.image)) return null;
+
+  const photo = record.image?.trim();
+  if (!photo) return null;
+  return { id: record.id, image: photo, gallery: record.gallery } as StoredProduct;
 }
 
 /**
@@ -219,12 +239,12 @@ function isOutdated(record: StoredProduct): boolean {
 function buildCatalog(storedRecords: StoredProduct[]): Product[] {
   const storedById = new Map<string, StoredProduct>();
   for (const record of storedRecords) {
-    if (isOutdated(record)) continue;
-    storedById.set(record.id, record);
+    const usable = forCatalog(record);
+    if (usable) storedById.set(record.id, usable);
   }
   for (const record of pendingOverrides.values()) {
-    if (isOutdated(record)) continue;
-    storedById.set(record.id, record);
+    const usable = forCatalog(record);
+    if (usable) storedById.set(record.id, usable);
   }
 
   const result: Product[] = [];
