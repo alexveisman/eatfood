@@ -1,5 +1,5 @@
 import { getFirestoreApi } from '../lib/firestoreLazy';
-import { INITIAL_PRODUCTS } from '../data/menuData';
+import { INITIAL_PRODUCTS, MENU_REVISION } from '../data/menuData';
 import type { ImageSource, Product } from '../types';
 import {
   idbDeleteGalleryPhoto,
@@ -201,13 +201,31 @@ function mergeWithInitial(stored: StoredProduct, initial?: Product): Product {
 }
 
 /**
+ * Устарела ли запись по сравнению со встроенным меню.
+ *
+ * Касается только блюд, которые есть в коде: собственные блюда владельца
+ * сравнивать не с чем, и они остаются всегда. Запись без даты изменения —
+ * из самой первой версии сайта, её тоже считаем устаревшей.
+ */
+function isOutdated(record: StoredProduct): boolean {
+  if (!initialById.has(record.id)) return false;
+  return (record.updatedAt ?? '') < MENU_REVISION;
+}
+
+/**
  * Собирает итоговый список: встроенное меню + правки владельца + его новые блюда − удалённые.
  * Локальные несинхронизированные правки идут последними и перекрывают облачные.
  */
 function buildCatalog(storedRecords: StoredProduct[]): Product[] {
   const storedById = new Map<string, StoredProduct>();
-  for (const record of storedRecords) storedById.set(record.id, record);
-  for (const record of pendingOverrides.values()) storedById.set(record.id, record);
+  for (const record of storedRecords) {
+    if (isOutdated(record)) continue;
+    storedById.set(record.id, record);
+  }
+  for (const record of pendingOverrides.values()) {
+    if (isOutdated(record)) continue;
+    storedById.set(record.id, record);
+  }
 
   const result: Product[] = [];
 
