@@ -316,8 +316,10 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                       </button>
                     )}
 
-                    {/* Additional Info / Ingredients Accordion Toggle */}
-                    {(product.ingredients?.length || product.cookingInstructions || product.storageInfo || product.weight) && (
+                    {/* Состав блюда. Рекомендации по разогреву, хранению и вес порции
+                        владелец убрал: вес и так виден под ценой, а остальное
+                        проще сказать при заказе. */}
+                    {product.ingredients && product.ingredients.length > 0 && (
                       <button
                         type="button"
                         onClick={() => togglePurse(product.id)}
@@ -355,35 +357,13 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                     </div>
                   )}
 
-                  {/* Extra Info Accordion Body */}
-                  {isPurseOpen && (
-                    <div className="mt-2 p-3 bg-[#FAF7F2] rounded-xl border border-[#E8E2D9] text-xs space-y-1.5 text-[#5D4A3D] animate-in fade-in slide-in-from-top-1 duration-200">
-                      {product.ingredients && product.ingredients.length > 0 && (
-                        <p>
-                          <strong className="text-[#4A3728] font-semibold">{t.ingredientsTitle} </strong>
-                          {product.ingredients.join(', ')}
-                        </p>
-                      )}
-
-                      {product.cookingInstructions && (
-                        <p>
-                          <strong className="text-[#4A3728] font-semibold">{t.instructionsTitle} </strong>
-                          {product.cookingInstructions}
-                        </p>
-                      )}
-
-                      {product.storageInfo && (
-                        <p>
-                          <strong className="text-[#4A3728] font-semibold">{t.storageLabel} </strong>
-                          {product.storageInfo}
-                        </p>
-                      )}
-
-                      {product.weight && (
-                        <p className="text-[11px] text-gray-500 font-medium">
-                          {t.portionWeightLabel} {product.weight}
-                        </p>
-                      )}
+                  {/* Состав блюда */}
+                  {isPurseOpen && product.ingredients && product.ingredients.length > 0 && (
+                    <div className="mt-2 p-3 bg-[#FAF7F2] rounded-xl border border-[#E8E2D9] text-xs text-[#5D4A3D] animate-in fade-in slide-in-from-top-1 duration-200">
+                      <p>
+                        <strong className="text-[#4A3728] font-semibold">{t.ingredientsTitle} </strong>
+                        {product.ingredients.join(', ')}
+                      </p>
                     </div>
                   )}
                 </div>

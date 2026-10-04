@@ -308,7 +308,7 @@ export const DishEditor: React.FC<DishEditorProps> = ({ product, onCancel, onSav
               />
             </Field>
 
-            <Field label="Условия хранения">
+            <Field label="Условия хранения" hint="На сайте сейчас не показывается — в карточке остался только состав">
               <textarea
                 value={draft.storageInfo}
                 onChange={(e) => set('storageInfo', e.target.value)}
@@ -317,7 +317,7 @@ export const DishEditor: React.FC<DishEditorProps> = ({ product, onCancel, onSav
               />
             </Field>
 
-            <Field label="Как разогреть / подать">
+            <Field label="Как разогреть / подать" hint="На сайте сейчас не показывается — в карточке остался только состав">
               <textarea
                 value={draft.cookingInstructions}
                 onChange={(e) => set('cookingInstructions', e.target.value)}

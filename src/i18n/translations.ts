@@ -279,7 +279,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     footerHomemadeGuarantee: '100% натуральные фермерские продукты без консервантов',
 
     // Restaurant Menu Additional Localized Strings
-    ingredientsAndTips: 'Состав и рекомендации к блюду',
+    ingredientsAndTips: 'Состав',
     quickOrderWhatsApp: 'Быстрый заказ в WhatsApp',
     storageLabel: 'Хранение:',
     portionWeightLabel: 'Вес порции:',
@@ -416,7 +416,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     footerHomemadeGuarantee: '100% natural farm ingredients without preservatives',
 
     // Restaurant Menu Additional Localized Strings
-    ingredientsAndTips: 'Ingredients & Chef Tips',
+    ingredientsAndTips: 'Ingredients',
     quickOrderWhatsApp: 'Quick Order on WhatsApp',
     storageLabel: 'Storage:',
     portionWeightLabel: 'Portion weight:',
@@ -553,7 +553,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     footerHomemadeGuarantee: '100% רכיבי חווה טבעיים ללא חומרים משמרים',
 
     // Restaurant Menu Additional Localized Strings
-    ingredientsAndTips: 'רכיבים והמלצות הגשה',
+    ingredientsAndTips: 'רכיבים',
     quickOrderWhatsApp: 'הזמנה מהירה בוואטסאפ',
     storageLabel: 'הנחיות אחסון:',
     portionWeightLabel: 'משקל מנה:',
