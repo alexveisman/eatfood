@@ -47,6 +47,8 @@ import saladOlivierW400 from './generated/salad-olivier-400.webp';
 import saladOlivierFallback from './generated/salad-olivier-800.jpg';
 import saladVinegretW400 from './generated/salad-vinegret-400.webp';
 import saladVinegretFallback from './generated/salad-vinegret-800.jpg';
+import syrnikiW400 from './generated/syrniki-400.webp';
+import syrnikiFallback from './generated/syrniki-800.jpg';
 
 export const IMAGES = {
   galleryBliniPlatter: {
@@ -120,6 +122,12 @@ export const IMAGES = {
     srcSet: [`${saladVinegretW400} 400w`].join(', '),
     blurDataUrl: 'data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABwBACdASoQAB0APu1iqk2ppaQiMAgBMB2JbAC7MoAlxBiA0qFNYVVsiidzUAD+shHMKKYwbnuUHhgCw5Q2AH5ERhZynMOmgjenzq1hCF2xF6bGqPPVsNtnTf5oJUls6hTZ2PmcWGC2nrNpbJATLzTDJkrJkOIPolRGyt9n5sFUqL4sXlBa4PA50FT6tqb0yWWV5E3ubpyPbvTSxmtYzX/aAAA=',
     aspectRatio: 0.5611,
+  },
+  syrniki: {
+    src: syrnikiFallback,
+    srcSet: [`${syrnikiW400} 400w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQAgCdASoQAAkAA4BaJbACdAYvXyYkpEyz4gAA/t4hNVkgEQjvt+gqwpJyiafMm3vdFTmfdJ4ZmXbSE7TVRF4detFlLBMOJckeI04XXSYLW3dub5W5RF6y6TAVzOZtpLjfGvYiWmYlw/gAAAA=',
+    aspectRatio: 1.7647,
   },
 } satisfies Record<string, ResponsiveImage>;
 
