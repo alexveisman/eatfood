@@ -18,6 +18,15 @@ interface SmartImageProps {
   priority?: boolean;
   /** Что показать, если фото нет или оно не загрузилось. */
   fallback?: React.ReactNode;
+  /**
+   * Запасное изображение на случай, если основное не открылось.
+   *
+   * Нужно вот для чего: фотография, когда-то сохранённая владельцем, может
+   * перестать открываться (ссылка на облако, которое отключено, или на файл,
+   * которого больше нет). Раньше в этом случае выводилась заглушка «нет фото»,
+   * хотя у блюда есть снимок, встроенный в сборку. Теперь показывается он.
+   */
+  fallbackSource?: ImageSource;
   /** Вызывается, когда картинку загрузить не удалось (все запасные адреса исчерпаны). */
   onFailed?: (src: string) => void;
   onClick?: () => void;
@@ -38,16 +47,27 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   wrapperClassName = '',
   priority = false,
   fallback,
+  fallbackSource,
   onFailed,
   onClick,
 }) => {
-  const resolved = useMemo(() => resolveImage(source), [source]);
+  const primary = useMemo(() => resolveImage(source), [source]);
+  const spare = useMemo(() => resolveImage(fallbackSource), [fallbackSource]);
+  /** Какой источник показываем сейчас: основной или запасной, если основной не открылся. */
+  const [useSpare, setUseSpare] = useState(false);
+  const resolved = useSpare && spare ? spare : primary;
 
   const [currentSrc, setCurrentSrc] = useState(resolved?.src ?? '');
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasFailed, setHasFailed] = useState(false);
   const triedFallbackRef = useRef(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
+
+  // Смена блюда или его фотографии начинает показ заново — в том числе возвращает
+  // нас с запасного снимка на основной.
+  useEffect(() => {
+    setUseSpare(false);
+  }, [primary, spare]);
 
   useEffect(() => {
     triedFallbackRef.current = false;
@@ -72,6 +92,13 @@ export const SmartImage: React.FC<SmartImageProps> = ({
         return;
       }
     }
+    // Основное фото не открылось — пробуем встроенный снимок, прежде чем сдаться.
+    if (!useSpare && spare && spare.src !== currentSrc) {
+      setUseSpare(true);
+      triedFallbackRef.current = false;
+      return;
+    }
+
     setHasFailed(true);
     onFailed?.(currentSrc);
   };

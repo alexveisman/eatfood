@@ -5,6 +5,7 @@ import { getTranslations } from '../utils/i18nHelper';
 import { openDirectWhatsAppInquiry } from '../utils/whatsapp';
 import { CategoryNav } from './CategoryNav';
 import { SmartImage } from './SmartImage';
+import { photoForDish } from '../assets/images/builtInPhotos';
 import { ImageLightbox } from './ImageLightbox';
 
 interface RestaurantMenuListProps {
@@ -165,6 +166,8 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
                   >
                     <SmartImage
                       source={product.image}
+                      /* Если сохранённое фото не открылось, показываем снимок из сборки. */
+                      fallbackSource={photoForDish(product.id)}
                       alt={product.name}
                       /* Миниатюра никогда не шире 112px, поэтому браузер берёт вариант 400w, а не 1200w. */
                       sizes="(max-width: 640px) 88px, 112px"
