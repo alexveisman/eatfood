@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Product, Language, Category, CategoryId } from '../types';
-import { MessageCircle, Sparkles, Flame, ChevronDown, ChevronUp, Layers, UtensilsCrossed, Image as ImageIcon } from 'lucide-react';
+import { MessageCircle, Flame, ChevronDown, ChevronUp, Layers, UtensilsCrossed, Image as ImageIcon } from 'lucide-react';
 import { getTranslations } from '../utils/i18nHelper';
 import { openDirectWhatsAppInquiry } from '../utils/whatsapp';
 import { CategoryNav } from './CategoryNav';
@@ -100,33 +100,21 @@ export const RestaurantMenuList: React.FC<RestaurantMenuListProps> = ({
 
   return (
     <>
-    <div className="bg-white rounded-2xl border border-[#E8E2D9] shadow-xs overflow-hidden">
-      {/* Заголовок раздела — прокручивается вместе со страницей. */}
-      <div className="bg-[#FAF7F2] px-4 sm:px-6 pt-3.5 pb-2.5 space-y-2">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div className="space-y-0.5">
-            <div className="flex items-center gap-1.5 text-xs font-bold text-[#D97706] uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>{t.restaurantMenuTitle}</span>
-            </div>
-            <p className="text-xs text-[#6D5A4C] leading-relaxed">
-              {t.textUsWhatsAppDesc}
-            </p>
-          </div>
-
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#25D366]/10 text-[#128C7E] text-xs font-semibold self-start sm:self-auto border border-[#25D366]/20">
-            <MessageCircle className="w-3.5 h-3.5" />
-            <span>{t.quickOrderWhatsApp}</span>
-          </div>
-        </div>
-      </div>
-
+    {/*
+      overflow-clip, а не overflow-hidden: hidden делает карточку контейнером
+      прокрутки, и закреплённый поиск начинает липнуть внутри неё — съезжает
+      вниз на 48px и наезжает на первое блюдо. Раньше это было не видно,
+      потому что сверху стояла шапка раздела и отодвигала поиск ниже порога.
+      clip так же обрезает углы, но контейнером прокрутки не становится.
+    */}
+    <div className="bg-white rounded-2xl border border-[#E8E2D9] shadow-xs overflow-clip">
       {/*
-        Закреплён только поиск с категориями. Раньше вместе с ними «прилипал» и
-        заголовок раздела — блок высотой 237px занимал четверть экрана телефона
-        и налезал на первое блюдо.
+        Шапка раздела убрана по просьбе владельца: название, подпись про
+        WhatsApp и зелёная плашка «Быстрый заказ» повторяли то, что и так
+        видно по кнопке у каждого блюда. Остался поиск с категориями — он
+        закреплён при прокрутке.
       */}
-      <div className="sticky top-12 sm:top-14 z-30 bg-[#FAF7F2]/95 backdrop-blur-md px-4 sm:px-6 pb-2.5 border-b border-[#E8E2D9]">
+      <div className="sticky top-12 sm:top-14 z-30 bg-[#FAF7F2]/95 backdrop-blur-md px-4 sm:px-6 pt-3 pb-2.5 border-b border-[#E8E2D9]">
         <CategoryNav
           categories={categories}
           activeCategory={activeCategory}
