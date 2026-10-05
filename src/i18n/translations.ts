@@ -607,6 +607,68 @@ export interface LocalizedProductData {
 }
 
 export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProductData>> = {
+  'sausage-rolls': {
+    ru: {
+      name: 'Сосиски в тесте',
+      unit: 'за 1 шт',
+      weight: '60 г теста на сосиску',
+      badge: 'С пылу с жару 🔥',
+      shortDescription: 'Сочная сосиска в мягком сдобном тесте, запечённая до румяной корочки и посыпанная кунжутом.',
+      fullDescription: 'Домашние сосиски в тесте: тесто сдобное и мягкое, 60 г на каждую сосиску. Запекаем до золотистой корочки и щедро посыпаем кунжутом. Хороши и горячими, и остывшими — в школу, на работу или в дорогу.',
+      ingredients: [
+        'мука пшеничная',
+        'молоко',
+        'яйцо',
+        'сливочное масло',
+        'сахар',
+        'соль',
+        'дрожжи',
+        'сосиски',
+        'кунжут'
+      ],
+      storageInfo: 'Хранить в холодильнике до 48 часов.'
+    },
+    en: {
+      name: 'Sausage Rolls',
+      unit: 'per 1 pc',
+      weight: '60 g of dough per sausage',
+      badge: 'Fresh from the oven 🔥',
+      shortDescription: 'Juicy sausage in soft enriched dough, baked golden and topped with sesame seeds.',
+      fullDescription: 'Homemade sausage rolls: soft enriched dough, 60 g of it wrapped around every sausage. Baked to a golden crust and generously sprinkled with sesame. Great warm or cold — for school, work or the road.',
+      ingredients: [
+        'wheat flour',
+        'milk',
+        'egg',
+        'butter',
+        'sugar',
+        'salt',
+        'yeast',
+        'sausages',
+        'sesame seeds'
+      ],
+      storageInfo: 'Keep refrigerated for up to 48 hours.'
+    },
+    he: {
+      name: 'נקניקיות בבצק',
+      unit: 'ל-1 יח׳',
+      weight: '60 גרם בצק לכל נקניקייה',
+      badge: 'חם מהתנור 🔥',
+      shortDescription: 'נקניקייה עסיסית בבצק שמרים רך, אפויה עד להזהבה ומפוזרת בשומשום.',
+      fullDescription: 'נקניקיות בבצק ביתיות: בצק שמרים רך, 60 גרם סביב כל נקניקייה. אופים עד לקרום זהוב ומפזרים שומשום בנדיבות. טעים חם וגם קר — לבית הספר, לעבודה או לדרך.',
+      ingredients: [
+        'קמח חיטה',
+        'חלב',
+        'ביצה',
+        'חמאה',
+        'סוכר',
+        'מלח',
+        'שמרים',
+        'נקניקיות',
+        'שומשום'
+      ],
+      storageInfo: 'לשמור בקירור עד 48 שעות.'
+    }
+  },
   'syrniki': {
     ru: {
       name: 'Сырники творожные',

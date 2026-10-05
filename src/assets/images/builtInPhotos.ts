@@ -34,7 +34,6 @@ export function photoForDish(dishId: string): ImageSource | undefined {
 const GALLERY_CAPTIONS: Record<string, string> = {
   galleryBliniPlatter: 'Блинчики шоколадные и классические',
   galleryChallah: 'Халы к субботнему столу',
-  gallerySausageRolls: 'Сосиски в тесте с кунжутом',
   galleryTiramisu: 'Тирамису в разрезе',
   galleryPirozhkiBox: 'Пирожки прямо из духовки',
   galleryPirozhkiBasket: 'Пирожки в корзинке',

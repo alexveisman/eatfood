@@ -19,10 +19,6 @@ import galleryPirozhkiBoxW400 from './generated/gallery-pirozhki-box-400.webp';
 import galleryPirozhkiBoxW800 from './generated/gallery-pirozhki-box-800.webp';
 import galleryPirozhkiBoxW1200 from './generated/gallery-pirozhki-box-1200.webp';
 import galleryPirozhkiBoxFallback from './generated/gallery-pirozhki-box-800.jpg';
-import gallerySausageRollsW400 from './generated/gallery-sausage-rolls-400.webp';
-import gallerySausageRollsW800 from './generated/gallery-sausage-rolls-800.webp';
-import gallerySausageRollsW1200 from './generated/gallery-sausage-rolls-1200.webp';
-import gallerySausageRollsFallback from './generated/gallery-sausage-rolls-800.jpg';
 import galleryTiramisuW400 from './generated/gallery-tiramisu-400.webp';
 import galleryTiramisuW800 from './generated/gallery-tiramisu-800.webp';
 import galleryTiramisuW1200 from './generated/gallery-tiramisu-1200.webp';
@@ -47,6 +43,10 @@ import saladOlivierW400 from './generated/salad-olivier-400.webp';
 import saladOlivierFallback from './generated/salad-olivier-800.jpg';
 import saladVinegretW400 from './generated/salad-vinegret-400.webp';
 import saladVinegretFallback from './generated/salad-vinegret-800.jpg';
+import sausageRollsW400 from './generated/sausage-rolls-400.webp';
+import sausageRollsW800 from './generated/sausage-rolls-800.webp';
+import sausageRollsW1200 from './generated/sausage-rolls-1200.webp';
+import sausageRollsFallback from './generated/sausage-rolls-800.jpg';
 import syrnikiW400 from './generated/syrniki-400.webp';
 import syrnikiW800 from './generated/syrniki-800.webp';
 import syrnikiW1200 from './generated/syrniki-1200.webp';
@@ -76,12 +76,6 @@ export const IMAGES = {
     srcSet: [`${galleryPirozhkiBoxW400} 400w`, `${galleryPirozhkiBoxW800} 800w`, `${galleryPirozhkiBoxW1200} 1200w`].join(', '),
     blurDataUrl: 'data:image/webp;base64,UklGRswAAABXRUJQVlA4IMAAAADQBACdASoQABwAPu1iqU2ppaOiMAgBMB2JbACdMoRwA8AVv+mjnPOeCqd8AeqpkAD7iBvkXjZTjvm3c93qmfNWZw7zJbn5ufBqX7V+ocpyUgEDyxNBRaLvnBW1Md14IwSSv6XxSiyJiVaVX6bBjBFo+I2MdSm4fFoRay06UN94oX1hcYIi8Rscyedo4cMqSu93pWScSxYPrgNQB0prj2rmq3bBsYhZEFm08cICJGyybpmBo+2Yj0ZlVpjnIpPe0AA=',
     aspectRatio: 0.5625,
-  },
-  gallerySausageRolls: {
-    src: gallerySausageRollsFallback,
-    srcSet: [`${gallerySausageRollsW400} 400w`, `${gallerySausageRollsW800} 800w`, `${gallerySausageRollsW1200} 1200w`].join(', '),
-    blurDataUrl: 'data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAQCdASoQAA4AA4BaJbACdAEF83VIAP14KwFWBUSp/V578wDntWHx1MNsHKsc6eShv5B2gGgkMb8pe3vWqmTxA16cUiSJnty5JXx/qSItZ8Bw8Uoa3q9D7tMTp5MRVUF1VTz9BtAdjwRTReAAAA==',
-    aspectRatio: 1.1127,
   },
   galleryTiramisu: {
     src: galleryTiramisuFallback,
@@ -124,6 +118,12 @@ export const IMAGES = {
     srcSet: [`${saladVinegretW400} 400w`].join(', '),
     blurDataUrl: 'data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABwBACdASoQAB0APu1iqk2ppaQiMAgBMB2JbAC7MoAlxBiA0qFNYVVsiidzUAD+shHMKKYwbnuUHhgCw5Q2AH5ERhZynMOmgjenzq1hCF2xF6bGqPPVsNtnTf5oJUls6hTZ2PmcWGC2nrNpbJATLzTDJkrJkOIPolRGyt9n5sFUqL4sXlBa4PA50FT6tqb0yWWV5E3ubpyPbvTSxmtYzX/aAAA=',
     aspectRatio: 0.5611,
+  },
+  sausageRolls: {
+    src: sausageRollsFallback,
+    srcSet: [`${sausageRollsW400} 400w`, `${sausageRollsW800} 800w`, `${sausageRollsW1200} 1200w`].join(', '),
+    blurDataUrl: 'data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAACwAQCdASoQAA4AA4BaJbACdAEF83VIAP14KwFWBUSp/V578wDntWHx1MNsHKsc6eShv5B2gGgkMb8pe3vWqmTxA16cUiSJnty5JXx/qSItZ8Bw8Uoa3q9D7tMTp5MRVUF1VTz9BtAdjwRTReAAAA==',
+    aspectRatio: 1.1127,
   },
   syrniki: {
     src: syrnikiFallback,
