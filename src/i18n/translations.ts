@@ -1047,14 +1047,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'сыр (pizza mix / твёрдый)'
       ],
       availableFillings: [
-        'Картофель, грибы и лук',
-        'Капуста, морковь и лук',
-        'Грибы и лук',
-        'Творог сладкий',
-        'Творог с зеленью',
-        'Ягоды',
-        'Вишня',
-        'Сыр с зеленью'
+        'Картофель, грибы и лук — 110 ₪/кг',
+        'Капуста, морковь и лук — 110 ₪/кг',
+        'Грибы и лук — 110 ₪/кг',
+        'Творог сладкий — 110 ₪/кг',
+        'Творог с зеленью — 110 ₪/кг',
+        'Ягоды — 110 ₪/кг',
+        'Вишня — 120 ₪/кг',
+        'Сыр с зеленью — 120 ₪/кг'
       ],
       cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.'
     },
@@ -1090,14 +1090,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'cheese (pizza mix / hard)'
       ],
       availableFillings: [
-        'Potato, mushrooms & onion',
-        'Cabbage, carrot & onion',
-        'Mushrooms & onion',
-        'Sweet curd',
-        'Curd & herbs',
-        'Berries',
-        'Sour cherry',
-        'Cheese & herbs'
+        'Potato, mushrooms & onion — 110 ₪ / kg',
+        'Cabbage, carrot & onion — 110 ₪ / kg',
+        'Mushrooms & onion — 110 ₪ / kg',
+        'Sweet curd — 110 ₪ / kg',
+        'Curd & herbs — 110 ₪ / kg',
+        'Berries — 110 ₪ / kg',
+        'Sour cherry — 120 ₪ / kg',
+        'Cheese & herbs — 120 ₪ / kg'
       ],
       cookingInstructions: 'Boil in salted water (or sweetened water for cherries) for 4-5 minutes after floating. Toss with melted butter.'
     },
@@ -1133,14 +1133,14 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'גבינה (פיצה מיקס / קשה)'
       ],
       availableFillings: [
-        'תפוח אדמה, פטריות ובצל',
-        'כרוב, גזר ובצל',
-        'פטריות ובצל',
-        'גבינה לבנה מתוקה',
-        'גבינה לבנה ועשבי תיבול',
-        'פירות יער',
-        'דובדבנים',
-        'גבינה ועשבי תיבול'
+        'תפוח אדמה, פטריות ובצל — 110 ₪ / ק״ג',
+        'כרוב, גזר ובצל — 110 ₪ / ק״ג',
+        'פטריות ובצל — 110 ₪ / ק״ג',
+        'גבינה לבנה מתוקה — 110 ₪ / ק״ג',
+        'גבינה לבנה ועשבי תיבול — 110 ₪ / ק״ג',
+        'פירות יער — 110 ₪ / ק״ג',
+        'דובדבנים — 120 ₪ / ק״ג',
+        'גבינה ועשבי תיבול — 120 ₪ / ק״ג'
       ],
       cookingInstructions: 'להכניס למים רותחים מומלחים (או ממותקים לדובדבנים). לבשל 4-5 דקות לאחר הציפה. למרוח בחמאה.'
     }
@@ -1180,10 +1180,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'сыр (pizza mix / твёрдый)'
       ],
       availableFillings: [
-        'Без начинки — 4 ₪/шт',
+        'Без начинки — 6 ₪/шт',
         'Картофель, грибы и лук — 8 ₪/шт',
         'Яйцо и зелёный лук — 8 ₪/шт',
-        'Грибы и лук — 8 ₪/шт',
+        'Грибы и лук — 10 ₪/шт',
         'Творог сладкий — 10 ₪/шт',
         'Творог с зеленью — 10 ₪/шт',
         'Творог с яблоком — 10 ₪/шт',
@@ -1228,10 +1228,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'cheese (pizza mix / hard)'
       ],
       availableFillings: [
-        'Plain, no filling — 4 ₪ / pc',
+        'Plain, no filling — 6 ₪ / pc',
         'Potato, mushrooms & onion — 8 ₪ / pc',
         'Egg & spring onion — 8 ₪ / pc',
-        'Mushrooms & onion — 8 ₪ / pc',
+        'Mushrooms & onion — 10 ₪ / pc',
         'Sweet curd — 10 ₪ / pc',
         'Curd & herbs — 10 ₪ / pc',
         'Curd & apple — 10 ₪ / pc',
@@ -1276,10 +1276,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
         'גבינה (פיצה מיקס / קשה)'
       ],
       availableFillings: [
-        'ללא מילוי — 4 ₪ / יח׳',
+        'ללא מילוי — 6 ₪ / יח׳',
         'תפוח אדמה, פטריות ובצל — 8 ₪ / יח׳',
         'ביצה ובצל ירוק — 8 ₪ / יח׳',
-        'פטריות ובצל — 8 ₪ / יח׳',
+        'פטריות ובצל — 10 ₪ / יח׳',
         'גבינה לבנה מתוקה — 10 ₪ / יח׳',
         'גבינה לבנה ועשבי תיבול — 10 ₪ / יח׳',
         'גבינה לבנה ותפוח — 10 ₪ / יח׳',
@@ -1341,7 +1341,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
   'poppy-seed-buns': {
     ru: {
       name: 'Булочки сдобные',
-      unit: 'за 1 шт (пак 35 ₪ / 4 шт)',
+      unit: 'за 1 шт',
       weight: '~120 г / шт (4 шт ~480 г)',
       badge: 'Мягкое тесто',
       shortDescription: 'Пышные булочки из мягкого дрожжевого теста — с сочным маком или с корицей.',
@@ -1355,7 +1355,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     en: {
       name: 'Sweet Yeast Buns',
-      unit: 'per 1 pc (pack 35 ₪ / 4 pcs)',
+      unit: 'per 1 pc',
       weight: '~120g / pc (4 pcs ~480g)',
       badge: 'Soft Brioche',
       shortDescription: 'Fluffy brioche buns with juicy poppy seed or cinnamon filling.',
@@ -1369,7 +1369,7 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
     },
     he: {
       name: 'לחמניות שמרים מתוקות',
-      unit: 'ל-1 יח׳ (מארז 35 ₪ / 4 יח׳)',
+      unit: 'ל-1 יח׳',
       weight: 'כ-120 גרם / יח׳ (מארז כ-480 גרם)',
       badge: 'בצק רך',
       shortDescription: 'לחמניות שמרים תפוחות במילוי פרג עסיסי או קינמון.',
@@ -1729,10 +1729,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Горячий ароматный осетинский пирог с тончайшим нежным тестом и щедрой сочной начинкой, обильно смазанный сливочным маслом.',
       ingredients: ['мука', 'сыр', 'сливочное масло', 'молоко', 'дрожжи', 'соль', 'начинка на выбор'],
       availableFillings: [
-        'С сыром и зеленью (Уалибах) — 80 ₪',
-        'С сыром и картофелем (Картофджин) — 80 ₪',
-        'С сочным мясным фаршем (Фыдджин) — 90 ₪',
-        'С сыром и листьями свеклы (Цахараджин) — 80 ₪'
+        'С сыром и зеленью (Уалибах) (90 ₪)',
+        'С сыром и картофелем (Картофджин) (90 ₪)',
+        'С сыром и листьями свеклы (Цахараджин) (90 ₪)',
+        'С сочным мясным фаршем (Фыдджин) (100 ₪)'
       ],
       storageInfo: 'Разогревать в духовке.'
     },
@@ -1745,10 +1745,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Hot aromatic Ossetian flatbread pie with paper-thin crust, loaded with melted cheese and seasoned fillings, brushed with melted butter.',
       ingredients: ['flour', 'cheese', 'butter', 'milk', 'yeast', 'salt', 'filling of choice'],
       availableFillings: [
-        'With Cheese & Fresh Herbs (Walibakh) — 80 ₪',
-        'With Cheese & Potatoes (Kartofdzhin) — 80 ₪',
-        'With Juicy Minced Meat (Fyddzhin) — 90 ₪',
-        'With Cheese & Beetroot Leaves (Tsakharadzhin) — 80 ₪'
+        'Cheese & herbs (Ualibakh) (90 ₪)',
+        'Cheese & potato (Kartofdzhin) (90 ₪)',
+        'Cheese & beet leaves (Tsakharadzhin) (90 ₪)',
+        'Juicy minced meat (Fydzhin) (100 ₪)'
       ],
       storageInfo: 'Best reheated in the oven.'
     },
@@ -1761,10 +1761,10 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'פאי אוסטי מסורתי חם וריחני עם בצק דק במיוחד, מילוי עשיר ונמס בפה וציפוי חמאה נימוחה.',
       ingredients: ['קמח', 'גבינה', 'חמאה', 'חלב', 'שמרים', 'מלח', 'מילוי לבחירה'],
       availableFillings: [
-        'עם גבינה ועשבי תיבול (ואליבאח) — 80 ₪',
-        'עם גבינה ותפוחי אדמה (קרטופג׳ין) — 80 ₪',
-        'עם בשר טחון עסיסי (פידג׳ין) — 90 ₪',
-        'עם גבינה ועלי סלק (צחרדג׳ין) — 80 ₪'
+        'גבינה ועשבי תיבול (אואליבח) (90 ₪)',
+        'גבינה ותפוח אדמה (קרטופג׳ין) (90 ₪)',
+        'גבינה ועלי סלק (צחרג׳ין) (90 ₪)',
+        'בשר טחון עסיסי (פידג׳ין) (100 ₪)'
       ],
       storageInfo: 'מומלץ לחימום קל בתנור.'
     }
@@ -1780,8 +1780,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Итальянский ремесленный хлеб длительной холодной ферментации. Хрустящая корочка, влажный ноздреватый мякиш и аромат прованских трав с оливковым маслом.',
       ingredients: ['мука', 'вода', 'оливковое масло', 'соль', 'розмарин', 'чеснок', 'оливки', 'томаты', 'дрожжи'],
       availableFillings: [
-        'Классическая чиабатта с хрустящей корочкой (10 ₪/ шт около 200 г)',
-        'Фокачча с томатами, розмарином и крупной солью (20 ₪)',
+        'Классическая чиабатта с хрустящей корочкой (14 ₪)',
+        'Фокачча с томатами, розмарином и крупной солью (22 ₪)',
         'Фокачча с чесночным маслом и оливками (25 ₪)'
       ],
       storageInfo: 'Хранить в бумажном пакете до 2 суток. Перед подачей разогреть в духовке 3 мин.'
@@ -1795,9 +1795,9 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'Slow-fermented artisan Italian bread. Golden crispy crust, airy tender crumb, infused with olive oil and aromatic herbs.',
       ingredients: ['flour', 'water', 'olive oil', 'salt', 'rosemary', 'garlic', 'olives', 'tomatoes', 'yeast'],
       availableFillings: [
-        'Classic Crispy Crust Ciabatta (10 ₪ / pc ~200g)',
-        'Tomato, Rosemary & Sea Salt Focaccia (20 ₪)',
-        'Garlic Butter & Olive Focaccia (25 ₪)'
+        'Classic crispy crust ciabatta (14 ₪)',
+        'Tomato, rosemary & sea salt focaccia (22 ₪)',
+        'Garlic butter & olive focaccia (25 ₪)'
       ],
       storageInfo: 'Store in paper bag up to 2 days. Reheat in oven for 3 mins before serving.'
     },
@@ -1810,8 +1810,8 @@ export const PRODUCT_TRANSLATIONS: Record<string, Record<Language, LocalizedProd
       fullDescription: 'לחם איטלקי מסורתי בהתפחה אטית. קראסט פריך, מרקם אוורירי ורך, מתובל בשמן זית איכותי ועשבי תיבול.',
       ingredients: ['קמח', 'מים', 'שמן זית', 'מלח', 'רוזמרין', 'שום', 'זיתים', 'עגבניות', 'שמרים'],
       availableFillings: [
-        'צ׳יאבטה קלאסית עם קרום פריך (10 ₪ / יח׳ כ-200 גרם)',
-        'פוקאצ׳ה עגבניות, רוזמרין ומלח ים (20 ₪)',
+        'צ׳יאבטה קלאסית עם קרום פריך (14 ₪)',
+        'פוקאצ׳ה עגבניות, רוזמרין ומלח ים (22 ₪)',
         'פוקאצ׳ה שמן שום וזיתים (25 ₪)'
       ],
       storageInfo: 'לשמור בשקית נייר עד יומיים. מומלץ לחמם בתנור 3 דקות לפני ההגשה.'

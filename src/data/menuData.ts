@@ -27,7 +27,7 @@ import { photoForDish } from '../assets/images/builtInPhotos';
  * Обновляйте дату, когда меняете меню здесь: иначе старая запись из облака
  * снова окажется «свежее» и перекроет правку.
  */
-export const MENU_REVISION = '2026-10-04T18:00:00.000Z';
+export const MENU_REVISION = '2026-10-05T12:00:00.000Z';
 
 export const WHATSAPP_PHONE = '972552691864';
 export const PICKUP_ADDRESS = 'ул. Реувен Рубин 5';
@@ -130,7 +130,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 2,
     name: 'Осетинский пирог',
     category: 'bakery',
-    price: 80,
+    price: 90,
     priceFrom: true,
     unit: 'за 1 шт (~1 кг, ⌀ 30 см)',
     minQuantity: 1,
@@ -144,10 +144,10 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'С сыром и зеленью (Уалибах) — 80 ₪',
-      'С сыром и картофелем (Картофджин) — 80 ₪',
-      'С сочным мясным фаршем (Фыдджин) — 90 ₪',
-      'С сыром и листьями свеклы (Цахараджин) — 80 ₪'
+      'С сыром и зеленью (Уалибах) (90 ₪)',
+      'С сыром и картофелем (Картофджин) (90 ₪)',
+      'С сыром и листьями свеклы (Цахараджин) (90 ₪)',
+      'С сочным мясным фаршем (Фыдджин) (100 ₪)'
     ],
     fillingRequired: true,
     storageInfo: 'Разогревать в духовке.'
@@ -192,7 +192,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 4,
     name: 'Блинчики домашние тонкие',
     category: 'blini',
-    price: 4,
+    price: 6,
     priceFrom: true,
     unit: 'за 1 шт',
     minQuantity: 1,
@@ -230,10 +230,10 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Без начинки — 4 ₪/шт',
+      'Без начинки — 6 ₪/шт',
       'Картофель, грибы и лук — 8 ₪/шт',
       'Яйцо и зелёный лук — 8 ₪/шт',
-      'Грибы и лук — 8 ₪/шт',
+      'Грибы и лук — 10 ₪/шт',
       'Творог сладкий — 10 ₪/шт',
       'Творог с зеленью — 10 ₪/шт',
       'Творог с яблоком — 10 ₪/шт',
@@ -253,7 +253,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 5,
     name: 'Чиабатта / Фокачча домашняя',
     category: 'bakery',
-    price: 10,
+    price: 14,
     priceFrom: true,
     unit: 'за 1 шт',
     minQuantity: 1,
@@ -267,8 +267,8 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Классическая чиабатта с хрустящей корочкой (10 ₪/ шт около 200 г)',
-      'Фокачча с томатами, розмарином и крупной солью (20 ₪)',
+      'Классическая чиабатта с хрустящей корочкой (14 ₪)',
+      'Фокачча с томатами, розмарином и крупной солью (22 ₪)',
       'Фокачча с чесночным маслом и оливками (25 ₪)'
     ],
     fillingRequired: true,
@@ -319,7 +319,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 7,
     name: 'Вареники домашние',
     category: 'dumplings_mains',
-    price: 100,
+    price: 110,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -355,17 +355,18 @@ export const PRODUCTS: Product[] = [
     image: '',
     gallery: [],
     availableFillings: [
-      'Картофель, грибы и лук',
-      'Капуста, морковь и лук',
-      'Грибы и лук',
-      'Творог сладкий',
-      'Творог с зеленью',
-      'Ягоды',
-      'Вишня',
-      'Сыр с зеленью'
+      'Картофель, грибы и лук — 110 ₪/кг',
+      'Капуста, морковь и лук — 110 ₪/кг',
+      'Грибы и лук — 110 ₪/кг',
+      'Творог сладкий — 110 ₪/кг',
+      'Творог с зеленью — 110 ₪/кг',
+      'Ягоды — 110 ₪/кг',
+      'Вишня — 120 ₪/кг',
+      'Сыр с зеленью — 120 ₪/кг'
     ],
     fillingRequired: true,
-    cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.'
+    cookingInstructions: 'Опустить в кипящую подсоленную (или сладкую для вишни) воду. Варить 4-5 минут после всплытия. Смазать сливочным маслом.',
+    priceFrom: true
   },
 
   // 8. Ленивые вареники творожные (тег: Любимое из детства)
@@ -374,7 +375,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 8,
     name: 'Ленивые вареники творожные',
     category: 'dumplings_mains',
-    price: 80,
+    price: 90,
     unit: 'за 1 кг',
     minQuantity: 1,
     stepQuantity: 1,
@@ -400,6 +401,7 @@ export const PRODUCTS: Product[] = [
       'С маком'
     ],
     fillingRequired: true,
+    priceFrom: false
   },
 
   // 9. Булочки с маком
@@ -408,8 +410,8 @@ export const PRODUCTS: Product[] = [
     orderIndex: 9,
     name: 'Булочки сдобные',
     category: 'bakery',
-    price: 10,
-    unit: 'за 1 шт (пак 35 ₪ / 4 шт)',
+    price: 12,
+    unit: 'за 1 шт',
     minQuantity: 1,
     stepQuantity: 1,
     weight: '~120 г / шт',
@@ -424,7 +426,8 @@ export const PRODUCTS: Product[] = [
       'С сочным маком',
       'С корицей'
     ],
-    storageInfo: 'Хранятся мягкими до 3 дней в закрытом контейнере.'
+    storageInfo: 'Хранятся мягкими до 3 дней в закрытом контейнере.',
+    priceFrom: false
   },
 
   // 10. Ватрушки
@@ -433,7 +436,7 @@ export const PRODUCTS: Product[] = [
     orderIndex: 10,
     name: 'Ватрушки с творогом и нежным сметанным кремом',
     category: 'bakery',
-    price: 10,
+    price: 13,
     unit: 'за 1 шт',
     minQuantity: 1,
     stepQuantity: 1,
@@ -445,7 +448,8 @@ export const PRODUCTS: Product[] = [
     ingredients: ['мука', 'творог', 'сметана', 'сливочное масло', 'яйца', 'молоко', 'сахар', 'ваниль', 'дрожжи'],
     image: '',
     gallery: [],
-    storageInfo: 'Хранить в закрытом контейнере в холодильнике до 3 суток. Вкусно как в теплом, так и в охлажденном виде.'
+    storageInfo: 'Хранить в закрытом контейнере в холодильнике до 3 суток. Вкусно как в теплом, так и в охлажденном виде.',
+    priceFrom: false
   },
 
   // 11. Синнабоны (тег: Тает во рту)
